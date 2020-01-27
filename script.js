@@ -31,7 +31,8 @@ for(let i = language.length - 1;i>=0;i--){
     }
 }
 
-$('#use_js').remove()
+//$('#use_js').remove()
+$('#js_content').attr('style','')
 
 function onCopyClicked(self){
     console.log(self.parentElement.querySelector('.codes').textContent)
@@ -158,3 +159,5 @@ $('#search_btn').on('click',()=>{
         }
     }
 })
+
+$('#loading_div').remove()
