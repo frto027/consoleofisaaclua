@@ -46,5 +46,13 @@ var data = [
 	"code":'l Game():GetLevel():RemoveCurse(LevelCurse.CURSE_OF_BLIND)',
 	"about":"@frto027",
 	"about_link":'http://tieba.baidu.com/p/4928422576?pid=128955968778&cid=0#128955968778'
+},{
+	"name_zh":"蒙眼",
+	"status":['request'],
+	"keywords":['蒙眼','禁止子弹'],
+	"desc_zh":"角色无法再发射任何子弹",
+	"code":undefined,
+	"about":undefined,
+	"about_link":undefined
 },
 ]
