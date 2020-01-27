@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <title>The console of isaac:lua</title>
+    </head>
+    <body>
+        <div id="use_js">
+            您的浏览器不支持javascript，本页面无法正常使用
+        </div>
+        <div id="js_content" class="container">
+            <h1>The console of isaac:lua <a class="badge badge-primary" href="https://github.com/frto027/consoleofisaaclua">@frto027</a></h1>
+<hr>
+<div class="alert alert-secondary" id='kbd_tip' role="alert">
+    点击“<button class="copy_card btn btn-info btn-sm">copy</button>”将指令拷贝到剪贴板上，然后在游戏的控制台中使用 <kbd><kbd>ctrl</kbd> + <kbd>v</kbd></kbd> 快捷键粘贴。
+  </div>
+ 
+            <div class="alert alert-light" role="alert">
+                <!--<span class="s_new badge badge-success" style="display: none;">New</span> -->
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <span class="s_request badge badge-warning" >Request</span>
+                            </td>
+                            <td> 
+                                <span id="request_desc">script is requesting</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="s_broken badge badge-dark"  >Broken</span>
+                            </td>
+                            <td> 
+                                <span id="broken_desc">script is useless</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="s_reset badge badge-success" >Restart</span>
+                            </td>
+                            <td> 
+                                <span id="reset_desc">script needs restart</span>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="form-inline">
+                <label class="sr-only" for="search_input">Search</label>
+                <input type="text" class="form-control mb-2 mr-sm-2" id="search_input">
+              
+                <button id="search_btn" class="btn btn-primary mb-2">Search</button>
+              </div>
+            <div>
+                <div id="template" class="card" style="margin: 5pt;">
+                    <div class="card-body">
+                        <h5><span class="code_title">Unknown</span> <span class="s_new badge badge-success" style="display: none;">New</span><span class="s_request badge badge-warning"  style="display: none;">Request</span><span class="s_broken badge badge-dark"  style="display: none;">Broken</span> <span class="s_reset badge badge-success" style="display: none;">Restart</span></h5>
+                        <hr/>
+                        <p class="code_desc card-text">no desc <a href="#">more</a></p>
+                        <pre><textarea class="codes form-control">Error</textarea></pre>
+             
+                        <button href="#" class="copy_card btn btn-info btn-sm">copy</button>
+                        <button href="#" class="reset_card btn btn-link btn-sm">reset</button>
+                        <a href="#" class="code_ablout card-link">no author</a>  <span class="copymark badge badge-success" style="display: none;">copied</span>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <script type="text/javascript" src="js/clipboard.min.js"></script>
+        <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script type="text/javascript" src="data.js" ></script>
+        <script type="text/javascript" src="script.js" ></script>
+
+    </body>
+</html>
