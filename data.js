@@ -2,8 +2,8 @@
 var data = [
 {
 	"name_zh":"你好，世界",
-	"name_en":"door to dmg",
-	"status":["reset"],
+	"name_en":"hello, world",
+	"status":[""],
 	"keywords":["hello","world","你好","世界"],
 	"desc_zh":"在控制台上打印\"hello, world\"<a href='https://baike.baidu.com/item/hello%20world/85501'>更多</a>",
 	"desc_en":"print 'hello, world' in console",
@@ -54,5 +54,86 @@ var data = [
 	"code":undefined,
 	"about":undefined,
 	"about_link":undefined
+},{
+	"name_zh":"展示预言",
+	"status":[],
+	"keywords":['展示','预言机','showfortune'],
+	"desc_zh":"展示一条预言机的预言",
+	"code":'l Game():ShowFortune()',
+	"about":'@frto027',
+	"about_link":'http://tieba.baidu.com/p/6462139868?pid=129623864146&cid=0#129623864146'
+},{
+	"name_zh":"展示规则",
+	"status":[],
+	"keywords":['展示','规则卡','show','rule','card'],
+	"desc_zh":"展示一条规则卡的规则",
+	"code":'l Game():ShowRule()',
+	"about":'@frto027',
+	"about_link":'http://tieba.baidu.com/p/6462139868?pid=129623864146&cid=0#129623864146'
+},
+{
+	"name_zh":"随机移动",
+	"status":[],
+	"keywords":['随机传送','随机移动','move','randome'],
+	"desc_zh":"以随机条件123进行当前层的随机传送",
+	"code":'l Game():MoveToRandomRoom(True,123)',
+	"about":'@frto027',
+	"about_link":'http://tieba.baidu.com/p/6462139868?pid=129623864146&cid=0#129623864146'
+},{
+	"name_zh":"取当前房间网格索引",
+	"status":[],
+	"keywords":['当前房间网格索引','roomindex','gridindex','get','current'],
+	"desc_zh":"打印当前的房间索引（RoomIndex，GridIndex）",
+	"code":'l print(Game():GetLevel():GetCurrentRoomDesc().SafeGridIndex)',
+	"about":'@frto027',
+	"about_link":'http://tieba.baidu.com/p/6462139868?pid=129623864146&cid=0#129623864146'
+},{
+	"name_zh":"取上一个房间网格索引",
+	"status":[],
+	"keywords":['上一个房间网格索引','roomindex','gridindex','get','current'],
+	"desc_zh":"打印上一个房间索引（RoomIndex，GridIndex）",
+	"code":'l print(Game():GetLevel():GetLastRoomDesc().SafeGridIndex)',
+	"about":'@frto027',
+	"about_link":'http://tieba.baidu.com/p/6462139868?pid=129623864146&cid=0#129623864146'
+},{
+	"name_zh":"传送至房间网格索引",
+	"status":[],
+	"keywords":['传送至房间网格索引','teleport','gridindex','roomindex'],
+	"desc_zh":"传送至房间网格索引(GridIndex)为84的房间，网格索引和小地图有关，请小心崩溃，经测试84为出生点。",
+	"code":'l Game():ChangeRoom(84)',
+	"about":'@frto027',
+	"about_link":'http://tieba.baidu.com/p/6462139868?pid=129623864146&cid=0#129623864146'
+},{
+	"name_zh":"晃动屏幕",
+	"status":[],
+	"keywords":['晃动屏幕','shake','screen','摇晃'],
+	"desc_zh":"摇晃屏幕，时间为30。不清楚单位，猜测是半帧，估计30=1秒。",
+	"code":'l Game():ShakeScreen(30)',
+	"about":'@frto027',
+	"about_link":'http://tieba.baidu.com/p/6462139868?pid=129623864146&cid=0#129623864146'
+},{
+	"name_zh":"屏幕黑暗",
+	"status":[],
+	"keywords":['屏幕黑暗','dark','screen','黑屏','关灯'],
+	"desc_zh":"以0.7的黑暗程度(猜测范围0 ~ 1)进行黑屏，时间为30。不清楚单位，猜测是半帧，估计30=1秒。",
+	"code":'l Game():Darken(0.7,30)',
+	"about":'@frto027',
+	"about_link":'http://tieba.baidu.com/p/6462139868?pid=129623864146&cid=0#129623864146'
+},{
+	"name_zh":"打印胜利跑圈数",
+	"status":[],
+	"keywords":['打印胜利跑圈数','victory','lap','print'],
+	"desc_zh":"在控制台上打印胜利跑圈数",
+	"code":'l print(Game():GetVictoryLap())',
+	"about":'@frto027',
+	"about_link":'http://tieba.baidu.com/p/6462139868?pid=129623864146&cid=0#129623864146'
+},{
+	"name_zh":"进行下一轮胜利跑圈",
+	"status":[],
+	"keywords":['下一轮胜利跑圈','victory','lap','next','run'],
+	"desc_zh":"直接开启下一轮跑圈",
+	"code":'l Game():NextVictoryLap()',
+	"about":'@frto027',
+	"about_link":'http://tieba.baidu.com/p/6462139868?pid=129623864146&cid=0#129623864146'
 },
 ]
