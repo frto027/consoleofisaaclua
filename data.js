@@ -135,5 +135,13 @@ var data = [
 	"code":'l Game():NextVictoryLap()',
 	"about":'@frto027',
 	"about_link":'http://tieba.baidu.com/p/6462139868?pid=129623864146&cid=0#129623864146'
+},{
+	"name_zh":"随机位置生成x石头",
+	"status":[],
+	"keywords":['rockt','×石头','x石头','叉石头','插石头','隐藏石头'],
+	"desc_zh":"在随机位置生成x石头，不会覆盖已有地形",
+	"code":'l Isaac.GridSpawn(GridEntityType.GRID_ROCKT,0,Isaac.GetRandomPosition(),false)',
+	"about":'@frto027',
+	"about_link":'http://tieba.baidu.com/p/4928422576?pid=102219431913&cid=130402803671#130402803671'
 },
 ]
