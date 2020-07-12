@@ -407,5 +407,69 @@ var data = [
 	"code":'l Game():GetLevel():GetCurrentRoom():RemoveDoor(DoorSlot.DOWN0)',
 	"about":'@frto027',
 	"about_link":''
+},{
+	"name_zh":"增加心之容器",
+	"status":[],
+	"keywords":['玩家','HP','血量上限','红心','心之容器'],
+	"desc_zh":"增加两个心之容器。true表示无视Keeper。数字4表示两个心之容器，单位是“半血”，如果是单数，则会出现半格血上限的情况。",
+	"code":'l Isaac.GetPlayer(0):AddMaxHearts(4,true)',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"增加红心",
+	"status":[],
+	"keywords":['玩家','HP','红心','血量'],
+	"desc_zh":"增加2颗红心。数量为4，单位是半血。",
+	"code":'l Isaac.GetPlayer(0):AddHearts(4)',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"增加白心",
+	"status":[],
+	"keywords":['玩家','HP','白心','上限','血量'],
+	"desc_zh":"增加半颗白心。数字1表示半颗，单位为半血。",
+	"code":'l Isaac.GetPlayer(0):AddEternalHearts(1)',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"增加魂心",
+	"status":[],
+	"keywords":['玩家','HP','魂心','上限','血量'],
+	"desc_zh":"增加半颗魂心。数字1表示半颗，单位为半血。",
+	"code":'l Isaac.GetPlayer(0):AddSoulHearts(1)',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"增加黑心",
+	"status":[],
+	"keywords":['玩家','HP','黑心','上限','血量'],
+	"desc_zh":"增加半颗黑心。数字1表示半颗，单位为半血。",
+	"code":'l Isaac.GetPlayer(0):AddBlackHearts(1)',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"增加10块钱",
+	"status":[],
+	"keywords":['玩家','金钱'],
+	"desc_zh":"增加10块钱。换成负数就是扣钱。",
+	"code":'l Isaac.GetPlayer(0):AddCoins(10)',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"增加10个炸弹",
+	"status":[],
+	"keywords":['玩家','炸弹'],
+	"desc_zh":"增加10个炸弹。换成负数就是扣炸弹。",
+	"code":'l Isaac.GetPlayer(0):AddBombs(10)',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"增加10个钥匙",
+	"status":[],
+	"keywords":['玩家','钥匙'],
+	"desc_zh":"增加10个钥匙。换成负数就是扣钥匙。",
+	"code":'l Isaac.GetPlayer(0):AddKeys(10)',
+	"about":'@frto027',
+	"about_link":''
 },
 ]

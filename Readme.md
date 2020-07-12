@@ -503,3 +503,83 @@ l Game():GetLevel():GetCurrentRoom():SetClear(true)
 l Game():GetLevel():GetCurrentRoom():RemoveDoor(DoorSlot.DOWN0)
 ```
 作者信息：[@frto027]()
+
+
+-----
+
+### 增加心之容器
+增加两个心之容器。true表示无视Keeper。数字4表示两个心之容器，单位是“半血”，如果是单数，则会出现半格血上限的情况。
+```
+l Isaac.GetPlayer(0):AddMaxHearts(4,true)
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 增加红心
+增加2颗红心。数量为4，单位是半血。
+```
+l Isaac.GetPlayer(0):AddHearts(4)
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 增加白心
+增加半颗白心。数字1表示半颗，单位为半血。
+```
+l Isaac.GetPlayer(0):AddEternalHearts(1)
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 增加魂心
+增加半颗魂心。数字1表示半颗，单位为半血。
+```
+l Isaac.GetPlayer(0):AddSoulHearts(1)
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 增加黑心
+增加半颗黑心。数字1表示半颗，单位为半血。
+```
+l Isaac.GetPlayer(0):AddBlackHearts(1)
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 增加10块钱
+增加10块钱。换成负数就是扣钱。
+```
+l Isaac.GetPlayer(0):AddCoins(10)
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 增加10个炸弹
+增加10个炸弹。换成负数就是扣炸弹。
+```
+l Isaac.GetPlayer(0):AddBombs(10)
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 增加10个钥匙
+增加10个钥匙。换成负数就是扣钥匙。
+```
+l Isaac.GetPlayer(0):AddKeys(10)
+```
+作者信息：[@frto027]()
