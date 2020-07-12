@@ -434,7 +434,7 @@ var data = [
 },{
 	"name_zh":"增加魂心",
 	"status":[],
-	"keywords":['玩家','HP','魂心','上限','血量'],
+	"keywords":['玩家','HP','蓝心','魂心','上限','血量'],
 	"desc_zh":"增加半颗魂心。数字1表示半颗，单位为半血。",
 	"code":'l Isaac.GetPlayer(0):AddSoulHearts(1)',
 	"about":'@frto027',
@@ -469,6 +469,158 @@ var data = [
 	"keywords":['玩家','钥匙'],
 	"desc_zh":"增加10个钥匙。换成负数就是扣钥匙。",
 	"code":'l Isaac.GetPlayer(0):AddKeys(10)',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"设置金钥匙",
+	"status":[],
+	"keywords":['玩家','金钥匙','无限钥匙','拾取'],
+	"desc_zh":"设置金钥匙",
+	"code":'l Isaac.GetPlayer(0):AddGoldenKey()',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"移除金钥匙",
+	"status":[],
+	"keywords":['玩家','金钥匙','无限钥匙','移除'],
+	"desc_zh":"移除金钥匙",
+	"code":'l Isaac.GetPlayer(0):RemoveGoldenKey()',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"设置金炸弹",
+	"status":[],
+	"keywords":['玩家','金炸弹','无限炸弹','拾取'],
+	"desc_zh":"设置金钥匙",
+	"code":'l Isaac.GetPlayer(0):AddGoldenBomb()',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"移除金炸弹",
+	"status":[],
+	"keywords":['玩家','金炸弹','无限炸弹','移除'],
+	"desc_zh":"移除金钥匙",
+	"code":'l Isaac.GetPlayer(0):RemoveGoldenBomb()',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"增加金心",
+	"status":[],
+	"keywords":['玩家','金心','钱心'],
+	"desc_zh":"增加2颗金心",
+	"code":'l Isaac.GetPlayer(0):AddGoldenHearts(2)',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"增加蓝蜘蛛",
+	"status":[],
+	"keywords":['蓝蜘蛛','生成','增加'],
+	"desc_zh":"在随机位置生成蓝蜘蛛",
+	"code":'l Isaac.GetPlayer(0):AddBlueSpider(Isaac.GetRandomPosition())',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"增加蓝苍蝇",
+	"status":[],
+	"keywords":['蓝苍蝇','生成','增加'],
+	"desc_zh":"在随机位置，以玩家为目标，生成3个蓝苍蝇",
+	"code":'l Isaac.GetPlayer(0):AddBlueFlies(3,Isaac.GetRandomPosition(),Isaac.GetPlayer(0).Target)',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"增加灰苍蝇（pretty fly）",
+	"status":[],
+	"keywords":['灰苍蝇','生成','增加'],
+	"desc_zh":"生成1个灰苍蝇（围绕玩家旋转）",
+	"code":'l Isaac.GetPlayer(0):AddPrettyFly()',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"增加幸运",
+	"status":[],
+	"keywords":['玩家属性','幸运','增加'],
+	"desc_zh":"增加2点幸运值",
+	"code":'l Isaac.GetPlayer(0):DonateLuck(2)',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"设置充能",
+	"status":[],
+	"keywords":['主动充能','设置','数量'],
+	"desc_zh":"设置主动当前充能为3",
+	"code":'l Isaac.GetPlayer(0):SetActiveCharge(3)',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"清空充能",
+	"status":[],
+	"keywords":['主动充能','清空','清除','数量'],
+	"desc_zh":"将主动充能设置为0",
+	"code":'l Isaac.GetPlayer(0):DischargeActiveItem()',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"红心补满",
+	"status":[],
+	"keywords":['HP','补充','补满','恢复'],
+	"desc_zh":"恢复所有心之容器",
+	"code":'l Isaac.GetPlayer(0):SetFullHearts()',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"打印玩家角色",
+	"status":[],
+	"keywords":['打印','玩家角色','我是谁'],
+	"desc_zh":"打印玩家角色。可以用于判断当前角色是谁，角色信息见枚举量PlayerType。 PLAYER_ISAAC = 0, PLAYER_MAGDALENA = 1, PLAYER_CAIN = 2, PLAYER_JUDAS = 3,  PLAYER_XXX = 4, PLAYER_EVE = 5, PLAYER_SAMSON = 6, PLAYER_AZAZEL = 7,  PLAYER_LAZARUS = 8, PLAYER_EDEN = 9, PLAYER_THELOST = 10, PLAYER_LAZARUS2 = 11,  PLAYER_BLACKJUDAS = 12, PLAYER_LILITH = 13, PLAYER_KEEPER = 14, PLAYER_APOLLYON = 15,  PLAYER_THEFORGOTTEN = 16, PLAYER_THESOUL = 17",
+	"code":'l print(Isaac.GetPlayer(0):GetPlayerType())',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"打印蓝苍蝇数量",
+	"status":[],
+	"keywords":['打印','数量','蓝苍蝇','计数'],
+	"desc_zh":"打印目前蓝苍蝇的数量",
+	"code":'l print(Isaac.GetPlayer(0):GetNumBlueFlies())',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"打印蓝蜘蛛数量",
+	"status":[],
+	"keywords":['打印','数量','蓝蜘蛛','计数'],
+	"desc_zh":"打印目前蓝蜘蛛的数量",
+	"code":'l print(Isaac.GetPlayer(0):GetNumBlueSpiders())',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"触发主动效果",
+	"status":[],
+	"keywords":['触发','特定主动','使用主动','主动效果'],
+	"desc_zh":"触发金传送器（419号）主动的效果",
+	"code":'l Isaac.GetPlayer(0):UseActiveItem(419,true,true,true,false)',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"增加骨心",
+	"status":[],
+	"keywords":['增加','骨心','血量'],
+	"desc_zh":"增加2颗骨心",
+	"code":'l Isaac.GetPlayer(0):AddBoneHearts(2)',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"增加炸弹腹泻特效",
+	"status":[],
+	"keywords":['炸弹腹泻','增加','特效','套装','效果'],
+	"desc_zh":"套装特效",
+	"code":'l Isaac.GetPlayer(0):AddPlayerFormCostume(PlayerForm.PLAYERFORM_GUPPY)',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"复活玩家",
+	"status":[],
+	"keywords":['复活','重生'],
+	"desc_zh":"复活玩家，增加半颗蓝心。由于伤害计算机制，增加的半颗蓝心多数情况下会被立即扣除，并产生一定时间的无敌。在游戏后期，你可能需要一颗蓝心才能承担复活瞬间的伤害。",
+	"code":'l Isaac.GetPlayer(0):Revive();Isaac.GetPlayer(0):AddSoulHearts(1)',
 	"about":'@frto027',
 	"about_link":''
 },

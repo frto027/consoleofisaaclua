@@ -583,3 +583,193 @@ l Isaac.GetPlayer(0):AddBombs(10)
 l Isaac.GetPlayer(0):AddKeys(10)
 ```
 作者信息：[@frto027]()
+
+
+-----
+
+### 设置金钥匙
+设置金钥匙
+```
+l Isaac.GetPlayer(0):AddGoldenKey()
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 移除金钥匙
+移除金钥匙
+```
+l Isaac.GetPlayer(0):RemoveGoldenKey()
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 设置金炸弹
+设置金钥匙
+```
+l Isaac.GetPlayer(0):AddGoldenBomb()
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 移除金炸弹
+移除金钥匙
+```
+l Isaac.GetPlayer(0):RemoveGoldenBomb()
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 增加金心
+增加2颗金心
+```
+l Isaac.GetPlayer(0):AddGoldenHearts(2)
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 增加蓝蜘蛛
+在随机位置生成蓝蜘蛛
+```
+l Isaac.GetPlayer(0):AddBlueSpider(Isaac.GetRandomPosition())
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 增加蓝苍蝇
+在随机位置，以玩家为目标，生成3个蓝苍蝇
+```
+l Isaac.GetPlayer(0):AddBlueFlies(3,Isaac.GetRandomPosition(),Isaac.GetPlayer(0).Target)
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 增加灰苍蝇（pretty fly）
+生成1个灰苍蝇（围绕玩家旋转）
+```
+l Isaac.GetPlayer(0):AddPrettyFly()
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 增加幸运
+增加2点幸运值
+```
+l Isaac.GetPlayer(0):DonateLuck(2)
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 设置充能
+设置主动当前充能为3
+```
+l Isaac.GetPlayer(0):SetActiveCharge(3)
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 清空充能
+将主动充能设置为0
+```
+l Isaac.GetPlayer(0):DischargeActiveItem()
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 红心补满
+恢复所有心之容器
+```
+l Isaac.GetPlayer(0):SetFullHearts()
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 打印玩家角色
+打印玩家角色。可以用于判断当前角色是谁，角色信息见枚举量PlayerType。 PLAYER_ISAAC = 0, PLAYER_MAGDALENA = 1, PLAYER_CAIN = 2, PLAYER_JUDAS = 3,  PLAYER_XXX = 4, PLAYER_EVE = 5, PLAYER_SAMSON = 6, PLAYER_AZAZEL = 7,  PLAYER_LAZARUS = 8, PLAYER_EDEN = 9, PLAYER_THELOST = 10, PLAYER_LAZARUS2 = 11,  PLAYER_BLACKJUDAS = 12, PLAYER_LILITH = 13, PLAYER_KEEPER = 14, PLAYER_APOLLYON = 15,  PLAYER_THEFORGOTTEN = 16, PLAYER_THESOUL = 17
+```
+l print(Isaac.GetPlayer(0):GetPlayerType())
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 打印蓝苍蝇数量
+打印目前蓝苍蝇的数量
+```
+l print(Isaac.GetPlayer(0):GetNumBlueFlies())
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 打印蓝蜘蛛数量
+打印目前蓝蜘蛛的数量
+```
+l print(Isaac.GetPlayer(0):GetNumBlueSpiders())
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 触发主动效果
+触发金传送器（419号）主动的效果
+```
+l Isaac.GetPlayer(0):UseActiveItem(419,true,true,true,false)
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 增加骨心
+增加2颗骨心
+```
+l Isaac.GetPlayer(0):AddBoneHearts(2)
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 增加炸弹腹泻特效
+套装特效
+```
+l Isaac.GetPlayer(0):AddPlayerFormCostume(PlayerForm.PLAYERFORM_GUPPY)
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 复活玩家
+复活玩家，增加半颗蓝心。由于伤害计算机制，增加的半颗蓝心多数情况下会被立即扣除，并产生一定时间的无敌。在游戏后期，你可能需要一颗蓝心才能承担复活瞬间的伤害。
+```
+l Isaac.GetPlayer(0):Revive();Isaac.GetPlayer(0):AddSoulHearts(1)
+```
+作者信息：[@frto027]()
