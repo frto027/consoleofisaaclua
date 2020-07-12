@@ -151,5 +151,85 @@ var data = [
 	"code":'l Isaac.Spawn(100,0,0,Vector(200,200),Vector(0,0),Isaac.GetPlayer(0)):AddEntityFlags(EntityFlag.FLAG_FRIENDLY|EntityFlag.FLAG_CHARM|EntityFlag.FLAG_PERSISTENT)',
 	"about":'@frto027',
 	"about_link":''
+},{
+	"name_zh":"打印去过的宝箱房数量",
+	"status":[],
+	"keywords":['宝箱房','次数','个数','time'],
+	"desc_zh":"去过几个宝箱房，就打印几",
+	"code":'l print(Game():GetTreasureRoomVisitCount())',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"设置红心伤害",
+	"status":[],
+	"keywords":['红心','伤害','恶魔房概率'],
+	"desc_zh":"设置本层受过红心伤害（影响恶魔房概率）",
+	"code":'l Game():GetLevel():SetRedHeartDamage()',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"增加天使房转换率",
+	"status":[],
+	"keywords":['天使房','转换率'],
+	"desc_zh":"增加0.1的天使转换率，数字可以为负数。真实效果不明。",
+	"code":'l Game():GetLevel():AddAngelRoomChance(0.1)',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"打印天使房转换率",
+	"status":[],
+	"keywords":['天使房','转换率'],
+	"desc_zh":"打印天使放转换率。真实效果不明。",
+	"code":'l print(Game():GetLevel():GetAngelRoomChance())',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"显示地图",
+	"status":[],
+	"keywords":['开图','show map','显示地图','隐藏','太阳卡','the sun'],
+	"desc_zh":"开图，和the world/the sun作用类似，但不显示超隐。",
+	"code":'l Game():GetLevel():ShowMap()',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"透视(I can see everything)",
+	"status":[],
+	"keywords":['I can see everything','隐藏','超隐'],
+	"desc_zh":"类似x光眼镜、I can see everything的效果。将true改为false就是关闭这一能力的指令。",
+	"code":'l Game():GetLevel():SetCanSeeEverything(true)',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"使用白地图",
+	"status":[],
+	"keywords":['地图','开图','普通房间'],
+	"desc_zh":"显示当前层的普通房间，类似白地图的效果",
+	"code":'l Game():GetLevel():SetCanSeeEverything(true)',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"使用蓝地图",
+	"status":[],
+	"keywords":['地图','蓝图','开图','隐藏房间','超隐'],
+	"desc_zh":"显示当前层的隐藏房间，类似蓝地图的效果",
+	"code":'l Game():GetLevel():ApplyBlueMapEffect()',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"使用指南针",
+	"status":[],
+	"keywords":['地图','指南针','开图','特殊房间','boss','宝箱','商店'],
+	"desc_zh":"显示当前层的特殊房间，类似指南针的效果",
+	"code":'l Game():GetLevel():ApplyCompassEffect()',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"移除指南针",
+	"status":[],
+	"keywords":['地图','指南针','关图','开图','特殊房间','boss','宝箱','商店'],
+	"desc_zh":"移除指南针的效果，不显示特殊房间。需要和本页面的“使用指南针”配合使用。",
+	"code":'l Game():GetLevel():RemoveCompassEffect()',
+	"about":'@frto027',
+	"about_link":''
 },
 ]

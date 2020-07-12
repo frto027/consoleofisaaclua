@@ -183,3 +183,103 @@ l Isaac.GridSpawn(GridEntityType.GRID_ROCKT,0,Isaac.GetRandomPosition(),false)
 l Isaac.Spawn(100,0,0,Vector(200,200),Vector(0,0),Isaac.GetPlayer(0)):AddEntityFlags(EntityFlag.FLAG_FRIENDLY|EntityFlag.FLAG_CHARM|EntityFlag.FLAG_PERSISTENT)
 ```
 作者信息：[@frto027]()
+
+
+-----
+
+### 打印去过的宝箱房数量
+去过几个宝箱房，就打印几
+```
+l print(Game():GetTreasureRoomVisitCount())
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 设置红心伤害
+设置本层受过红心伤害（影响恶魔房概率）
+```
+l Game():GetLevel():SetRedHeartDamage()
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 增加天使房转换率
+增加0.1的天使转换率，数字可以为负数。真实效果不明。
+```
+l Game():GetLevel():AddAngelRoomChance(0.1)
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 打印天使房转换率
+打印天使放转换率。真实效果不明。
+```
+l print(Game():GetLevel():GetAngelRoomChance())
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 显示地图
+开图，和the world/the sun作用类似，但不显示超隐。
+```
+l Game():GetLevel():ShowMap()
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 透视(I can see everything)
+类似x光眼镜、I can see everything的效果。将true改为false就是关闭这一能力的指令。
+```
+l Game():GetLevel():SetCanSeeEverything(true)
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 使用白地图
+显示当前层的普通房间，类似白地图的效果
+```
+l Game():GetLevel():SetCanSeeEverything(true)
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 使用蓝地图
+显示当前层的隐藏房间，类似蓝地图的效果
+```
+l Game():GetLevel():ApplyBlueMapEffect()
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 使用指南针
+显示当前层的特殊房间，类似指南针的效果
+```
+l Game():GetLevel():ApplyCompassEffect()
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 移除指南针
+移除指南针的效果，不显示特殊房间。需要和本页面的“使用指南针”配合使用。
+```
+l Game():GetLevel():RemoveCompassEffect()
+```
+作者信息：[@frto027]()
