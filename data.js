@@ -608,14 +608,6 @@ var data = [
 	"about":'@frto027',
 	"about_link":''
 },{
-	"name_zh":"增加炸弹腹泻特效",
-	"status":[],
-	"keywords":['炸弹腹泻','增加','特效','套装','效果'],
-	"desc_zh":"套装特效",
-	"code":'l Isaac.GetPlayer(0):AddPlayerFormCostume(PlayerForm.PLAYERFORM_GUPPY)',
-	"about":'@frto027',
-	"about_link":''
-},{
 	"name_zh":"复活玩家",
 	"status":[],
 	"keywords":['复活','重生'],

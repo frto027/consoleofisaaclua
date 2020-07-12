@@ -757,16 +757,6 @@ l Isaac.GetPlayer(0):AddBoneHearts(2)
 
 -----
 
-### 增加炸弹腹泻特效
-套装特效
-```
-l Isaac.GetPlayer(0):AddPlayerFormCostume(PlayerForm.PLAYERFORM_GUPPY)
-```
-作者信息：[@frto027]()
-
-
------
-
 ### 复活玩家
 复活玩家，增加半颗蓝心。由于伤害计算机制，增加的半颗蓝心多数情况下会被立即扣除，并产生一定时间的无敌。在游戏后期，你可能需要一颗蓝心才能承担复活瞬间的伤害。
 ```
