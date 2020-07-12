@@ -231,5 +231,181 @@ var data = [
 	"code":'l Game():GetLevel():RemoveCompassEffect()',
 	"about":'@frto027',
 	"about_link":''
+},{
+	"name_zh":"房间变为金色",
+	"status":[],
+	"keywords":['房间','金色','贪婪','击败','boss'],
+	"desc_zh":"将当前房间变为金色。总觉得这个特效在哪里见过？",
+	"code":'l Game():GetLevel():GetCurrentRoom():TurnGold()',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"房间变为金色",
+	"status":[],
+	"keywords":['房间','大爆炸','Mama mega','大炸弹'],
+	"desc_zh":"触发一次Mama mega大炸弹的爆炸效果",
+	"code":'l Game():GetLevel():GetCurrentRoom():MamaMegaExplossion()',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"打印当前房间是否已有敌人死亡",
+	"status":[],
+	"keywords":['房间','击杀','第一次','第一滴血'],
+	"desc_zh":"打印当前房间是否已有敌人死亡",
+	"code":'l print(Game():GetLevel():GetCurrentRoom():IsFirstEnemyDead())',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"设置当前房间是否已有敌人死亡",
+	"status":[],
+	"keywords":['房间','击杀','第一次','第一滴血'],
+	"desc_zh":"设置当前房间已有敌人死亡，可以将true改为false，表示当前房间还没有敌人死亡",
+	"code":'l Game():GetLevel():GetCurrentRoom():	SetFirstEnemyDead(true)',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"打印当前房间是否为最终Boss",
+	"status":[],
+	"keywords":['房间','是否','boss','打印'],
+	"desc_zh":"打印当前房间是否为Boss房间",
+	"code":'l print(Game():GetLevel():GetCurrentRoom():IsCurrentRoomLastBoss())',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"重置当前房间的敌人",
+	"status":[],
+	"keywords":['房间','重置','怪物','敌人'],
+	"desc_zh":"类似道具“D7”",
+	"code":'l Game():GetLevel():GetCurrentRoom():RespawnEnemies()',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"填平沟壑",
+	"status":[],
+	"keywords":['房间','沟壑','填充','填平','架桥','pit'],
+	"desc_zh":"在网格索引为40的位置上进行填充。可以使用debug 11来观察网格索引。只能在沟壑(pit)上使用，使用时请将40修改为当前房间中某个沟壑的网格索引。",
+	"code":'l Game():GetLevel():GetCurrentRoom():TryMakeBridge(Game():GetLevel():GetCurrentRoom():GetGridEntity(40))',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"打印x石头网格索引",
+	"status":[],
+	"keywords":['房间','x石头','宝箱石头'],
+	"desc_zh":"打印当前房间中x石头的网格索引。网格索引可以使用debug 11观察。",
+	"code":'l print(Game():GetLevel():GetCurrentRoom():GetTintedRockIdx())',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"打印地下室石头网格索引",
+	"status":[],
+	"keywords":['房间','地下室石头'],
+	"desc_zh":"打印当前房间中地下室石头的网格索引。-1表示不存在地下室。网格索引可以使用debug 11观察。",
+	"code":'l print(Game():GetLevel():GetCurrentRoom():GetDungeonRockIdx())',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"生成清图奖励",
+	"status":[],
+	"keywords":['房间','清图','清理房间','基础掉落'],
+	"desc_zh":"生成清理房间的奖励。",
+	"code":'l Game():GetLevel():GetCurrentRoom():SpawnClearAward()',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"墙壁冒血",
+	"status":[],
+	"keywords":['房间','墙壁','冒血','特效'],
+	"desc_zh":"似乎在哪里见过的特效。墙壁冒血，时间为30（持续1秒），密度为10。",
+	"code":'l Game():GetLevel():GetCurrentRoom():EmitBloodFromWalls(30,10)',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"反人类卡特效",
+	"status":[],
+	"keywords":['房间','地板','大便','特效'],
+	"desc_zh":"在当前房间激活反人类卡的特效。开饭啦！",
+	"code":'l Game():GetLevel():GetCurrentRoom():SetCardAgainstHumanity()',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"坏表（加速/减速）特效",
+	"status":[],
+	"keywords":['加速','减速','好表','坏表'],
+	"desc_zh":"设置当前房间速度为正常(0)、减速(1)、加速(2)。修改指令中的数字来指定是哪种速度。",
+	"code":'l Game():GetLevel():GetCurrentRoom():SetBrokenWatchState(0)',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"尝试生成恶魔房门",
+	"status":[],
+	"keywords":['生成','恶魔房门','尝试'],
+	"desc_zh":"需要满足开启条件才能成功，成功打印true，否则打印false。",
+	"code":'l print(Game():GetLevel():GetCurrentRoom():TrySpawnDevilRoomDoor(true))',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"尝试生成Boss Rush门",
+	"status":[],
+	"keywords":['生成','boss rush门','尝试'],
+	"desc_zh":"需要满足开启条件才能成功，指令中的true表示无视时间，改为false则会考虑游戏当前时间。成功打印true，否则打印false。",
+	"code":'l print(Game():GetLevel():GetCurrentRoom():TrySpawnBossRushDoor(true))',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"尝试生成mega撒旦门",
+	"status":[],
+	"keywords":['生成','mega撒旦门','尝试'],
+	"desc_zh":"需要满足开启条件才能成功，成功打印true，否则打印false。",
+	"code":'l print(Game():GetLevel():GetCurrentRoom():TrySpawnMegaSatanRoomDoor())',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"尝试生成hush门",
+	"status":[],
+	"keywords":['生成','mega撒旦门','尝试'],
+	"desc_zh":"需要满足开启条件才能成功，无视时间。成功打印true，否则打印false。",
+	"code":'l print(Game():GetLevel():GetCurrentRoom():TrySpawnBlueWombDoor(true,true))',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"尝试生成虚空门",
+	"status":[],
+	"keywords":['生成','虚空门','尝试'],
+	"desc_zh":"需要满足开启条件才能成功。成功打印true，否则打印false。",
+	"code":'l print(Game():GetLevel():GetCurrentRoom():TrySpawnTheVoidDoor())',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"商店刷新",
+	"status":[],
+	"keywords":['商店','刷新','补货'],
+	"desc_zh":"刷新商店的全部商品",
+	"code":'l Game():GetLevel():GetCurrentRoom():ShopRestockFull()',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"打印当前房间是否清理",
+	"status":[],
+	"keywords":['房间','清理','打印'],
+	"desc_zh":"打印当前房间是否清理",
+	"code":'l print(Game():GetLevel():GetCurrentRoom():IsClear())',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"设置当前房间是否清理",
+	"status":[],
+	"keywords":['房间','清理','设置'],
+	"desc_zh":"清理当前房间。将true改为false即设置为未清理状态。注意，改变房间的清理/未清理状态后，游戏将立即进行结算。",
+	"code":'l Game():GetLevel():GetCurrentRoom():SetClear(true)',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"移除一扇门",
+	"status":[],
+	"keywords":['房间','门','移除','消失'],
+	"desc_zh":"移除房间中的某个门。其中DOWN0可以替换为UP0、RIGHT0、LEFT0、LEFT1、UP1、RIGHT1、DOWN1。注意，该指令不保存房间状态。",
+	"code":'l Game():GetLevel():GetCurrentRoom():RemoveDoor(DoorSlot.DOWN0)',
+	"about":'@frto027',
+	"about_link":''
 },
 ]

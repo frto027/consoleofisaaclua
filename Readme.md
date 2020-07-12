@@ -283,3 +283,223 @@ l Game():GetLevel():ApplyCompassEffect()
 l Game():GetLevel():RemoveCompassEffect()
 ```
 作者信息：[@frto027]()
+
+
+-----
+
+### 房间变为金色
+将当前房间变为金色。总觉得这个特效在哪里见过？
+```
+l Game():GetLevel():GetCurrentRoom():TurnGold()
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 房间变为金色
+触发一次Mama mega大炸弹的爆炸效果
+```
+l Game():GetLevel():GetCurrentRoom():MamaMegaExplossion()
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 打印当前房间是否已有敌人死亡
+打印当前房间是否已有敌人死亡
+```
+l print(Game():GetLevel():GetCurrentRoom():IsFirstEnemyDead())
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 设置当前房间是否已有敌人死亡
+设置当前房间已有敌人死亡，可以将true改为false，表示当前房间还没有敌人死亡
+```
+l Game():GetLevel():GetCurrentRoom():	SetFirstEnemyDead(true)
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 打印当前房间是否为最终Boss
+打印当前房间是否为Boss房间
+```
+l print(Game():GetLevel():GetCurrentRoom():IsCurrentRoomLastBoss())
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 重置当前房间的敌人
+类似道具“D7”
+```
+l Game():GetLevel():GetCurrentRoom():RespawnEnemies()
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 填平沟壑
+在网格索引为40的位置上进行填充。可以使用debug 11来观察网格索引。只能在沟壑(pit)上使用，使用时请将40修改为当前房间中某个沟壑的网格索引。
+```
+l Game():GetLevel():GetCurrentRoom():TryMakeBridge(Game():GetLevel():GetCurrentRoom():GetGridEntity(40))
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 打印x石头网格索引
+打印当前房间中x石头的网格索引。网格索引可以使用debug 11观察。
+```
+l print(Game():GetLevel():GetCurrentRoom():GetTintedRockIdx())
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 打印地下室石头网格索引
+打印当前房间中地下室石头的网格索引。-1表示不存在地下室。网格索引可以使用debug 11观察。
+```
+l print(Game():GetLevel():GetCurrentRoom():GetDungeonRockIdx())
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 生成清图奖励
+生成清理房间的奖励。
+```
+l Game():GetLevel():GetCurrentRoom():SpawnClearAward()
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 墙壁冒血
+似乎在哪里见过的特效。墙壁冒血，时间为30（持续1秒），密度为10。
+```
+l Game():GetLevel():GetCurrentRoom():EmitBloodFromWalls(30,10)
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 反人类卡特效
+在当前房间激活反人类卡的特效。开饭啦！
+```
+l Game():GetLevel():GetCurrentRoom():SetCardAgainstHumanity()
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 坏表（加速/减速）特效
+设置当前房间速度为正常(0)、减速(1)、加速(2)。修改指令中的数字来指定是哪种速度。
+```
+l Game():GetLevel():GetCurrentRoom():SetBrokenWatchState(0)
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 尝试生成恶魔房门
+需要满足开启条件才能成功，成功打印true，否则打印false。
+```
+l print(Game():GetLevel():GetCurrentRoom():TrySpawnDevilRoomDoor(true))
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 尝试生成Boss Rush门
+需要满足开启条件才能成功，指令中的true表示无视时间，改为false则会考虑游戏当前时间。成功打印true，否则打印false。
+```
+l print(Game():GetLevel():GetCurrentRoom():TrySpawnBossRushDoor(true))
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 尝试生成mega撒旦门
+需要满足开启条件才能成功，成功打印true，否则打印false。
+```
+l print(Game():GetLevel():GetCurrentRoom():TrySpawnMegaSatanRoomDoor())
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 尝试生成hush门
+需要满足开启条件才能成功，无视时间。成功打印true，否则打印false。
+```
+l print(Game():GetLevel():GetCurrentRoom():TrySpawnBlueWombDoor(true,true))
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 尝试生成虚空门
+需要满足开启条件才能成功。成功打印true，否则打印false。
+```
+l print(Game():GetLevel():GetCurrentRoom():TrySpawnTheVoidDoor())
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 商店刷新
+刷新商店的全部商品
+```
+l Game():GetLevel():GetCurrentRoom():ShopRestockFull()
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 打印当前房间是否清理
+打印当前房间是否清理
+```
+l print(Game():GetLevel():GetCurrentRoom():IsClear())
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 设置当前房间是否清理
+清理当前房间。将true改为false即设置为未清理状态。注意，改变房间的清理/未清理状态后，游戏将立即进行结算。
+```
+l Game():GetLevel():GetCurrentRoom():SetClear(true)
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 移除一扇门
+移除房间中的某个门。其中DOWN0可以替换为UP0、RIGHT0、LEFT0、LEFT1、UP1、RIGHT1、DOWN1。注意，该指令不保存房间状态。
+```
+l Game():GetLevel():GetCurrentRoom():RemoveDoor(DoorSlot.DOWN0)
+```
+作者信息：[@frto027]()
