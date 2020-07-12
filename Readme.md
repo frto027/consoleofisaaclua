@@ -297,7 +297,7 @@ l Game():GetLevel():GetCurrentRoom():TurnGold()
 
 -----
 
-### 房间变为金色
+### Mama mega大爆炸
 触发一次Mama mega大炸弹的爆炸效果
 ```
 l Game():GetLevel():GetCurrentRoom():MamaMegaExplossion()

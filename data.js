@@ -240,7 +240,7 @@ var data = [
 	"about":'@frto027',
 	"about_link":''
 },{
-	"name_zh":"房间变为金色",
+	"name_zh":"Mama mega大爆炸",
 	"status":[],
 	"keywords":['房间','大爆炸','Mama mega','大炸弹'],
 	"desc_zh":"触发一次Mama mega大炸弹的爆炸效果",
