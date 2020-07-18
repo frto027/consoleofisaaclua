@@ -2,7 +2,8 @@
 ## It is just a game
 
 此Readme文件通过`rm_gen.js`自动生成。  
-建议[点击下载](https://github.com/frto027/consoleofisaaclua/archive/master.zip)离线版，点击`index.html`文件打开。
+你可以在线访问本项目的[gitee pages](http://frto027.gitee.io/consoleofisaaclua)或[github pages](https://frto027.github.io/consoleofisaaclua)  
+建议[从gitee](https://gitee.com/frto027/consoleofisaaclua/repository/archive/master.zip)或[从github](https://github.com/frto027/consoleofisaaclua/archive/master.zip)下载离线版，解压后打开`index.html`。
 
 
 -----
@@ -881,7 +882,16 @@ l ftlk={n=ftlk,f=function() print('hello, world') end};if(not ftpup)then ftl = f
 -----
 
 ### 在下一帧，执行...（简化版）
-注意，此指令仅在至少执行过一遍“在下一帧，执行...”指令后才可以使用。延迟一帧打印hello, world。这条指令主要在特定逻辑下被用到。请将指令中的print('hello, world')替换为你想要使用的lua指令内容，替换时注意不含l前缀。
+注意，此指令仅在至少执行过一遍“在下一帧，执行...”指令后才可以使用。<br/>延迟一帧打印hello, world。这条指令主要在特定逻辑下被用到。请将指令中的print('hello, world')替换为你想要使用的lua指令内容，替换时注意不含l前缀。
 ```
 l ftlk={n=ftlk,f=function() print('hello, world') end}
+```
+
+
+-----
+
+### 在下两帧，执行...（简化版）
+注意，此指令仅在至少执行过一遍“在下一帧，执行...”指令后才可以使用。<br/>本质上是延迟一帧的套娃版本，你可以进一步套娃，得到延迟三帧、四帧等指令，不过这真的有用吗？延迟两帧打印hello, world。这条指令主要在特定逻辑下被用到。请将指令中的print('hello, world')替换为你想要使用的lua指令内容，替换时注意不含l前缀。
+```
+l ftlk={n=ftlk,f=function() ftlk={n=ftlk,f=function() print('hello, world') end} end}
 ```

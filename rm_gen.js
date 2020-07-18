@@ -13,8 +13,8 @@ header = `
 ## It is just a game
 
 此Readme文件通过\`rm_gen.js\`自动生成。  
-你可以在线访问本项目的[gitee pages](http://frto027.gitee.io/consoleofisaaclua)或[github pages](https://frto027.github.io/consoleofisaaclua)
-建议[从gitee](https://gitee.com/frto027/consoleofisaaclua/repository/archive/master.zip)或[从github](https://github.com/frto027/consoleofisaaclua/archive/master.zip)离线版，解压后打开\`index.html\`。
+你可以在线访问本项目的[gitee pages](http://frto027.gitee.io/consoleofisaaclua)或[github pages](https://frto027.github.io/consoleofisaaclua)  
+建议[从gitee](https://gitee.com/frto027/consoleofisaaclua/repository/archive/master.zip)或[从github](https://github.com/frto027/consoleofisaaclua/archive/master.zip)下载离线版，解压后打开\`index.html\`。
 `
 
 data.forEach(data_item => {
