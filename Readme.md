@@ -763,3 +763,73 @@ l Isaac.GetPlayer(0):AddBoneHearts(2)
 l Isaac.GetPlayer(0):Revive();Isaac.GetPlayer(0):AddSoulHearts(1)
 ```
 作者信息：[@frto027]()
+
+
+-----
+
+### 当发射眼泪时，...
+当玩家发射眼泪时，打印hello, world到控制台上，请将指令中的print('hello, world')替换为你想要使用的lua指令内容，替换时注意不含l前缀。
+```
+l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_POST_FIRE_TEAR,function() print('hello, world') end)
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 当发射眼泪时，增加幸运
+当玩家发射眼泪时，增加幸运。这是指令“当发射眼泪时，...”的一个使用示例。指令中的hello world被替换为增加幸运的lua指令。
+```
+l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_POST_FIRE_TEAR,function() Isaac.GetPlayer(0):DonateLuck(1) end)
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 当玩家受伤时，...
+当玩家受伤时，打印hello, world到控制台上，请将指令中的print('hello, world')替换为你想要使用的lua指令内容，替换时注意不含l前缀。
+```
+l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_ENTITY_TAKE_DMG,function(_) print('hello, world') end,EntityType.ENTITY_PLAYER)
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 当使用主动时，...
+当使用任意主动道具时，打印hello, world到控制台上，请将指令中的print('hello, world')替换为你想要使用的lua指令内容，替换时注意不含l前缀。
+```
+l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_USE_ITEM,function(_) print('hello, world') end)
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 当使用某个主动时，...
+当使用id为105的主动道具（D6）时，打印hello, world到控制台上，请将指令中的print('hello, world')替换为你想要使用的lua指令内容，替换时注意不含l前缀。
+```
+l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_USE_ITEM,function(_) print('hello, world') end,105)
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 当使用卡片时，...
+当使用任意卡片时，打印hello, world到控制台上，请将指令中的print('hello, world')替换为你想要使用的lua指令内容，替换时注意不含l前缀。
+```
+l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_USE_CARD,function(_) print('hello, world') end)
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 当使用某个卡片时，...
+当使用The Fool卡时，打印hello, world到控制台上。你可以将指令中的CARD_FOOL替换为枚举变量Card中的任意值，可以是：<select><option>CARD_MAGICIAN</option><option>CARD_HIGH_PRIESTESS</option><option>CARD_EMPRESS</option><option>CARD_EMPEROR</option><option>CARD_HIEROPHANT</option><option>CARD_LOVERS</option><option>CARD_CHARIOT</option><option>CARD_JUSTICE</option><option>CARD_HERMIT</option><option>CARD_WHEEL_OF_FORTUNE</option><option>CARD_STRENGTH</option><option>CARD_HANGED_MAN</option><option>CARD_DEATH</option><option>CARD_TEMPERANCE</option><option>CARD_DEVIL</option><option>CARD_TOWER</option><option>CARD_STARS</option><option>CARD_MOON</option><option>CARD_SUN</option><option>CARD_JUDGEMENT</option><option>CARD_WORLD</option><option>CARD_CLUBS_2</option><option>CARD_DIAMONDS_2</option><option>CARD_SPADES_2</option><option>CARD_HEARTS_2</option><option>CARD_ACE_OF_CLUBS</option><option>CARD_ACE_OF_DIAMONDS</option><option>CARD_ACE_OF_SPADES</option><option>CARD_ACE_OF_HEARTS</option><option>CARD_JOKER</option><option>RUNE_HAGALAZ</option><option>RUNE_JERA</option><option>RUNE_EHWAZ</option><option>RUNE_DAGAZ</option><option>RUNE_ANSUZ</option><option>RUNE_PERTHRO</option><option>RUNE_BERKANO</option><option>RUNE_ALGIZ</option><option>RUNE_BLANK</option><option>RUNE_BLACK</option><option>CARD_CHAOS</option><option>CARD_CREDIT</option><option>CARD_RULES</option><option>CARD_HUMANITY</option><option>CARD_SUICIDE_KING</option><option>CARD_GET_OUT_OF_JAIL</option><option>CARD_QUESTIONMARK</option><option>CARD_DICE_SHARD</option><option>CARD_EMERGENCY_CONTACT</option><option>CARD_HOLY</option><option>CARD_HUGE_GROWTH</option><option>CARD_ANCIENT_RECALL</option><option>CARD_ERA_WALK</option></select>。请将指令中的print('hello, world')替换为你想要使用的lua指令内容，替换时注意不含l前缀。
+```
+l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_USE_CARD,function(_) print('hello, world') end,Card.CARD_FOOL)
+```
+作者信息：[@frto027]()

@@ -4,7 +4,7 @@ var data = [
 	"name_zh":"你好，世界",
 	"name_en":"hello, world",
 	"status":[""],
-	"keywords":["hello","world","你好","世界"],
+	"keywords":["hello","world","你好","世界",'demo','示例'],
 	"desc_zh":"在控制台上打印\"hello, world\"<a href='https://baike.baidu.com/item/hello%20world/85501'>更多</a>",
 	"desc_en":"print 'hello, world' in console",
 	"desc":"This is a template in json <a href='#'>more</a>",
@@ -538,7 +538,7 @@ var data = [
 },{
 	"name_zh":"增加幸运",
 	"status":[],
-	"keywords":['玩家属性','幸运','增加'],
+	"keywords":['玩家属性','幸运','增加','demo','示例'],
 	"desc_zh":"增加2点幸运值",
 	"code":'l Isaac.GetPlayer(0):DonateLuck(2)',
 	"about":'@frto027',
@@ -613,6 +613,62 @@ var data = [
 	"keywords":['复活','重生'],
 	"desc_zh":"复活玩家，增加半颗蓝心。由于伤害计算机制，增加的半颗蓝心多数情况下会被立即扣除，并产生一定时间的无敌。在游戏后期，你可能需要一颗蓝心才能承担复活瞬间的伤害。",
 	"code":'l Isaac.GetPlayer(0):Revive();Isaac.GetPlayer(0):AddSoulHearts(1)',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"当发射眼泪时，...",
+	"status":['reset'],
+	"keywords":['当发射眼泪','shoot tear','回调函数','demo','示例'],
+	"desc_zh":"当玩家发射眼泪时，打印hello, world到控制台上，请将指令中的print('hello, world')替换为你想要使用的lua指令内容，替换时注意不含l前缀。",
+	"code":'l ftl = ftl or RegisterMod(\'ftcslua\',1);ftl:AddCallback(ModCallbacks.MC_POST_FIRE_TEAR,function() print(\'hello, world\') end)',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"当发射眼泪时，增加幸运",
+	"status":['reset'],
+	"keywords":['当发射眼泪','shoot tear','回调函数','增加幸运','demo','示例'],
+	"desc_zh":"当玩家发射眼泪时，增加幸运。这是指令“当发射眼泪时，...”的一个使用示例。指令中的hello world被替换为增加幸运的lua指令。",
+	"code":'l ftl = ftl or RegisterMod(\'ftcslua\',1);ftl:AddCallback(ModCallbacks.MC_POST_FIRE_TEAR,function() Isaac.GetPlayer(0):DonateLuck(1) end)',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"当玩家受伤时，...",
+	"status":['reset'],
+	"keywords":['当玩家受伤','shoot tear','回调函数','demo','示例'],
+	"desc_zh":"当玩家受伤时，打印hello, world到控制台上，请将指令中的print('hello, world')替换为你想要使用的lua指令内容，替换时注意不含l前缀。",
+	"code":`l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_ENTITY_TAKE_DMG,function(_) print('hello, world') end,EntityType.ENTITY_PLAYER)`,
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"当使用主动时，...",
+	"status":['reset'],
+	"keywords":['使用','任意','主动','shoot tear','回调函数'],
+	"desc_zh":"当使用任意主动道具时，打印hello, world到控制台上，请将指令中的print('hello, world')替换为你想要使用的lua指令内容，替换时注意不含l前缀。",
+	"code":`l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_USE_ITEM,function(_) print('hello, world') end)`,
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"当使用某个主动时，...",
+	"status":['reset'],
+	"keywords":['使用','特定','主动','shoot tear','回调函数'],
+	"desc_zh":"当使用id为105的主动道具（D6）时，打印hello, world到控制台上，请将指令中的print('hello, world')替换为你想要使用的lua指令内容，替换时注意不含l前缀。",
+	"code":`l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_USE_ITEM,function(_) print('hello, world') end,105)`,
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"当使用卡片时，...",
+	"status":['reset'],
+	"keywords":['使用','任意','卡片','shoot tear','回调函数'],
+	"desc_zh":"当使用任意卡片时，打印hello, world到控制台上，请将指令中的print('hello, world')替换为你想要使用的lua指令内容，替换时注意不含l前缀。",
+	"code":`l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_USE_CARD,function(_) print('hello, world') end)`,
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"当使用某个卡片时，...",
+	"status":['reset'],
+	"keywords":['使用','某个','卡片','shoot tear','回调函数'],
+	"desc_zh":"当使用The Fool卡时，打印hello, world到控制台上。你可以将指令中的CARD_FOOL替换为枚举变量Card中的任意值，可以是：<select><option>CARD_MAGICIAN</option><option>CARD_HIGH_PRIESTESS</option><option>CARD_EMPRESS</option><option>CARD_EMPEROR</option><option>CARD_HIEROPHANT</option><option>CARD_LOVERS</option><option>CARD_CHARIOT</option><option>CARD_JUSTICE</option><option>CARD_HERMIT</option><option>CARD_WHEEL_OF_FORTUNE</option><option>CARD_STRENGTH</option><option>CARD_HANGED_MAN</option><option>CARD_DEATH</option><option>CARD_TEMPERANCE</option><option>CARD_DEVIL</option><option>CARD_TOWER</option><option>CARD_STARS</option><option>CARD_MOON</option><option>CARD_SUN</option><option>CARD_JUDGEMENT</option><option>CARD_WORLD</option><option>CARD_CLUBS_2</option><option>CARD_DIAMONDS_2</option><option>CARD_SPADES_2</option><option>CARD_HEARTS_2</option><option>CARD_ACE_OF_CLUBS</option><option>CARD_ACE_OF_DIAMONDS</option><option>CARD_ACE_OF_SPADES</option><option>CARD_ACE_OF_HEARTS</option><option>CARD_JOKER</option><option>RUNE_HAGALAZ</option><option>RUNE_JERA</option><option>RUNE_EHWAZ</option><option>RUNE_DAGAZ</option><option>RUNE_ANSUZ</option><option>RUNE_PERTHRO</option><option>RUNE_BERKANO</option><option>RUNE_ALGIZ</option><option>RUNE_BLANK</option><option>RUNE_BLACK</option><option>CARD_CHAOS</option><option>CARD_CREDIT</option><option>CARD_RULES</option><option>CARD_HUMANITY</option><option>CARD_SUICIDE_KING</option><option>CARD_GET_OUT_OF_JAIL</option><option>CARD_QUESTIONMARK</option><option>CARD_DICE_SHARD</option><option>CARD_EMERGENCY_CONTACT</option><option>CARD_HOLY</option><option>CARD_HUGE_GROWTH</option><option>CARD_ANCIENT_RECALL</option><option>CARD_ERA_WALK</option></select>。请将指令中的print('hello, world')替换为你想要使用的lua指令内容，替换时注意不含l前缀。",
+	"code":`l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_USE_CARD,function(_) print('hello, world') end,Card.CARD_FOOL)`,
 	"about":'@frto027',
 	"about_link":''
 },
