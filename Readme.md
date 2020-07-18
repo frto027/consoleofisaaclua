@@ -858,3 +858,30 @@ l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_POST_REN
 ```
 l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_POST_PROJECTILE_INIT,function(_,t) t:Remove() end)
 ```
+
+
+-----
+
+### 执行控制台指令
+执行"spawn 5.100.118"这条控制台指令（在地面上生成118号道具），指令需要被单引号或双引号包起来，不要在指令中出现将它包起来的那个符号。话说回来，我为什么要在控制台的lua里执行控制台指令？答案是可以把这条指令用在回调中。
+```
+l Isaac.ExecuteCommand('spawn 5.100.118')
+```
+
+
+-----
+
+### 在下一帧，执行...
+延迟一帧打印hello, world。这条指令主要在特定逻辑下被用到。请将指令中的print('hello, world')替换为你想要使用的lua指令内容，替换时注意不含l前缀。
+```
+l ftlk={n=ftlk,f=function() print('hello, world') end};if(not ftpup)then ftl = ftl or RegisterMod('ftcslua',1);ftpup=function() ftldo, ftlk=ftlk,nil;while(ftldo) do ftldo.f();ftldo=ftldo.n end end ftl:AddCallback(ModCallbacks.MC_POST_UPDATE,ftpup) end
+```
+
+
+-----
+
+### 在下一帧，执行...（简化版）
+注意，此指令仅在至少执行过一遍“在下一帧，执行...”指令后才可以使用。延迟一帧打印hello, world。这条指令主要在特定逻辑下被用到。请将指令中的print('hello, world')替换为你想要使用的lua指令内容，替换时注意不含l前缀。
+```
+l ftlk={n=ftlk,f=function() print('hello, world') end}
+```
