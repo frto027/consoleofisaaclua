@@ -12,7 +12,6 @@
 ```
 l print('hello, world')
 ```
-作者信息：[@frto027](https://github.com/frto027)
 
 
 -----
@@ -22,7 +21,6 @@ l print('hello, world')
 ```
 l Isaac.GetPlayer(0):FireBomb(Vector(200,200),Vector(50,0))
 ```
-作者信息：[@frto027](http://tieba.baidu.com/p/4928422576?pid=128953609339&cid=128954028478#128954028478)
 
 
 -----
@@ -32,7 +30,6 @@ l Isaac.GetPlayer(0):FireBomb(Vector(200,200),Vector(50,0))
 ```
 l for _,v in pairs(Isaac.GetRoomEntities()) do if v:IsVulnerableEnemy() then print(v.HitPoints.."/"..v.MaxHitPoints) end end
 ```
-作者信息：[@Binding of Isaac - Afterbirth+ Lua Reference](undefined)
 
 
 -----
@@ -42,7 +39,6 @@ l for _,v in pairs(Isaac.GetRoomEntities()) do if v:IsVulnerableEnemy() then pri
 ```
 l Game():GetLevel():AddCurse(LevelCurse.CURSE_OF_BLIND)
 ```
-作者信息：[@frto027](http://tieba.baidu.com/p/4928422576?pid=128955968778&cid=0#128955968778)
 
 
 -----
@@ -52,7 +48,6 @@ l Game():GetLevel():AddCurse(LevelCurse.CURSE_OF_BLIND)
 ```
 l Game():GetLevel():RemoveCurse(LevelCurse.CURSE_OF_BLIND)
 ```
-作者信息：[@frto027](http://tieba.baidu.com/p/4928422576?pid=128955968778&cid=0#128955968778)
 
 
 -----
@@ -62,7 +57,6 @@ l Game():GetLevel():RemoveCurse(LevelCurse.CURSE_OF_BLIND)
 ```
 暂无
 ```
-作者信息：[undefined](undefined)
 
 
 -----
@@ -72,7 +66,6 @@ l Game():GetLevel():RemoveCurse(LevelCurse.CURSE_OF_BLIND)
 ```
 l Game():ShowFortune()
 ```
-作者信息：[@frto027](http://tieba.baidu.com/p/6462139868?pid=129623864146&cid=0#129623864146)
 
 
 -----
@@ -82,7 +75,6 @@ l Game():ShowFortune()
 ```
 l Game():ShowRule()
 ```
-作者信息：[@frto027](http://tieba.baidu.com/p/6462139868?pid=129623864146&cid=0#129623864146)
 
 
 -----
@@ -92,7 +84,6 @@ l Game():ShowRule()
 ```
 l Game():MoveToRandomRoom(True,123)
 ```
-作者信息：[@frto027](http://tieba.baidu.com/p/6462139868?pid=129623864146&cid=0#129623864146)
 
 
 -----
@@ -102,7 +93,6 @@ l Game():MoveToRandomRoom(True,123)
 ```
 l print(Game():GetLevel():GetCurrentRoomDesc().SafeGridIndex)
 ```
-作者信息：[@frto027](http://tieba.baidu.com/p/6462139868?pid=129623864146&cid=0#129623864146)
 
 
 -----
@@ -112,7 +102,6 @@ l print(Game():GetLevel():GetCurrentRoomDesc().SafeGridIndex)
 ```
 l print(Game():GetLevel():GetLastRoomDesc().SafeGridIndex)
 ```
-作者信息：[@frto027](http://tieba.baidu.com/p/6462139868?pid=129623864146&cid=0#129623864146)
 
 
 -----
@@ -122,7 +111,6 @@ l print(Game():GetLevel():GetLastRoomDesc().SafeGridIndex)
 ```
 l Game():ChangeRoom(84)
 ```
-作者信息：[@frto027](http://tieba.baidu.com/p/6462139868?pid=129623864146&cid=0#129623864146)
 
 
 -----
@@ -132,7 +120,6 @@ l Game():ChangeRoom(84)
 ```
 l Game():ShakeScreen(30)
 ```
-作者信息：[@frto027](http://tieba.baidu.com/p/6462139868?pid=129623864146&cid=0#129623864146)
 
 
 -----
@@ -142,7 +129,6 @@ l Game():ShakeScreen(30)
 ```
 l Game():Darken(0.7,30)
 ```
-作者信息：[@frto027](http://tieba.baidu.com/p/6462139868?pid=129623864146&cid=0#129623864146)
 
 
 -----
@@ -152,7 +138,6 @@ l Game():Darken(0.7,30)
 ```
 l print(Game():GetVictoryLap())
 ```
-作者信息：[@frto027](http://tieba.baidu.com/p/6462139868?pid=129623864146&cid=0#129623864146)
 
 
 -----
@@ -162,7 +147,6 @@ l print(Game():GetVictoryLap())
 ```
 l Game():NextVictoryLap()
 ```
-作者信息：[@frto027](http://tieba.baidu.com/p/6462139868?pid=129623864146&cid=0#129623864146)
 
 
 -----
@@ -172,7 +156,6 @@ l Game():NextVictoryLap()
 ```
 l Isaac.GridSpawn(GridEntityType.GRID_ROCKT,0,Isaac.GetRandomPosition(),false)
 ```
-作者信息：[@frto027](http://tieba.baidu.com/p/4928422576?pid=102219431913&cid=130402803671#130402803671)
 
 
 -----
@@ -182,7 +165,6 @@ l Isaac.GridSpawn(GridEntityType.GRID_ROCKT,0,Isaac.GetRandomPosition(),false)
 ```
 l Isaac.Spawn(100,0,0,Vector(200,200),Vector(0,0),Isaac.GetPlayer(0)):AddEntityFlags(EntityFlag.FLAG_FRIENDLY|EntityFlag.FLAG_CHARM|EntityFlag.FLAG_PERSISTENT)
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -192,7 +174,6 @@ l Isaac.Spawn(100,0,0,Vector(200,200),Vector(0,0),Isaac.GetPlayer(0)):AddEntityF
 ```
 l print(Game():GetTreasureRoomVisitCount())
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -202,7 +183,6 @@ l print(Game():GetTreasureRoomVisitCount())
 ```
 l Game():GetLevel():SetRedHeartDamage()
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -212,7 +192,6 @@ l Game():GetLevel():SetRedHeartDamage()
 ```
 l Game():GetLevel():AddAngelRoomChance(0.1)
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -222,7 +201,6 @@ l Game():GetLevel():AddAngelRoomChance(0.1)
 ```
 l print(Game():GetLevel():GetAngelRoomChance())
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -232,7 +210,6 @@ l print(Game():GetLevel():GetAngelRoomChance())
 ```
 l Game():GetLevel():ShowMap()
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -242,7 +219,6 @@ l Game():GetLevel():ShowMap()
 ```
 l Game():GetLevel():SetCanSeeEverything(true)
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -252,7 +228,6 @@ l Game():GetLevel():SetCanSeeEverything(true)
 ```
 l Game():GetLevel():SetCanSeeEverything(true)
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -262,7 +237,6 @@ l Game():GetLevel():SetCanSeeEverything(true)
 ```
 l Game():GetLevel():ApplyBlueMapEffect()
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -272,7 +246,6 @@ l Game():GetLevel():ApplyBlueMapEffect()
 ```
 l Game():GetLevel():ApplyCompassEffect()
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -282,7 +255,6 @@ l Game():GetLevel():ApplyCompassEffect()
 ```
 l Game():GetLevel():RemoveCompassEffect()
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -292,7 +264,6 @@ l Game():GetLevel():RemoveCompassEffect()
 ```
 l Game():GetLevel():GetCurrentRoom():TurnGold()
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -302,7 +273,6 @@ l Game():GetLevel():GetCurrentRoom():TurnGold()
 ```
 l Game():GetLevel():GetCurrentRoom():MamaMegaExplossion()
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -312,7 +282,6 @@ l Game():GetLevel():GetCurrentRoom():MamaMegaExplossion()
 ```
 l print(Game():GetLevel():GetCurrentRoom():IsFirstEnemyDead())
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -322,7 +291,6 @@ l print(Game():GetLevel():GetCurrentRoom():IsFirstEnemyDead())
 ```
 l Game():GetLevel():GetCurrentRoom():	SetFirstEnemyDead(true)
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -332,7 +300,6 @@ l Game():GetLevel():GetCurrentRoom():	SetFirstEnemyDead(true)
 ```
 l print(Game():GetLevel():GetCurrentRoom():IsCurrentRoomLastBoss())
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -342,7 +309,6 @@ l print(Game():GetLevel():GetCurrentRoom():IsCurrentRoomLastBoss())
 ```
 l Game():GetLevel():GetCurrentRoom():RespawnEnemies()
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -352,7 +318,6 @@ l Game():GetLevel():GetCurrentRoom():RespawnEnemies()
 ```
 l Game():GetLevel():GetCurrentRoom():TryMakeBridge(Game():GetLevel():GetCurrentRoom():GetGridEntity(40))
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -362,7 +327,6 @@ l Game():GetLevel():GetCurrentRoom():TryMakeBridge(Game():GetLevel():GetCurrentR
 ```
 l print(Game():GetLevel():GetCurrentRoom():GetTintedRockIdx())
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -372,7 +336,6 @@ l print(Game():GetLevel():GetCurrentRoom():GetTintedRockIdx())
 ```
 l print(Game():GetLevel():GetCurrentRoom():GetDungeonRockIdx())
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -382,7 +345,6 @@ l print(Game():GetLevel():GetCurrentRoom():GetDungeonRockIdx())
 ```
 l Game():GetLevel():GetCurrentRoom():SpawnClearAward()
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -392,7 +354,6 @@ l Game():GetLevel():GetCurrentRoom():SpawnClearAward()
 ```
 l Game():GetLevel():GetCurrentRoom():EmitBloodFromWalls(30,10)
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -402,7 +363,6 @@ l Game():GetLevel():GetCurrentRoom():EmitBloodFromWalls(30,10)
 ```
 l Game():GetLevel():GetCurrentRoom():SetCardAgainstHumanity()
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -412,7 +372,6 @@ l Game():GetLevel():GetCurrentRoom():SetCardAgainstHumanity()
 ```
 l Game():GetLevel():GetCurrentRoom():SetBrokenWatchState(0)
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -422,7 +381,6 @@ l Game():GetLevel():GetCurrentRoom():SetBrokenWatchState(0)
 ```
 l print(Game():GetLevel():GetCurrentRoom():TrySpawnDevilRoomDoor(true))
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -432,7 +390,6 @@ l print(Game():GetLevel():GetCurrentRoom():TrySpawnDevilRoomDoor(true))
 ```
 l print(Game():GetLevel():GetCurrentRoom():TrySpawnBossRushDoor(true))
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -442,7 +399,6 @@ l print(Game():GetLevel():GetCurrentRoom():TrySpawnBossRushDoor(true))
 ```
 l print(Game():GetLevel():GetCurrentRoom():TrySpawnMegaSatanRoomDoor())
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -452,7 +408,6 @@ l print(Game():GetLevel():GetCurrentRoom():TrySpawnMegaSatanRoomDoor())
 ```
 l print(Game():GetLevel():GetCurrentRoom():TrySpawnBlueWombDoor(true,true))
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -462,7 +417,6 @@ l print(Game():GetLevel():GetCurrentRoom():TrySpawnBlueWombDoor(true,true))
 ```
 l print(Game():GetLevel():GetCurrentRoom():TrySpawnTheVoidDoor())
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -472,7 +426,6 @@ l print(Game():GetLevel():GetCurrentRoom():TrySpawnTheVoidDoor())
 ```
 l Game():GetLevel():GetCurrentRoom():ShopRestockFull()
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -482,7 +435,6 @@ l Game():GetLevel():GetCurrentRoom():ShopRestockFull()
 ```
 l print(Game():GetLevel():GetCurrentRoom():IsClear())
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -492,7 +444,6 @@ l print(Game():GetLevel():GetCurrentRoom():IsClear())
 ```
 l Game():GetLevel():GetCurrentRoom():SetClear(true)
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -502,7 +453,6 @@ l Game():GetLevel():GetCurrentRoom():SetClear(true)
 ```
 l Game():GetLevel():GetCurrentRoom():RemoveDoor(DoorSlot.DOWN0)
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -512,7 +462,6 @@ l Game():GetLevel():GetCurrentRoom():RemoveDoor(DoorSlot.DOWN0)
 ```
 l Isaac.GetPlayer(0):AddMaxHearts(4,true)
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -522,7 +471,6 @@ l Isaac.GetPlayer(0):AddMaxHearts(4,true)
 ```
 l Isaac.GetPlayer(0):AddHearts(4)
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -532,7 +480,6 @@ l Isaac.GetPlayer(0):AddHearts(4)
 ```
 l Isaac.GetPlayer(0):AddEternalHearts(1)
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -542,7 +489,6 @@ l Isaac.GetPlayer(0):AddEternalHearts(1)
 ```
 l Isaac.GetPlayer(0):AddSoulHearts(1)
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -552,7 +498,6 @@ l Isaac.GetPlayer(0):AddSoulHearts(1)
 ```
 l Isaac.GetPlayer(0):AddBlackHearts(1)
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -562,7 +507,6 @@ l Isaac.GetPlayer(0):AddBlackHearts(1)
 ```
 l Isaac.GetPlayer(0):AddCoins(10)
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -572,7 +516,6 @@ l Isaac.GetPlayer(0):AddCoins(10)
 ```
 l Isaac.GetPlayer(0):AddBombs(10)
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -582,7 +525,6 @@ l Isaac.GetPlayer(0):AddBombs(10)
 ```
 l Isaac.GetPlayer(0):AddKeys(10)
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -592,7 +534,6 @@ l Isaac.GetPlayer(0):AddKeys(10)
 ```
 l Isaac.GetPlayer(0):AddGoldenKey()
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -602,7 +543,6 @@ l Isaac.GetPlayer(0):AddGoldenKey()
 ```
 l Isaac.GetPlayer(0):RemoveGoldenKey()
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -612,7 +552,6 @@ l Isaac.GetPlayer(0):RemoveGoldenKey()
 ```
 l Isaac.GetPlayer(0):AddGoldenBomb()
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -622,7 +561,6 @@ l Isaac.GetPlayer(0):AddGoldenBomb()
 ```
 l Isaac.GetPlayer(0):RemoveGoldenBomb()
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -632,7 +570,6 @@ l Isaac.GetPlayer(0):RemoveGoldenBomb()
 ```
 l Isaac.GetPlayer(0):AddGoldenHearts(2)
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -642,7 +579,6 @@ l Isaac.GetPlayer(0):AddGoldenHearts(2)
 ```
 l Isaac.GetPlayer(0):AddBlueSpider(Isaac.GetRandomPosition())
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -652,7 +588,6 @@ l Isaac.GetPlayer(0):AddBlueSpider(Isaac.GetRandomPosition())
 ```
 l Isaac.GetPlayer(0):AddBlueFlies(3,Isaac.GetRandomPosition(),Isaac.GetPlayer(0).Target)
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -662,7 +597,6 @@ l Isaac.GetPlayer(0):AddBlueFlies(3,Isaac.GetRandomPosition(),Isaac.GetPlayer(0)
 ```
 l Isaac.GetPlayer(0):AddPrettyFly()
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -672,7 +606,6 @@ l Isaac.GetPlayer(0):AddPrettyFly()
 ```
 l Isaac.GetPlayer(0):DonateLuck(2)
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -682,7 +615,6 @@ l Isaac.GetPlayer(0):DonateLuck(2)
 ```
 l Isaac.GetPlayer(0):SetActiveCharge(3)
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -692,7 +624,6 @@ l Isaac.GetPlayer(0):SetActiveCharge(3)
 ```
 l Isaac.GetPlayer(0):DischargeActiveItem()
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -702,7 +633,6 @@ l Isaac.GetPlayer(0):DischargeActiveItem()
 ```
 l Isaac.GetPlayer(0):SetFullHearts()
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -712,7 +642,6 @@ l Isaac.GetPlayer(0):SetFullHearts()
 ```
 l print(Isaac.GetPlayer(0):GetPlayerType())
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -722,7 +651,6 @@ l print(Isaac.GetPlayer(0):GetPlayerType())
 ```
 l print(Isaac.GetPlayer(0):GetNumBlueFlies())
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -732,7 +660,6 @@ l print(Isaac.GetPlayer(0):GetNumBlueFlies())
 ```
 l print(Isaac.GetPlayer(0):GetNumBlueSpiders())
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -742,7 +669,6 @@ l print(Isaac.GetPlayer(0):GetNumBlueSpiders())
 ```
 l Isaac.GetPlayer(0):UseActiveItem(419,true,true,true,false)
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -752,7 +678,6 @@ l Isaac.GetPlayer(0):UseActiveItem(419,true,true,true,false)
 ```
 l Isaac.GetPlayer(0):UseCard(Card.CARD_FOOL)
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -762,7 +687,6 @@ l Isaac.GetPlayer(0):UseCard(Card.CARD_FOOL)
 ```
 l Isaac.GetPlayer(0):UsePill(PillEffect.PILLEFFECT_BAD_GAS,0)
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -772,7 +696,6 @@ l Isaac.GetPlayer(0):UsePill(PillEffect.PILLEFFECT_BAD_GAS,0)
 ```
 l Isaac.GetPlayer(0):AddBoneHearts(2)
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -782,7 +705,6 @@ l Isaac.GetPlayer(0):AddBoneHearts(2)
 ```
 l Isaac.GetPlayer(0):Revive();Isaac.GetPlayer(0):AddSoulHearts(1)
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -792,7 +714,6 @@ l Isaac.GetPlayer(0):Revive();Isaac.GetPlayer(0):AddSoulHearts(1)
 ```
 l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_POST_FIRE_TEAR,function() print('hello, world') end)
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -802,7 +723,6 @@ l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_POST_FIR
 ```
 l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_POST_FIRE_TEAR,function() Isaac.GetPlayer(0):DonateLuck(1) end)
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -812,7 +732,6 @@ l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_POST_FIR
 ```
 l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_ENTITY_TAKE_DMG,function(_) print('hello, world') end,EntityType.ENTITY_PLAYER)
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -822,7 +741,6 @@ l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_ENTITY_T
 ```
 l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_USE_ITEM,function(_) print('hello, world') end)
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -832,7 +750,6 @@ l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_USE_ITEM
 ```
 l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_USE_ITEM,function(_) print('hello, world') end,105)
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -842,7 +759,6 @@ l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_USE_ITEM
 ```
 l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_USE_CARD,function(_) print('hello, world') end)
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -852,7 +768,6 @@ l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_USE_CARD
 ```
 l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_USE_CARD,function(_) print('hello, world') end,Card.CARD_FOOL)
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -862,7 +777,6 @@ l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_USE_CARD
 ```
 l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_POST_GAME_STARTED,function(_) print('hello, world') end)
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -872,7 +786,6 @@ l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_POST_GAM
 ```
 l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_POST_GAME_STARTED,function(_,mpgsc) if(not mpgsc) then print('hello, world') end end)
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -882,7 +795,6 @@ l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_POST_GAM
 ```
 l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_POST_GAME_STARTED,function(_,mpgsc) if(mpgsc) then print('hello, world') end end)
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -892,7 +804,6 @@ l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_POST_GAM
 ```
 l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_PRE_GAME_EXIT,function(_) print('hello, world') end)
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -902,7 +813,6 @@ l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_PRE_GAME
 ```
 l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_POST_GAME_END,function(_,mpgeiso) if(mpgeiso) then print('hello, world') end end)
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -912,7 +822,6 @@ l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_POST_GAM
 ```
 l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_POST_GAME_END,function(_,mpgeiso) if(not mpgeiso) then print('hello, world') end end)
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -922,7 +831,6 @@ l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_POST_GAM
 ```
 l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_POST_NEW_LEVEL,function(_) print('hello, world') end)
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -932,7 +840,6 @@ l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_POST_NEW
 ```
 l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_POST_NEW_ROOM,function(_) print('hello, world') end)
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -942,7 +849,6 @@ l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_POST_NEW
 ```
 l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_POST_RENDER,function(_) if(Input.IsButtonTriggered(Keyboard.KEY_K, 0)) then print('hello, world') end end)
 ```
-作者信息：[@frto027]()
 
 
 -----
@@ -952,4 +858,3 @@ l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_POST_REN
 ```
 l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_POST_PROJECTILE_INIT,function(_,t) t:Remove() end)
 ```
-作者信息：[@frto027]()

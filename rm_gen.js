@@ -24,7 +24,7 @@ data.forEach(data_item => {
     header += `### ${read('name')}\n`
     header += read('desc') + '\n'
     header += `\`\`\`\n${read('code') || '暂无'}\n\`\`\`\n`
-    header += `作者信息：[${read('about')}](${read('about_link')})\n`
+    //header += `作者信息：[${read('about')}](${read('about_link')})\n`
     
 });
 
