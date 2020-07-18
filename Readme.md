@@ -227,7 +227,7 @@ l Game():GetLevel():SetCanSeeEverything(true)
 ### 使用白地图
 显示当前层的普通房间，类似白地图的效果
 ```
-l Game():GetLevel():SetCanSeeEverything(true)
+l Game():GetLevel():ApplyMapEffect(true)
 ```
 
 

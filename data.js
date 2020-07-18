@@ -204,7 +204,7 @@ var data = [
 	"status":[],
 	"keywords":['地图','开图','普通房间'],
 	"desc_zh":"显示当前层的普通房间，类似白地图的效果",
-	"code":'l Game():GetLevel():SetCanSeeEverything(true)',
+	"code":'l Game():GetLevel():ApplyMapEffect(true)',
 	"about":'@frto027',
 	"about_link":''
 },{
