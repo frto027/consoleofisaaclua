@@ -787,8 +787,16 @@ var data = [
 	"name_zh":"在下一帧，执行...（简化版）",
 	"status":[],
 	"keywords":['执行lua指令','延迟执行指令'],
-	"desc_zh":"注意，此指令仅在至少执行过一遍“在下一帧，执行...”指令后才可以使用。延迟一帧打印hello, world。这条指令主要在特定逻辑下被用到。请将指令中的print('hello, world')替换为你想要使用的lua指令内容，替换时注意不含l前缀。",
+	"desc_zh":"注意，此指令仅在至少执行过一遍“在下一帧，执行...”指令后才可以使用。<br/>延迟一帧打印hello, world。这条指令主要在特定逻辑下被用到。请将指令中的print('hello, world')替换为你想要使用的lua指令内容，替换时注意不含l前缀。",
 	"code":`l ftlk={n=ftlk,f=function() print('hello, world') end}`,
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"在下两帧，执行...（简化版）",
+	"status":[],
+	"keywords":['执行lua指令','延迟执行指令'],
+	"desc_zh":"注意，此指令仅在至少执行过一遍“在下一帧，执行...”指令后才可以使用。<br/>本质上是延迟一帧的套娃版本，你可以进一步套娃，得到延迟三帧、四帧等指令，不过这真的有用吗？延迟两帧打印hello, world。这条指令主要在特定逻辑下被用到。请将指令中的print('hello, world')替换为你想要使用的lua指令内容，替换时注意不含l前缀。",
+	"code":`l ftlk={n=ftlk,f=function() ftlk={n=ftlk,f=function() print('hello, world') end} end}`,
 	"about":'@frto027',
 	"about_link":''
 },
