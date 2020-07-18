@@ -747,6 +747,26 @@ l Isaac.GetPlayer(0):UseActiveItem(419,true,true,true,false)
 
 -----
 
+### 触发卡片效果
+触发The Fool卡片的效果。CARD_FOOL可以替换为枚举变量Card中的任意值（或使用卡片id）。<details>Card枚举变量可用值如下：<p>CARD_FOOL, CARD_MAGICIAN, CARD_HIGH_PRIESTESS, CARD_EMPRESS, CARD_EMPEROR, CARD_HIEROPHANT, CARD_LOVERS, CARD_CHARIOT, CARD_JUSTICE, CARD_HERMIT, CARD_WHEEL_OF_FORTUNE, CARD_STRENGTH, CARD_HANGED_MAN, CARD_DEATH, CARD_TEMPERANCE, CARD_DEVIL, CARD_TOWER, CARD_STARS, CARD_MOON, CARD_SUN, CARD_JUDGEMENT, CARD_WORLD, CARD_CLUBS_2, CARD_DIAMONDS_2, CARD_SPADES_2, CARD_HEARTS_2, CARD_ACE_OF_CLUBS, CARD_ACE_OF_DIAMONDS, CARD_ACE_OF_SPADES, CARD_ACE_OF_HEARTS, CARD_JOKER, RUNE_HAGALAZ, RUNE_JERA, RUNE_EHWAZ, RUNE_DAGAZ, RUNE_ANSUZ, RUNE_PERTHRO, RUNE_BERKANO, RUNE_ALGIZ, RUNE_BLANK, RUNE_BLACK, CARD_CHAOS, CARD_CREDIT, CARD_RULES, CARD_HUMANITY, CARD_SUICIDE_KING, CARD_GET_OUT_OF_JAIL, CARD_QUESTIONMARK, CARD_DICE_SHARD, CARD_EMERGENCY_CONTACT, CARD_HOLY, CARD_HUGE_GROWTH, CARD_ANCIENT_RECALL, CARD_ERA_WALK</p></details>
+```
+l Isaac.GetPlayer(0):UseCard(Card.CARD_FOOL)
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 触发药丸效果
+触发Bad Gas药丸的效果。PILLEFFECT_BAD_GAS可以替换为枚举变量PillEffect中的任意值（或使用药丸id）。<details>PillEffect枚举变量可用值如下：<p>PILLEFFECT_BAD_GAS, PILLEFFECT_BAD_TRIP, PILLEFFECT_BALLS_OF_STEEL, PILLEFFECT_BOMBS_ARE_KEYS, PILLEFFECT_EXPLOSIVE_DIARRHEA, PILLEFFECT_FULL_HEALTH, PILLEFFECT_HEALTH_DOWN, PILLEFFECT_HEALTH_UP, PILLEFFECT_I_FOUND_PILLS, PILLEFFECT_PUBERTY, PILLEFFECT_PRETTY_FLY, PILLEFFECT_RANGE_DOWN, PILLEFFECT_RANGE_UP, PILLEFFECT_SPEED_DOWN, PILLEFFECT_SPEED_UP, PILLEFFECT_TEARS_DOWN, PILLEFFECT_TEARS_UP, PILLEFFECT_LUCK_DOWN, PILLEFFECT_LUCK_UP, PILLEFFECT_TELEPILLS, PILLEFFECT_48HOUR_ENERGY, PILLEFFECT_HEMATEMESIS, PILLEFFECT_PARALYSIS, PILLEFFECT_SEE_FOREVER, PILLEFFECT_PHEROMONES, PILLEFFECT_AMNESIA, PILLEFFECT_LEMON_PARTY, PILLEFFECT_WIZARD, PILLEFFECT_PERCS, PILLEFFECT_ADDICTED, PILLEFFECT_RELAX, PILLEFFECT_QUESTIONMARK, PILLEFFECT_LARGER, PILLEFFECT_SMALLER, PILLEFFECT_INFESTED_EXCLAMATION, PILLEFFECT_INFESTED_QUESTION, PILLEFFECT_POWER, PILLEFFECT_RETRO_VISION, PILLEFFECT_FRIENDS_TILL_THE_END, PILLEFFECT_X_LAX, PILLEFFECT_SOMETHINGS_WRONG, PILLEFFECT_IM_DROWSY, PILLEFFECT_IM_EXCITED, PILLEFFECT_GULP, PILLEFFECT_HORF, PILLEFFECT_SUNSHINE, PILLEFFECT_VURP</p></details>
+```
+l Isaac.GetPlayer(0):UsePill(PillEffect.PILLEFFECT_BAD_GAS,0)
+```
+作者信息：[@frto027]()
+
+
+-----
+
 ### 增加骨心
 增加2颗骨心
 ```
@@ -831,5 +851,85 @@ l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_USE_CARD
 当使用The Fool卡时，打印hello, world到控制台上。你可以将指令中的CARD_FOOL替换为枚举变量Card中的任意值。请将指令中的print('hello, world')替换为你想要使用的lua指令内容，替换时注意不含l前缀。<details>Card枚举变量可用值如下：<p>CARD_FOOL, CARD_MAGICIAN, CARD_HIGH_PRIESTESS, CARD_EMPRESS, CARD_EMPEROR, CARD_HIEROPHANT, CARD_LOVERS, CARD_CHARIOT, CARD_JUSTICE, CARD_HERMIT, CARD_WHEEL_OF_FORTUNE, CARD_STRENGTH, CARD_HANGED_MAN, CARD_DEATH, CARD_TEMPERANCE, CARD_DEVIL, CARD_TOWER, CARD_STARS, CARD_MOON, CARD_SUN, CARD_JUDGEMENT, CARD_WORLD, CARD_CLUBS_2, CARD_DIAMONDS_2, CARD_SPADES_2, CARD_HEARTS_2, CARD_ACE_OF_CLUBS, CARD_ACE_OF_DIAMONDS, CARD_ACE_OF_SPADES, CARD_ACE_OF_HEARTS, CARD_JOKER, RUNE_HAGALAZ, RUNE_JERA, RUNE_EHWAZ, RUNE_DAGAZ, RUNE_ANSUZ, RUNE_PERTHRO, RUNE_BERKANO, RUNE_ALGIZ, RUNE_BLANK, RUNE_BLACK, CARD_CHAOS, CARD_CREDIT, CARD_RULES, CARD_HUMANITY, CARD_SUICIDE_KING, CARD_GET_OUT_OF_JAIL, CARD_QUESTIONMARK, CARD_DICE_SHARD, CARD_EMERGENCY_CONTACT, CARD_HOLY, CARD_HUGE_GROWTH, CARD_ANCIENT_RECALL, CARD_ERA_WALK</p></details>
 ```
 l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_USE_CARD,function(_) print('hello, world') end,Card.CARD_FOOL)
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 当游戏开始时，...
+当游戏开始/继续时，打印hello, world到控制台上，请将指令中的print('hello, world')替换为你想要使用的lua指令内容，替换时注意不含l前缀。
+```
+l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_POST_GAME_STARTED,function(_) print('hello, world') end)
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 当开始新游戏时，...
+当游戏首次开始(new run)时，打印hello, world到控制台上，请将指令中的print('hello, world')替换为你想要使用的lua指令内容，替换时注意不含l前缀。
+```
+l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_POST_GAME_STARTED,function(_,mpgsc) if(not mpgsc) then print('hello, world') end end)
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 当继续游戏时，...
+当游戏读档继续(continue)时，打印hello, world到控制台上，请将指令中的print('hello, world')替换为你想要使用的lua指令内容，替换时注意不含l前缀。
+```
+l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_POST_GAME_STARTED,function(_,mpgsc) if(mpgsc) then print('hello, world') end end)
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 当退出游戏时，...
+当退出游戏时，打印hello, world到控制台上，请将指令中的print('hello, world')替换为你想要使用的lua指令内容，替换时注意不含l前缀。
+```
+l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_PRE_GAME_EXIT,function(_) print('hello, world') end)
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 当玩家死亡，游戏结束时，...
+当因死亡结束游戏时，打印hello, world到控制台上，请将指令中的print('hello, world')替换为你想要使用的lua指令内容，替换时注意不含l前缀。
+```
+l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_POST_GAME_END,function(_,mpgeiso) if(mpgeiso) then print('hello, world') end end)
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 当玩家通关，游戏结束时，...
+当因通关结束游戏时，打印hello, world到控制台上，请将指令中的print('hello, world')替换为你想要使用的lua指令内容，替换时注意不含l前缀。
+```
+l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_POST_GAME_END,function(_,mpgeiso) if(not mpgeiso) then print('hello, world') end end)
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 当进入新关卡/楼层时，...
+当进入新的楼层或关卡时，打印hello, world到控制台上，请将指令中的print('hello, world')替换为你想要使用的lua指令内容，替换时注意不含l前缀。
+```
+l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_POST_NEW_LEVEL,function(_) print('hello, world') end)
+```
+作者信息：[@frto027]()
+
+
+-----
+
+### 当进入新房间时，...
+当进入新的房间时，打印hello, world到控制台上，请将指令中的print('hello, world')替换为你想要使用的lua指令内容，替换时注意不含l前缀。
+```
+l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_POST_NEW_ROOM,function(_) print('hello, world') end)
 ```
 作者信息：[@frto027]()
