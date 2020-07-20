@@ -629,6 +629,15 @@ l Isaac.GetPlayer(0):SetActiveCharge(3)
 
 -----
 
+### 补满充能
+将主动充能补满
+```
+l Isaac.GetPlayer(0):FullCharge()
+```
+
+
+-----
+
 ### 清空充能
 将主动充能设置为0
 ```
@@ -863,6 +872,15 @@ l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_POST_REN
 
 -----
 
+### 当xxx死亡时，...
+当怪物MONSTRO（萌死戳）死亡时，打印hello, world到控制台上。其中ENTITY_MONSTRO可以替换为枚举量EntityType的值。此外，你也可以将指令中的“EntityType.ENTITY_MONSTRO”整个替换为一个数字，表示怪物种类，对应的是控制台中spawn指令的第一个数字。请将指令中的print('hello, world')替换为你想要使用的lua指令内容，替换时注意不含l前缀。<details>枚举量EntityType包含以下值：ENTITY_NULL, ENTITY_PLAYER, ENTITY_TEAR, ENTITY_FAMILIAR, ENTITY_BOMBDROP, ENTITY_PICKUP, ENTITY_SLOT, ENTITY_LASER, ENTITY_KNIFE, ENTITY_PROJECTILE, ENTITY_GAPER, ENTITY_GUSHER, ENTITY_HORF, ENTITY_FLY, ENTITY_POOTER, ENTITY_CLOTTY, ENTITY_MULLIGAN, ENTITY_SHOPKEEPER, ENTITY_ATTACKFLY, ENTITY_LARRYJR, ENTITY_MONSTRO, ENTITY_MAGGOT, ENTITY_HIVE, ENTITY_CHARGER, ENTITY_GLOBIN, ENTITY_BOOMFLY, ENTITY_MAW, ENTITY_HOST, ENTITY_CHUB, ENTITY_HOPPER, ENTITY_BOIL, ENTITY_SPITY, ENTITY_BRAIN, ENTITY_FIREPLACE, ENTITY_LEAPER, ENTITY_MRMAW, ENTITY_GURDY, ENTITY_BABY, ENTITY_VIS, ENTITY_GUTS, ENTITY_KNIGHT, ENTITY_STONEHEAD, ENTITY_MONSTRO2, ENTITY_POKY, ENTITY_MOM, ENTITY_SLOTH, ENTITY_LUST, ENTITY_WRATH, ENTITY_GLUTTONY, ENTITY_GREED, ENTITY_ENVY, ENTITY_PRIDE, ENTITY_DOPLE, ENTITY_FLAMINGHOPPER, ENTITY_LEECH, ENTITY_LUMP, ENTITY_MEMBRAIN, ENTITY_PARA_BITE, ENTITY_FRED, ENTITY_EYE, ENTITY_SUCKER, ENTITY_PIN, ENTITY_FAMINE, ENTITY_PESTILENCE, ENTITY_WAR, ENTITY_DEATH, ENTITY_DUKE, ENTITY_PEEP, ENTITY_LOKI, ENTITY_FISTULA_BIG, ENTITY_FISTULA_MEDIUM, ENTITY_FISTULA_SMALL, ENTITY_BLASTOCYST_BIG, ENTITY_BLASTOCYST_MEDIUM, ENTITY_BLASTOCYST_SMALL, ENTITY_EMBRYO, ENTITY_MOMS_HEART, ENTITY_GEMINI, ENTITY_MOTER, ENTITY_FALLEN, ENTITY_HEADLESS_HORSEMAN, ENTITY_HORSEMAN_HEAD, ENTITY_SATAN, ENTITY_SPIDER, ENTITY_KEEPER, ENTITY_GURGLE, ENTITY_WALKINGBOIL, ENTITY_BUTTLICKER, ENTITY_HANGER, ENTITY_SWARMER, ENTITY_HEART, ENTITY_MASK, ENTITY_BIGSPIDER, ENTITY_ETERNALFLY, ENTITY_MASK_OF_INFAMY, ENTITY_HEART_OF_INFAMY, ENTITY_GURDY_JR, ENTITY_WIDOW, ENTITY_DADDYLONGLEGS, ENTITY_ISAAC, ENTITY_STONE_EYE, ENTITY_CONSTANT_STONE_SHOOTER, ENTITY_BRIMSTONE_HEAD, ENTITY_MOBILE_HOST, ENTITY_NEST, ENTITY_BABY_LONG_LEGS, ENTITY_CRAZY_LONG_LEGS, ENTITY_FATTY, ENTITY_FAT_SACK, ENTITY_BLUBBER, ENTITY_HALF_SACK, ENTITY_DEATHS_HEAD, ENTITY_MOMS_HAND, ENTITY_FLY_L2, ENTITY_SPIDER_L2, ENTITY_SWINGER, ENTITY_DIP, ENTITY_WALL_HUGGER, ENTITY_WIZOOB, ENTITY_SQUIRT, ENTITY_COD_WORM, ENTITY_RING_OF_FLIES, ENTITY_DINGA, ENTITY_OOB, ENTITY_BLACK_MAW, ENTITY_SKINNY, ENTITY_BONY, ENTITY_HOMUNCULUS, ENTITY_TUMOR, ENTITY_CAMILLO_JR, ENTITY_NERVE_ENDING, ENTITY_SKINBALL, ENTITY_MOM_HEAD, ENTITY_ONE_TOOTH, ENTITY_GAPING_MAW, ENTITY_BROKEN_GAPING_MAW, ENTITY_GURGLING, ENTITY_SPLASHER, ENTITY_GRUB, ENTITY_WALL_CREEP, ENTITY_RAGE_CREEP, ENTITY_BLIND_CREEP, ENTITY_CONJOINED_SPITTY, ENTITY_ROUND_WORM, ENTITY_POOP, ENTITY_RAGLING, ENTITY_FLESH_MOBILE_HOST, ENTITY_PSY_HORF, ENTITY_FULL_FLY, ENTITY_TICKING_SPIDER, ENTITY_BEGOTTEN, ENTITY_NULLS, ENTITY_PSY_TUMOR, ENTITY_FLOATING_KNIGHT, ENTITY_NIGHT_CRAWLER, ENTITY_DART_FLY, ENTITY_CONJOINED_FATTY, ENTITY_FAT_BAT, ENTITY_IMP, ENTITY_THE_HAUNT, ENTITY_DINGLE, ENTITY_MEGA_MAW, ENTITY_GATE, ENTITY_MEGA_FATTY, ENTITY_CAGE, ENTITY_MAMA_GURDY, ENTITY_DARK_ONE, ENTITY_ADVERSARY, ENTITY_POLYCEPHALUS, ENTITY_MR_FRED, ENTITY_URIEL, ENTITY_GABRIEL, ENTITY_THE_LAMB, ENTITY_MEGA_SATAN, ENTITY_MEGA_SATAN_2, ENTITY_ROUNDY, ENTITY_BLACK_BONY, ENTITY_BLACK_GLOBIN, ENTITY_BLACK_GLOBIN_HEAD, ENTITY_BLACK_GLOBIN_BODY, ENTITY_SWARM, ENTITY_MEGA_CLOTTY, ENTITY_BONE_KNIGHT, ENTITY_CYCLOPIA, ENTITY_RED_GHOST, ENTITY_FLESH_DEATHS_HEAD, ENTITY_MOMS_DEAD_HAND, ENTITY_DUKIE, ENTITY_ULCER, ENTITY_MEATBALL, ENTITY_PITFALL, ENTITY_MOVABLE_TNT, ENTITY_ULTRA_COIN, ENTITY_ULTRA_DOOR, ENTITY_CORN_MINE, ENTITY_HUSH_FLY, ENTITY_HUSH_GAPER, ENTITY_HUSH_BOIL, ENTITY_GREED_GAPER, ENTITY_MUSHROOM, ENTITY_POISON_MIND, ENTITY_STONEY, ENTITY_BLISTER, ENTITY_THE_THING, ENTITY_MINISTRO, ENTITY_PORTAL, ENTITY_TARBOY, ENTITY_FISTULOID, ENTITY_GUSH, ENTITY_LEPER, ENTITY_STAIN, ENTITY_BROWNIE, ENTITY_FORSAKEN, ENTITY_LITTLE_HORN, ENTITY_RAG_MAN, ENTITY_ULTRA_GREED, ENTITY_HUSH, ENTITY_HUSH_SKINLESS, ENTITY_RAG_MEGA, ENTITY_SISTERS_VIS, ENTITY_BIG_HORN, ENTITY_DELIRIUM, ENTITY_MATRIARCH, ENTITY_EFFECT, ENTITY_TEXT</details>
+```
+l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_POST_NPC_DEATH,function(_) print('hello, world') end,EntityType.ENTITY_MONSTRO)
+```
+
+
+-----
+
 ### 禁止投掷物
 移除所有的投掷物。游戏场景内所有的投掷物都会被移除，甚至混沌卡也不能用。
 ```
@@ -876,6 +894,33 @@ l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_POST_PRO
 执行"spawn 5.100.118"这条控制台指令（在地面上生成118号道具），指令需要被单引号或双引号包起来，不要在指令中出现将它包起来的那个符号。话说回来，我为什么要在控制台的lua里执行控制台指令？答案是可以把这条指令用在回调中。
 ```
 l Isaac.ExecuteCommand('spawn 5.100.118')
+```
+
+
+-----
+
+### 执行多次控制台指令
+由于此处控制台的repeat指令失效，故提供此方案。反复执行"spawn 5.100.118"这条控制台指令共3次。（在地面上生成118号道具），指令需要被单引号或双引号包起来，不要在指令中出现将它包起来的那个符号。话说回来，我为什么要在控制台的lua里执行控制台指令？答案是可以把这条指令用在回调中。
+```
+l for i=1,3 do Isaac.ExecuteCommand('spawn 5.100.118') end
+```
+
+
+-----
+
+### 在游戏的每一帧，...
+警告：请谨慎执行，此指令可能会引起意外的游戏行为，并导致游戏崩溃。在游戏的每一帧，打印hello, world到控制台上。请将指令中的print('hello, world')替换为你想要使用的lua指令内容，替换时注意不含l前缀。
+```
+l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_POST_UPDATE,function(_) print('hello, world') end)
+```
+
+
+-----
+
+### 在游戏的每一渲染帧，...
+警告：请谨慎执行，此指令可能会引起意外的游戏行为，并导致游戏崩溃。在游戏的每一渲染帧时，打印hello, world到控制台上。请将指令中的print('hello, world')替换为你想要使用的lua指令内容，替换时注意不含l前缀。
+```
+l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_POST_RENDER,function(_) print('hello, world') end)
 ```
 
 
@@ -903,4 +948,103 @@ l ftlk={n=ftlk,f=function() print('hello, world') end}
 注意，此指令仅在至少执行过一遍“在下一帧，执行...”指令后才可以使用。<br/>本质上是延迟一帧的套娃版本，你可以进一步套娃，得到延迟三帧、四帧等指令，不过这真的有用吗？延迟两帧打印hello, world。这条指令主要在特定逻辑下被用到。请将指令中的print('hello, world')替换为你想要使用的lua指令内容，替换时注意不含l前缀。
 ```
 l ftlk={n=ftlk,f=function() ftlk={n=ftlk,f=function() print('hello, world') end} end}
+```
+
+
+-----
+
+### 让玩家受伤
+让玩家受到1点（半颗心）伤害，在第七层后，玩家至少受到一颗心的伤害。指令中的1表示半血。
+```
+l Isaac.GetPlayer(0):TakeDamage(1,0,EntityRef(nil),0)
+```
+
+
+-----
+
+### 让玩家中毒
+让玩家中毒，持续时间为30
+```
+l Isaac.GetPlayer(0):AddPoison(EntityRef(nil),30,0)
+```
+
+
+-----
+
+### 灼烧玩家
+让玩家被灼烧，持续时间为30
+```
+l Isaac.GetPlayer(0):AddBurn(EntityRef(nil),30,0)
+```
+
+
+-----
+
+### 让玩家死亡
+让玩家立即死亡
+```
+l Isaac.GetPlayer(0):Die()
+```
+
+
+-----
+
+### 禁止操作数秒
+强制冷静。让玩家在两秒（120帧）内无法操作。
+```
+l Isaac.GetPlayer(0).ControlsCooldown=120
+```
+
+
+-----
+
+### 缩放玩家贴图
+将玩家贴图水平放大至2倍，垂直放大至0.1倍。不影响实际碰撞。
+```
+l Isaac.GetPlayer(0).SpriteScale=Vector(2,0.1)
+```
+
+
+-----
+
+### 缩放玩家碰撞
+将玩家碰撞水平放大至2倍，垂直放大至0.1倍。不影响游戏贴图。
+```
+l Isaac.GetPlayer(0):SetSize(1,Vector(2,0.1),0)
+```
+
+
+-----
+
+### 隐藏玩家贴图
+隐藏玩家的贴图。你看不到自己。将指令中的false改为true即可实现相反的效果。
+```
+l Isaac.GetPlayer(0).Visible=false
+```
+
+
+-----
+
+### 玩家贴图左右翻转
+左右翻转玩家的贴图。将指令中的true改为false即可实现停止这一效果。好像没有什么用的东西。
+```
+l Isaac.GetPlayer(0).FlipX=true
+```
+
+
+-----
+
+### 玩家贴图旋转（固定值）
+将玩家的贴图逆时针为旋转45度。奇怪的指令增加了。
+```
+l Isaac.GetPlayer(0).SpriteRotation=45
+```
+
+
+-----
+
+### 玩家贴图旋转（相对值）
+将玩家的贴图逆时针继续旋转45度。奇怪的指令增加了。
+```
+l Isaac.GetPlayer(0).SpriteRotation=Isaac.GetPlayer(0).SpriteRotation+45
 ```
