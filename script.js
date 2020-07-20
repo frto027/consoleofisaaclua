@@ -136,7 +136,7 @@ function keyword_is_match(keyword,keywords){
     keyword = keyword.toLowerCase()
     for(let i=0;i<keywords.length;i++){
         k = keywords[i].toLowerCase()
-        if(k.indexOf(keyword) >= 0)
+        if(k.indexOf(keyword) >= 0 || keyword.indexOf(k) >= 0)
             return true
     }
     return false

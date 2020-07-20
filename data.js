@@ -57,7 +57,7 @@ var data = [
 },{
 	"name_zh":"展示预言",
 	"status":[],
-	"keywords":['展示','预言机','showfortune'],
+	"keywords":['展示','预言机','废话机','废话','showfortune'],
 	"desc_zh":"展示一条预言机的预言",
 	"code":'l Game():ShowFortune()',
 	"about":'@frto027',
@@ -65,7 +65,7 @@ var data = [
 },{
 	"name_zh":"展示规则",
 	"status":[],
-	"keywords":['展示','规则卡','show','rule','card'],
+	"keywords":['展示','规则卡','废话卡','废话','show','rule','card'],
 	"desc_zh":"展示一条规则卡的规则",
 	"code":'l Game():ShowRule()',
 	"about":'@frto027',
@@ -98,7 +98,7 @@ var data = [
 },{
 	"name_zh":"传送至房间网格索引",
 	"status":[],
-	"keywords":['传送至房间网格索引','teleport','gridindex','roomindex'],
+	"keywords":['传送至房间网格索引','传送','房间','teleport','gridindex','roomindex'],
 	"desc_zh":"传送至房间网格索引(GridIndex)为84的房间，网格索引和小地图有关，请小心崩溃，经测试84为出生点。",
 	"code":'l Game():ChangeRoom(84)',
 	"about":'@frto027',
@@ -114,7 +114,7 @@ var data = [
 },{
 	"name_zh":"屏幕黑暗",
 	"status":[],
-	"keywords":['屏幕黑暗','dark','screen','黑屏','关灯'],
+	"keywords":['屏幕黑暗','dark','screen','变黑','黑屏','关灯'],
 	"desc_zh":"以0.7的黑暗程度(猜测范围0 ~ 1)进行黑屏，时间为30。不清楚单位，猜测是半帧，估计30=1秒。",
 	"code":'l Game():Darken(0.7,30)',
 	"about":'@frto027',
@@ -122,7 +122,7 @@ var data = [
 },{
 	"name_zh":"打印胜利跑圈数",
 	"status":[],
-	"keywords":['打印胜利跑圈数','victory','lap','print'],
+	"keywords":['打印胜利跑圈数','跑圈','victory','lap','print'],
 	"desc_zh":"在控制台上打印胜利跑圈数",
 	"code":'l print(Game():GetVictoryLap())',
 	"about":'@frto027',
@@ -130,7 +130,7 @@ var data = [
 },{
 	"name_zh":"进行下一轮胜利跑圈",
 	"status":[],
-	"keywords":['下一轮胜利跑圈','victory','lap','next','run'],
+	"keywords":['下一轮胜利跑圈','开启','跑圈','victory','lap','next','run'],
 	"desc_zh":"直接开启下一轮跑圈",
 	"code":'l Game():NextVictoryLap()',
 	"about":'@frto027',
@@ -138,7 +138,7 @@ var data = [
 },{
 	"name_zh":"随机位置生成x石头",
 	"status":[],
-	"keywords":['rockt','×石头','x石头','叉石头','插石头','隐藏石头'],
+	"keywords":['rockt','×石头','x石头','叉石头','插石头','宝箱石头','隐藏石头'],
 	"desc_zh":"在随机位置生成x石头，不会覆盖已有地形",
 	"code":'l Isaac.GridSpawn(GridEntityType.GRID_ROCKT,0,Isaac.GetRandomPosition(),false)',
 	"about":'@frto027',
@@ -146,7 +146,7 @@ var data = [
 },{
 	"name_zh":"生成友好怪物",
 	"status":[],
-	"keywords":['frendly','charm','友好','魅惑'],
+	"keywords":['frendly','charm','友好','怪物','生成','魅惑'],
 	"desc_zh":"生成种类、变体、子类型为100,0,0的怪物，位置是(200,200)，速度为0，并具有友好、魅惑、持久（更换房间后不消失）属性",
 	"code":'l Isaac.Spawn(100,0,0,Vector(200,200),Vector(0,0),Isaac.GetPlayer(0)):AddEntityFlags(EntityFlag.FLAG_FRIENDLY|EntityFlag.FLAG_CHARM|EntityFlag.FLAG_PERSISTENT)',
 	"about":'@frto027',
@@ -162,7 +162,7 @@ var data = [
 },{
 	"name_zh":"设置红心伤害",
 	"status":[],
-	"keywords":['红心','伤害','恶魔房概率'],
+	"keywords":['红心','伤害','红血','恶魔房概率'],
 	"desc_zh":"设置本层受过红心伤害（影响恶魔房概率）",
 	"code":'l Game():GetLevel():SetRedHeartDamage()',
 	"about":'@frto027',
@@ -194,7 +194,7 @@ var data = [
 },{
 	"name_zh":"透视(I can see everything)",
 	"status":[],
-	"keywords":['I can see everything','隐藏','超隐'],
+	"keywords":['I can see everything','隐藏','透视','超隐'],
 	"desc_zh":"类似x光眼镜、I can see everything的效果。将true改为false就是关闭这一能力的指令。",
 	"code":'l Game():GetLevel():SetCanSeeEverything(true)',
 	"about":'@frto027',
@@ -202,7 +202,7 @@ var data = [
 },{
 	"name_zh":"使用白地图",
 	"status":[],
-	"keywords":['地图','开图','普通房间'],
+	"keywords":['地图','开图','白地图','普通房间'],
 	"desc_zh":"显示当前层的普通房间，类似白地图的效果",
 	"code":'l Game():GetLevel():ApplyMapEffect(true)',
 	"about":'@frto027',
@@ -210,7 +210,7 @@ var data = [
 },{
 	"name_zh":"使用蓝地图",
 	"status":[],
-	"keywords":['地图','蓝图','开图','隐藏房间','超隐'],
+	"keywords":['地图','蓝图','蓝地图','开图','隐藏房间','超隐'],
 	"desc_zh":"显示当前层的隐藏房间，类似蓝地图的效果",
 	"code":'l Game():GetLevel():ApplyBlueMapEffect()',
 	"about":'@frto027',
@@ -242,7 +242,7 @@ var data = [
 },{
 	"name_zh":"Mama mega大爆炸",
 	"status":[],
-	"keywords":['房间','大爆炸','Mama mega','大炸弹'],
+	"keywords":['房间','大爆炸','Mama mega','妈妈炸弹','大炸弹'],
 	"desc_zh":"触发一次Mama mega大炸弹的爆炸效果",
 	"code":'l Game():GetLevel():GetCurrentRoom():MamaMegaExplossion()',
 	"about":'@frto027',
@@ -290,7 +290,7 @@ var data = [
 },{
 	"name_zh":"打印x石头网格索引",
 	"status":[],
-	"keywords":['房间','x石头','宝箱石头'],
+	"keywords":['房间','x石头','宝箱石头','叉石头','插石头','宝箱石头','隐藏石头','打印'],
 	"desc_zh":"打印当前房间中x石头的网格索引。网格索引可以使用debug 11观察。",
 	"code":'l print(Game():GetLevel():GetCurrentRoom():GetTintedRockIdx())',
 	"about":'@frto027',
@@ -298,7 +298,7 @@ var data = [
 },{
 	"name_zh":"打印地下室石头网格索引",
 	"status":[],
-	"keywords":['房间','地下室石头'],
+	"keywords":['房间','地下室石头','楼梯','梯子','地下室'],
 	"desc_zh":"打印当前房间中地下室石头的网格索引。-1表示不存在地下室。网格索引可以使用debug 11观察。",
 	"code":'l print(Game():GetLevel():GetCurrentRoom():GetDungeonRockIdx())',
 	"about":'@frto027',
@@ -306,7 +306,7 @@ var data = [
 },{
 	"name_zh":"生成清图奖励",
 	"status":[],
-	"keywords":['房间','清图','清理房间','基础掉落'],
+	"keywords":['房间','清图','过图','清理房间','基础掉落'],
 	"desc_zh":"生成清理房间的奖励。",
 	"code":'l Game():GetLevel():GetCurrentRoom():SpawnClearAward()',
 	"about":'@frto027',
@@ -314,7 +314,7 @@ var data = [
 },{
 	"name_zh":"墙壁冒血",
 	"status":[],
-	"keywords":['房间','墙壁','冒血','特效'],
+	"keywords":['房间','墙壁','冒血','流血','特效'],
 	"desc_zh":"似乎在哪里见过的特效。墙壁冒血，时间为30（持续1秒），密度为10。",
 	"code":'l Game():GetLevel():GetCurrentRoom():EmitBloodFromWalls(30,10)',
 	"about":'@frto027',
@@ -562,7 +562,7 @@ var data = [
 },{
 	"name_zh":"红心补满",
 	"status":[],
-	"keywords":['HP','补充','补满','恢复'],
+	"keywords":['HP','补充','补满','血量','红血','回血','恢复'],
 	"desc_zh":"恢复所有心之容器",
 	"code":'l Isaac.GetPlayer(0):SetFullHearts()',
 	"about":'@frto027',
@@ -602,7 +602,7 @@ var data = [
 },{
 	"name_zh":"触发卡片效果",
 	"status":[],
-	"keywords":['触发','特定卡片','使用卡片','卡片效果'],
+	"keywords":['触发','特定卡片','使用卡片','卡牌','卡片效果'],
 	"desc_zh":"触发The Fool卡片的效果。CARD_FOOL可以替换为枚举变量Card中的任意值（或使用卡片id）。<details>Card枚举变量可用值如下：<p>CARD_FOOL, CARD_MAGICIAN, CARD_HIGH_PRIESTESS, CARD_EMPRESS, CARD_EMPEROR, CARD_HIEROPHANT, CARD_LOVERS, CARD_CHARIOT, CARD_JUSTICE, CARD_HERMIT, CARD_WHEEL_OF_FORTUNE, CARD_STRENGTH, CARD_HANGED_MAN, CARD_DEATH, CARD_TEMPERANCE, CARD_DEVIL, CARD_TOWER, CARD_STARS, CARD_MOON, CARD_SUN, CARD_JUDGEMENT, CARD_WORLD, CARD_CLUBS_2, CARD_DIAMONDS_2, CARD_SPADES_2, CARD_HEARTS_2, CARD_ACE_OF_CLUBS, CARD_ACE_OF_DIAMONDS, CARD_ACE_OF_SPADES, CARD_ACE_OF_HEARTS, CARD_JOKER, RUNE_HAGALAZ, RUNE_JERA, RUNE_EHWAZ, RUNE_DAGAZ, RUNE_ANSUZ, RUNE_PERTHRO, RUNE_BERKANO, RUNE_ALGIZ, RUNE_BLANK, RUNE_BLACK, CARD_CHAOS, CARD_CREDIT, CARD_RULES, CARD_HUMANITY, CARD_SUICIDE_KING, CARD_GET_OUT_OF_JAIL, CARD_QUESTIONMARK, CARD_DICE_SHARD, CARD_EMERGENCY_CONTACT, CARD_HOLY, CARD_HUGE_GROWTH, CARD_ANCIENT_RECALL, CARD_ERA_WALK</p></details>",
 	"code":'l Isaac.GetPlayer(0):UseCard(Card.CARD_FOOL)',
 	"about":'@frto027',
@@ -674,7 +674,7 @@ var data = [
 },{
 	"name_zh":"当使用卡片时，...",
 	"status":['reset'],
-	"keywords":['使用','任意','卡片','回调函数'],
+	"keywords":['使用','任意','卡片','卡牌','回调函数'],
 	"desc_zh":"当使用任意卡片时，打印hello, world到控制台上，请将指令中的print('hello, world')替换为你想要使用的lua指令内容，替换时注意不含l前缀。",
 	"code":`l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_USE_CARD,function(_) print('hello, world') end)`,
 	"about":'@frto027',
@@ -682,7 +682,7 @@ var data = [
 },{
 	"name_zh":"当使用某个卡片时，...",
 	"status":['reset'],
-	"keywords":['使用','某个','卡片','回调函数'],
+	"keywords":['使用','某个','卡片','卡牌','回调函数'],
 	"desc_zh":"当使用The Fool卡时，打印hello, world到控制台上。你可以将指令中的CARD_FOOL替换为枚举变量Card中的任意值。请将指令中的print('hello, world')替换为你想要使用的lua指令内容，替换时注意不含l前缀。<details>Card枚举变量可用值如下：<p>CARD_FOOL, CARD_MAGICIAN, CARD_HIGH_PRIESTESS, CARD_EMPRESS, CARD_EMPEROR, CARD_HIEROPHANT, CARD_LOVERS, CARD_CHARIOT, CARD_JUSTICE, CARD_HERMIT, CARD_WHEEL_OF_FORTUNE, CARD_STRENGTH, CARD_HANGED_MAN, CARD_DEATH, CARD_TEMPERANCE, CARD_DEVIL, CARD_TOWER, CARD_STARS, CARD_MOON, CARD_SUN, CARD_JUDGEMENT, CARD_WORLD, CARD_CLUBS_2, CARD_DIAMONDS_2, CARD_SPADES_2, CARD_HEARTS_2, CARD_ACE_OF_CLUBS, CARD_ACE_OF_DIAMONDS, CARD_ACE_OF_SPADES, CARD_ACE_OF_HEARTS, CARD_JOKER, RUNE_HAGALAZ, RUNE_JERA, RUNE_EHWAZ, RUNE_DAGAZ, RUNE_ANSUZ, RUNE_PERTHRO, RUNE_BERKANO, RUNE_ALGIZ, RUNE_BLANK, RUNE_BLACK, CARD_CHAOS, CARD_CREDIT, CARD_RULES, CARD_HUMANITY, CARD_SUICIDE_KING, CARD_GET_OUT_OF_JAIL, CARD_QUESTIONMARK, CARD_DICE_SHARD, CARD_EMERGENCY_CONTACT, CARD_HOLY, CARD_HUGE_GROWTH, CARD_ANCIENT_RECALL, CARD_ERA_WALK</p></details>",
 	"code":`l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_USE_CARD,function(_) print('hello, world') end,Card.CARD_FOOL)`,
 	"about":'@frto027',
