@@ -80,6 +80,14 @@ var data = [
 	"about":'@frto027',
 	"about_link":'http://tieba.baidu.com/p/6462139868?pid=129623864146&cid=0#129623864146'
 },{
+	"name_zh":"随机传送",
+	"status":[],
+	"keywords":['随机传送','随机移动','move','randome'],
+	"desc_zh":"随机进行当前层的传送",
+	"code":'l Game():MoveToRandomRoom(True,Random())',
+	"about":'@frto027',
+	"about_link":'http://tieba.baidu.com/p/6462139868?pid=129623864146&cid=0#129623864146'
+},{
 	"name_zh":"取当前房间网格索引",
 	"status":[],
 	"keywords":['当前房间网格索引','roomindex','gridindex','get','current'],

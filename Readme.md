@@ -89,6 +89,15 @@ l Game():MoveToRandomRoom(True,123)
 
 -----
 
+### 随机传送
+随机进行当前层的传送
+```
+l Game():MoveToRandomRoom(True,Random())
+```
+
+
+-----
+
 ### 取当前房间网格索引
 打印当前的房间索引（RoomIndex，GridIndex）
 ```
