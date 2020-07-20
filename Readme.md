@@ -35,8 +35,8 @@ l for _,v in pairs(Isaac.GetRoomEntities()) do if v:IsVulnerableEnemy() then pri
 
 -----
 
-### 增加诅咒 - Curse of the Blind
-增加诅咒位CURSE_OF_BLIND
+### 增加诅咒
+增加诅咒位CURSE_OF_BLIND（致盲诅咒，看不见物品）。你可以将指令中的CURSE_OF_BLIND替换为下面的值之一：CURSE_OF_DARKNESS, CURSE_OF_LABYRINTH, CURSE_OF_THE_LOST, CURSE_OF_THE_UNKNOWN, CURSE_OF_THE_CURSED, CURSE_OF_MAZE, CURSE_OF_BLIND
 ```
 l Game():GetLevel():AddCurse(LevelCurse.CURSE_OF_BLIND)
 ```
@@ -44,8 +44,8 @@ l Game():GetLevel():AddCurse(LevelCurse.CURSE_OF_BLIND)
 
 -----
 
-### 移除诅咒 - Curse of the Blind
-移除诅咒位CURSE_OF_BLIND
+### 移除诅咒
+移除诅咒位CURSE_OF_BLIND（致盲诅咒，看不见物品）。你可以将指令中的CURSE_OF_BLIND替换为下面的值之一：CURSE_OF_DARKNESS, CURSE_OF_LABYRINTH, CURSE_OF_THE_LOST, CURSE_OF_THE_UNKNOWN, CURSE_OF_THE_CURSED, CURSE_OF_MAZE, CURSE_OF_BLIND
 ```
 l Game():GetLevel():RemoveCurse(LevelCurse.CURSE_OF_BLIND)
 ```
@@ -290,7 +290,7 @@ l print(Game():GetLevel():GetCurrentRoom():IsFirstEnemyDead())
 ### 设置当前房间是否已有敌人死亡
 设置当前房间已有敌人死亡，可以将true改为false，表示当前房间还没有敌人死亡
 ```
-l Game():GetLevel():GetCurrentRoom():	SetFirstEnemyDead(true)
+l Game():GetLevel():GetCurrentRoom():SetFirstEnemyDead(true)
 ```
 
 
@@ -549,7 +549,7 @@ l Isaac.GetPlayer(0):RemoveGoldenKey()
 -----
 
 ### 设置金炸弹
-设置金钥匙
+设置金炸弹
 ```
 l Isaac.GetPlayer(0):AddGoldenBomb()
 ```
@@ -558,7 +558,7 @@ l Isaac.GetPlayer(0):AddGoldenBomb()
 -----
 
 ### 移除金炸弹
-移除金钥匙
+移除金炸弹
 ```
 l Isaac.GetPlayer(0):RemoveGoldenBomb()
 ```

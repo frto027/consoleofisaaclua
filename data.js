@@ -30,19 +30,19 @@ var data = [
 	"about":"@Binding of Isaac - Afterbirth+ Lua Reference",
 },
 {
-	"name_zh":"增加诅咒 - Curse of the Blind",
+	"name_zh":"增加诅咒",
 	"status":[],
-	"keywords":['诅咒','增加','add','瞎子','Curse of the Blind'],
-	"desc_zh":"增加诅咒位CURSE_OF_BLIND",
+	"keywords":['诅咒','增加','add'],
+	"desc_zh":"增加诅咒位CURSE_OF_BLIND（致盲诅咒，看不见物品）。你可以将指令中的CURSE_OF_BLIND替换为下面的值之一：CURSE_OF_DARKNESS, CURSE_OF_LABYRINTH, CURSE_OF_THE_LOST, CURSE_OF_THE_UNKNOWN, CURSE_OF_THE_CURSED, CURSE_OF_MAZE, CURSE_OF_BLIND",
 	"code":'l Game():GetLevel():AddCurse(LevelCurse.CURSE_OF_BLIND)',
 	"about":"@frto027",
 	"about_link":'http://tieba.baidu.com/p/4928422576?pid=128955968778&cid=0#128955968778'
 },
 {
-	"name_zh":"移除诅咒 - Curse of the Blind",
+	"name_zh":"移除诅咒",
 	"status":[],
 	"keywords":['诅咒','去除','移除','remove','瞎子','Curse of the Blind'],
-	"desc_zh":"移除诅咒位CURSE_OF_BLIND",
+	"desc_zh":"移除诅咒位CURSE_OF_BLIND（致盲诅咒，看不见物品）。你可以将指令中的CURSE_OF_BLIND替换为下面的值之一：CURSE_OF_DARKNESS, CURSE_OF_LABYRINTH, CURSE_OF_THE_LOST, CURSE_OF_THE_UNKNOWN, CURSE_OF_THE_CURSED, CURSE_OF_MAZE, CURSE_OF_BLIND",
 	"code":'l Game():GetLevel():RemoveCurse(LevelCurse.CURSE_OF_BLIND)',
 	"about":"@frto027",
 	"about_link":'http://tieba.baidu.com/p/4928422576?pid=128955968778&cid=0#128955968778'
@@ -260,7 +260,7 @@ var data = [
 	"status":[],
 	"keywords":['房间','击杀','第一次','第一滴血'],
 	"desc_zh":"设置当前房间已有敌人死亡，可以将true改为false，表示当前房间还没有敌人死亡",
-	"code":'l Game():GetLevel():GetCurrentRoom():	SetFirstEnemyDead(true)',
+	"code":'l Game():GetLevel():GetCurrentRoom():SetFirstEnemyDead(true)',
 	"about":'@frto027',
 	"about_link":''
 },{
@@ -491,7 +491,7 @@ var data = [
 	"name_zh":"设置金炸弹",
 	"status":[],
 	"keywords":['玩家','金炸弹','无限炸弹','拾取'],
-	"desc_zh":"设置金钥匙",
+	"desc_zh":"设置金炸弹",
 	"code":'l Isaac.GetPlayer(0):AddGoldenBomb()',
 	"about":'@frto027',
 	"about_link":''
@@ -499,7 +499,7 @@ var data = [
 	"name_zh":"移除金炸弹",
 	"status":[],
 	"keywords":['玩家','金炸弹','无限炸弹','移除'],
-	"desc_zh":"移除金钥匙",
+	"desc_zh":"移除金炸弹",
 	"code":'l Isaac.GetPlayer(0):RemoveGoldenBomb()',
 	"about":'@frto027',
 	"about_link":''
