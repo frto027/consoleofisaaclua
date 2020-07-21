@@ -170,6 +170,15 @@ l Isaac.GridSpawn(GridEntityType.GRID_ROCKT,0,Isaac.GetRandomPosition(),false)
 
 -----
 
+### 定点生成地形
+在鼠标所指位置生成石头（GRID_ROCK），不会覆盖已有地形。其中GRID_ROCK可替换为枚举量GridEntityType的任意值。<details>GridEntityType包括：GRID_DECORATION, GRID_ROCK, GRID_ROCKB, GRID_ROCKT, GRID_ROCK_BOMB, GRID_ROCK_ALT, GRID_PIT, GRID_SPIKES, GRID_SPIKES_ONOFF, GRID_SPIDERWEB, GRID_LOCK, GRID_TNT, GRID_FIREPLACE（未使用）, GRID_POOP, GRID_WALL, GRID_DOOR, GRID_TRAPDOOR, GRID_STAIRS, GRID_GRAVITY, GRID_PRESSURE_PLATE, GRID_STATUE, GRID_ROCK_SS</details>
+```
+l Isaac.GridSpawn(GridEntityType.GRID_ROCK,0,Input.GetMousePosition(true),false)
+```
+
+
+-----
+
 ### 生成友好怪物
 生成种类、变体、子类型为100,0,0的怪物，位置是(200,200)，速度为0，并具有友好、魅惑、持久（更换房间后不消失）属性
 ```
@@ -179,10 +188,28 @@ l Isaac.Spawn(100,0,0,Vector(200,200),Vector(0,0),Isaac.GetPlayer(0)):AddEntityF
 
 -----
 
+### 定点生成/生产实体
+生成种类、变体、子类型为5,100,118的实体（硫磺火），位置是鼠标所指位置，速度为0。这三个数字详见控制台的spawn指令。
+```
+l Isaac.Spawn(5,100,118,Input.GetMousePosition(true),Vector(0,0),Isaac.GetPlayer(0))
+```
+
+
+-----
+
 ### 打印去过的宝箱房数量
 去过几个宝箱房，就打印几
 ```
 l print(Game():GetTreasureRoomVisitCount())
+```
+
+
+-----
+
+### 定点击杀
+消灭距离鼠标位置最近的实体，如果鼠标半径100内没有实体，则无效（指令中使用100的平方即10000来表示这个距离）。
+```
+l local _m,_p,_e=Input.GetMousePosition(true),10000,nil for _,v in pairs(Isaac.GetRoomEntities()) do local _pp=(v.Position-_m):LengthSquared() if _pp<_p then _p,_e=_pp,v end end if _e then _e:Kill() end
 ```
 
 
@@ -327,6 +354,51 @@ l Game():GetLevel():GetCurrentRoom():RespawnEnemies()
 在网格索引为40的位置上进行填充。可以使用debug 11来观察网格索引。只能在沟壑(pit)上使用，使用时请将40修改为当前房间中某个沟壑的网格索引。
 ```
 l Game():GetLevel():GetCurrentRoom():TryMakeBridge(Game():GetLevel():GetCurrentRoom():GetGridEntity(40))
+```
+
+
+-----
+
+### 移除地形
+移除网格索引为60位置的地形（60在正常大小的房间中是左侧的门的位置，因此会移除左侧的门）。可以使用debug 11来观察网格索引。
+```
+l Game():GetLevel():GetCurrentRoom():RemoveGridEntity(60,0,true)
+```
+
+
+-----
+
+### 定点移除地形
+移除鼠标所在位置处的地形。可以使用debug 11来观察网格索引。
+```
+l Game():GetLevel():GetCurrentRoom():RemoveGridEntity(Game():GetLevel():GetCurrentRoom():GetClampedGridIndex(Input.GetMousePosition(true)),0,true)
+```
+
+
+-----
+
+### 定点攻击地形
+给鼠标所在位置处的地形造成1点伤害。
+```
+l Game():GetLevel():GetCurrentRoom():DamageGrid(Game():GetLevel():GetCurrentRoom():GetClampedGridIndex(Input.GetMousePosition(true)),1)
+```
+
+
+-----
+
+### 定点摧毁地形（自然摧毁）
+自然摧毁鼠标所在位置处的地形。例如，自然摧毁一个爆桶时，会发生爆炸。
+```
+l Game():GetLevel():GetCurrentRoom():DestroyGrid(Game():GetLevel():GetCurrentRoom():GetClampedGridIndex(Input.GetMousePosition(true)),false)
+```
+
+
+-----
+
+### 定点摧毁地形（立即摧毁）
+立即摧毁鼠标所在位置处的地形。例如，立即摧毁一个爆桶时，不会发生爆炸。
+```
+l Game():GetLevel():GetCurrentRoom():DestroyGrid(Game():GetLevel():GetCurrentRoom():GetClampedGridIndex(Input.GetMousePosition(true)),true)
 ```
 
 
@@ -902,7 +974,7 @@ l Isaac.ExecuteCommand('spawn 5.100.118')
 ### 执行多次控制台指令
 由于此处控制台的repeat指令失效，故提供此方案。反复执行"spawn 5.100.118"这条控制台指令共3次。（在地面上生成118号道具），指令需要被单引号或双引号包起来，不要在指令中出现将它包起来的那个符号。话说回来，我为什么要在控制台的lua里执行控制台指令？答案是可以把这条指令用在回调中。
 ```
-l for i=1,3 do Isaac.ExecuteCommand('spawn 5.100.118') end
+l for _=1,3 do Isaac.ExecuteCommand('spawn 5.100.118') end
 ```
 
 

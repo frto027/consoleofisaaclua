@@ -152,6 +152,14 @@ var data = [
 	"about":'@frto027',
 	"about_link":'http://tieba.baidu.com/p/4928422576?pid=102219431913&cid=130402803671#130402803671'
 },{
+	"name_zh":"定点生成地形",
+	"status":[],
+	"keywords":['鼠标位置','生成地形','生产地形','定点生成'],
+	"desc_zh":"在鼠标所指位置生成石头（GRID_ROCK），不会覆盖已有地形。其中GRID_ROCK可替换为枚举量GridEntityType的任意值。<details>GridEntityType包括：GRID_DECORATION, GRID_ROCK, GRID_ROCKB, GRID_ROCKT, GRID_ROCK_BOMB, GRID_ROCK_ALT, GRID_PIT, GRID_SPIKES, GRID_SPIKES_ONOFF, GRID_SPIDERWEB, GRID_LOCK, GRID_TNT, GRID_FIREPLACE（未使用）, GRID_POOP, GRID_WALL, GRID_DOOR, GRID_TRAPDOOR, GRID_STAIRS, GRID_GRAVITY, GRID_PRESSURE_PLATE, GRID_STATUE, GRID_ROCK_SS</details>",
+	"code":'l Isaac.GridSpawn(GridEntityType.GRID_ROCK,0,Input.GetMousePosition(true),false)',
+	"about":'@frto027',
+	"about_link":''
+},{
 	"name_zh":"生成友好怪物",
 	"status":[],
 	"keywords":['frendly','charm','友好','怪物','生成','魅惑'],
@@ -160,11 +168,27 @@ var data = [
 	"about":'@frto027',
 	"about_link":''
 },{
+	"name_zh":"定点生成/生产实体",
+	"status":[],
+	"keywords":['鼠标位置','定位','定点','实体','生成','生产'],
+	"desc_zh":"生成种类、变体、子类型为5,100,118的实体（硫磺火），位置是鼠标所指位置，速度为0。这三个数字详见控制台的spawn指令。",
+	"code":'l Isaac.Spawn(5,100,118,Input.GetMousePosition(true),Vector(0,0),Isaac.GetPlayer(0))',
+	"about":'@frto027',
+	"about_link":''
+},{
 	"name_zh":"打印去过的宝箱房数量",
 	"status":[],
 	"keywords":['宝箱房','次数','个数','time'],
 	"desc_zh":"去过几个宝箱房，就打印几",
 	"code":'l print(Game():GetTreasureRoomVisitCount())',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"定点击杀",
+	"status":[],
+	"keywords":['定点击杀','消除','移除','伤害','鼠标最近'],
+	"desc_zh":"消灭距离鼠标位置最近的实体，如果鼠标半径100内没有实体，则无效（指令中使用100的平方即10000来表示这个距离）。",
+	"code":'l local _m,_p,_e=Input.GetMousePosition(true),10000,nil for _,v in pairs(Isaac.GetRoomEntities()) do local _pp=(v.Position-_m):LengthSquared() if _pp<_p then _p,_e=_pp,v end end if _e then _e:Kill() end',
 	"about":'@frto027',
 	"about_link":''
 },{
@@ -293,6 +317,46 @@ var data = [
 	"keywords":['房间','沟壑','填充','填平','架桥','pit'],
 	"desc_zh":"在网格索引为40的位置上进行填充。可以使用debug 11来观察网格索引。只能在沟壑(pit)上使用，使用时请将40修改为当前房间中某个沟壑的网格索引。",
 	"code":'l Game():GetLevel():GetCurrentRoom():TryMakeBridge(Game():GetLevel():GetCurrentRoom():GetGridEntity(40))',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"移除地形",
+	"status":[],
+	"keywords":['房间','移除地形','删除地形','删除物品'],
+	"desc_zh":"移除网格索引为60位置的地形（60在正常大小的房间中是左侧的门的位置，因此会移除左侧的门）。可以使用debug 11来观察网格索引。",
+	"code":'l Game():GetLevel():GetCurrentRoom():RemoveGridEntity(60,0,true)',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"定点移除地形",
+	"status":[],
+	"keywords":['房间','移除地形','删除地形','删除物品','定点移除','鼠标位置移除地形'],
+	"desc_zh":"移除鼠标所在位置处的地形。可以使用debug 11来观察网格索引。",
+	"code":'l Game():GetLevel():GetCurrentRoom():RemoveGridEntity(Game():GetLevel():GetCurrentRoom():GetClampedGridIndex(Input.GetMousePosition(true)),0,true)',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"定点攻击地形",
+	"status":[],
+	"keywords":['房间','攻击地形','伤害地形','定点','鼠标位置'],
+	"desc_zh":"给鼠标所在位置处的地形造成1点伤害。",
+	"code":'l Game():GetLevel():GetCurrentRoom():DamageGrid(Game():GetLevel():GetCurrentRoom():GetClampedGridIndex(Input.GetMousePosition(true)),1)',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"定点摧毁地形（自然摧毁）",
+	"status":[],
+	"keywords":['房间','摧毁地形','消灭地形','定点','鼠标位置'],
+	"desc_zh":"自然摧毁鼠标所在位置处的地形。例如，自然摧毁一个爆桶时，会发生爆炸。",
+	"code":'l Game():GetLevel():GetCurrentRoom():DestroyGrid(Game():GetLevel():GetCurrentRoom():GetClampedGridIndex(Input.GetMousePosition(true)),false)',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"定点摧毁地形（立即摧毁）",
+	"status":[],
+	"keywords":['房间','摧毁地形','消灭地形','定点','鼠标位置'],
+	"desc_zh":"立即摧毁鼠标所在位置处的地形。例如，立即摧毁一个爆桶时，不会发生爆炸。",
+	"code":'l Game():GetLevel():GetCurrentRoom():DestroyGrid(Game():GetLevel():GetCurrentRoom():GetClampedGridIndex(Input.GetMousePosition(true)),true)',
 	"about":'@frto027',
 	"about_link":''
 },{
@@ -804,7 +868,7 @@ var data = [
 	"status":[],
 	"keywords":['执行控制台指令','多次','反复','控制台','指令','执行'],
 	"desc_zh":"由于此处控制台的repeat指令失效，故提供此方案。反复执行\"spawn 5.100.118\"这条控制台指令共3次。（在地面上生成118号道具），指令需要被单引号或双引号包起来，不要在指令中出现将它包起来的那个符号。话说回来，我为什么要在控制台的lua里执行控制台指令？答案是可以把这条指令用在回调中。",
-	"code":`l for i=1,3 do Isaac.ExecuteCommand('spawn 5.100.118') end`,
+	"code":`l for _=1,3 do Isaac.ExecuteCommand('spawn 5.100.118') end`,
 	"about":'@frto027',
 	"about_link":''
 },{
