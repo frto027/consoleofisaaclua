@@ -184,11 +184,19 @@ var data = [
 	"about":'@frto027',
 	"about_link":''
 },{
+	"name_zh":"定点流血特效",
+	"status":[],
+	"keywords":['定点流血','标记','鼠标最近'],
+	"desc_zh":"令距离鼠标位置最近的实体脚下的地板染红。可以用来观察鼠标最近的实体是哪一个。",
+	"code":'l local _m,_e=Input.GetMousePosition(true),nil for _,v in pairs(Isaac.GetRoomEntities()) do _e = not _e and v or (_e.Position-_m):Length()<(v.Position-_m):Length() and _e or v end _e:BloodExplode()',
+	"about":'@frto027',
+	"about_link":''
+},{
 	"name_zh":"定点击杀",
 	"status":[],
 	"keywords":['定点击杀','消除','移除','伤害','鼠标最近'],
-	"desc_zh":"消灭距离鼠标位置最近的实体，如果鼠标半径100内没有实体，则无效（指令中使用100的平方即10000来表示这个距离）。",
-	"code":'l local _m,_p,_e=Input.GetMousePosition(true),10000,nil for _,v in pairs(Isaac.GetRoomEntities()) do local _pp=(v.Position-_m):LengthSquared() if _pp<_p then _p,_e=_pp,v end end if _e then _e:Kill() end',
+	"desc_zh":"消灭距离鼠标位置最近的实体",
+	"code":'l local _m,_e=Input.GetMousePosition(true),nil for _,v in pairs(Isaac.GetRoomEntities()) do _e = not _e and v or (_e.Position-_m):Length()<(v.Position-_m):Length() and _e or v end _e:Kill()',
 	"about":'@frto027',
 	"about_link":''
 },{
