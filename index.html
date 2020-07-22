@@ -11,10 +11,6 @@
     <div id="use_js">
         您的浏览器不支持或不兼容本页面使用的javascript，此页无法正常显示。请开启浏览器的Javascript功能或更换浏览器。您可以使用<a href='https://www.google.cn/chrome/'>Chrome</a>、<a href='http://www.firefox.com.cn/'>Firefox</a>、<a href='https://www.microsoft.com/zh-cn/edge'>Edge</a>等浏览器进行访问。
     </div>
-    <script>
-        document.querySelector('#use_js').remove()
-        document.querySelector('#loading_div').setAttribute('style', '')
-    </script>
     <div id="loading_div" style="display: none;">
         <div class="text-center">
             <div class="spinner-border" role="status">
@@ -22,19 +18,19 @@
             </div>
         </div>
     </div>
-
+    <script>
+        document.querySelector('#use_js').remove()
+        document.querySelector('#loading_div').setAttribute('style', '')
+    </script>
     <div id="js_content" class="container" style="display: none;">
         <h1>The console of isaac:lua <a class="badge badge-primary"
                 href="https://github.com/frto027/consoleofisaaclua">@frto027</a></h1>
         <hr>
         <div class="alert alert-secondary" id='kbd_tip' role="alert">
             点击“<button class="copy_card btn btn-info btn-sm">copy</button>”将指令拷贝到剪贴板上，然后在游戏的控制台中使用 <kbd><kbd>ctrl</kbd>
-                + <kbd>v</kbd></kbd> 快捷键粘贴。
+                + <kbd>v</kbd></kbd> 快捷键粘贴。<hr/>
+                点击“<button class="copy_card_lua btn btn-warning btn-sm">copy lua</button>”将指令的lua部分拷贝到剪贴板上，可以用来修改某些指令。
         </div>
-        <div class="alert alert-secondary" id='kbd_tip' role="alert">
-            点击“<button class="copy_card_lua btn btn-warning btn-sm">copy lua</button>”将指令的lua部分拷贝到剪贴板上，可以用来修改某些指令。
-        </div>
-
         <div class="alert alert-light" role="alert">
             <!--<span class="s_new badge badge-success" style="display: none;">New</span> -->
             <table>
@@ -100,14 +96,28 @@
     <script type="text/javascript" src="js/clipboard.min.js"></script>
     <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript" src="data.js"></script>
-    <script type="text/javascript" src="script.js"></script>
     <script type="text/javascript">
-    	try{
-    		script_execute_over//if script_execute_over is not defined, an exception will be raised.
-    	}catch(e){
-    		document.getElementsByTagName('body')[0].innerHTML = "页面脚本加载出错，请换一个浏览器进行访问。您可以使用<a href='https://www.google.cn/chrome/'>Chrome</a>、<a href='http://www.firefox.com.cn/'>Firefox</a>、<a href='https://www.microsoft.com/zh-cn/edge'>Edge</a>等浏览器进行访问。如果更换浏览器后依旧看到了这条消息，请联系作者解决并等待更新。"
-    	}
+        {
+            let ld = (s,over)=>{
+                let e = document.createElement('script')
+                e.src = s
+                e.addEventListener('load',over)
+                e.addEventListener('error',over)
+                document.head.appendChild(e)
+                return ld
+            }
+            ld('data.js?t='+Math.floor(new Date().getTime()/(1000*60*60*4)),()=>{ /* update data per 4 hours */
+            	ld('script.js?t='+Math.floor(new Date().getTime()/(1000*60*60*24)),()=>{ /* update script per day */
+            		try{
+			    		if(script_execute_over != true){
+			    			throw 'err'
+			    		}
+			    	}catch(e){
+			    		document.getElementsByTagName('body')[0].innerHTML = "页面脚本加载出错，请换一个浏览器进行访问。您可以使用<a href='https://www.google.cn/chrome/'>Chrome</a>、<a href='http://www.firefox.com.cn/'>Firefox</a>、<a href='https://www.microsoft.com/zh-cn/edge'>Edge</a>等浏览器进行访问。如果更换浏览器后依旧看到了这条消息，请联系作者解决并等待更新。"
+			    	}
+            	})
+            })
+        }
     </script>
 </body>
 

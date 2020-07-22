@@ -36,13 +36,6 @@ for(let i = language.length - 1;i>=0;i--){
 //$('#use_js').remove()
 $('#js_content').attr('style','')
 
-function onCopyClicked(self){
-    console.log(self.parentElement.querySelector('.codes').textContent)
-    self.parentElement.querySelector('.codes').select()
-    $('.copymark').hide()
-    $(self.parentElement.querySelector('.copymark')).show('fast')
-}
-
 //let template = $('#template')
 let parent_list = template.parent()[0]
 template.remove()
@@ -188,4 +181,4 @@ $('#search_btn').on('click',()=>{
 $('#loading_div').remove()
 
 /* inform index.html */
-var script_execute_over
+var script_execute_over = true
