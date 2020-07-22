@@ -215,10 +215,163 @@ l local _m,_e=Input.GetMousePosition(true),nil for _,v in pairs(Isaac.GetRoomEnt
 
 -----
 
-### 定点击杀
+### 击杀鼠标最近实体
 消灭距离鼠标位置最近的实体
 ```
 l local _m,_e=Input.GetMousePosition(true),nil for _,v in pairs(Isaac.GetRoomEntities()) do _e = not _e and v or (_e.Position-_m):Length()<(v.Position-_m):Length() and _e or v end _e:Kill()
+```
+
+
+-----
+
+### 移除鼠标最近实体
+移除距离鼠标位置最近的实体
+```
+l local _m,_e=Input.GetMousePosition(true),nil for _,v in pairs(Isaac.GetRoomEntities()) do _e = not _e and v or (_e.Position-_m):Length()<(v.Position-_m):Length() and _e or v end _e:Remove()
+```
+
+
+-----
+
+### 设置鼠标最近实体的速度
+令距离鼠标位置最近的实体速度增加(10,20)
+```
+l local _m,_e=Input.GetMousePosition(true),nil for _,v in pairs(Isaac.GetRoomEntities()) do _e = not _e and v or (_e.Position-_m):Length()<(v.Position-_m):Length() and _e or v end _e:AddVelocity(Vector(10,20))
+```
+
+
+-----
+
+### 设置鼠标最近实体的颜色
+令距离鼠标最近的实体颜色变成红、绿、蓝、透明度依次为0.1，0.9，0.2，0.5的颜色，其中最后的true表示启用渐变，改为false为禁用渐变。
+```
+l local _m,_e=Input.GetMousePosition(true),nil for _,v in pairs(Isaac.GetRoomEntities()) do _e = not _e and v or (_e.Position-_m):Length()<(v.Position-_m):Length() and _e or v end _e:SetColor(Color(0.1,0.9,0.2,0.5,0,0,0),30,0,true)
+```
+
+
+-----
+
+### 设置鼠标最近实体的大小(碰撞体积)
+令距离鼠标最近的实体的碰撞体积大小为1，水平缩放0.9，竖直缩放1.5。
+```
+l local _m,_e=Input.GetMousePosition(true),nil for _,v in pairs(Isaac.GetRoomEntities()) do _e = not _e and v or (_e.Position-_m):Length()<(v.Position-_m):Length() and _e or v end _e:SetSize(1,Vector(0.2,1.5),0)
+```
+
+
+-----
+
+### 为鼠标最近实体添加特性
+给距离鼠标最近的实体增加FLAG_FEAR标志位（恐惧）。你可以将FLAG_FEAR替换为一个或多个枚举量EntityFlag，并使用“|”隔开。例如：EntityFlag.FLAG_FEAR|EntityFlag.FLAG_BURN|FLAG_CONFUSION表示恐惧、燃烧、眩晕三个特性。<details>EntityFlag的标志位有：FLAG_NO_STATUS_EFFECTS, FLAG_NO_INTERPOLATE, FLAG_APPEAR, FLAG_RENDER_FLOOR, FLAG_NO_TARGET, FLAG_FREEZE, FLAG_POISON, FLAG_SLOW, FLAG_CHARM, FLAG_CONFUSION, FLAG_MIDAS_FREEZE, FLAG_FEAR, FLAG_BURN, FLAG_RENDER_WALL, FLAG_INTERPOLATION_UPDATE, FLAG_APPLY_GRAVITY, FLAG_NO_BLOOD_SPLASH, FLAG_NO_REMOVE_ON_TEX_RENDER, FLAG_NO_DEATH_TRIGGER, FLAG_NO_SPIKE_DAMAGE, FLAG_BOSSDEATH_TRIGGERED, FLAG_DONT_OVERWRITE, FLAG_SPAWN_STICKY_SPIDERS, FLAG_SPAWN_BLACK_HP, FLAG_SHRINK, FLAG_NO_FLASH_ON_DAMAGE, FLAG_NO_KNOCKBACK, FLAG_SLIPPERY_PHYSICS, FLAG_ADD_JAR_FLY, FLAG_FRIENDLY, FLAG_NO_PHYSICS_KNOCKBACK, FLAG_DONT_COUNT_BOSS_HP, FLAG_NO_SPRITE_UPDATE, FLAG_CONTAGIOUS, FLAG_BLEED_OUT, FLAG_HIDE_HP_BAR, FLAG_NO_DAMAGE_BLINK, FLAG_PERSISTENT</details>
+```
+l local _m,_e=Input.GetMousePosition(true),nil for _,v in pairs(Isaac.GetRoomEntities()) do _e = not _e and v or (_e.Position-_m):Length()<(v.Position-_m):Length() and _e or v end _e:AddEntityFlags(EntityFlag.FLAG_FEAR)
+```
+
+
+-----
+
+### 为鼠标最近实体移除特性
+给距离鼠标最近的实体移除FLAG_FEAR标志位（恐惧）。你可以将FLAG_FEAR替换为一个或多个枚举量EntityFlag，并使用“|”隔开。例如：EntityFlag.FLAG_FEAR|EntityFlag.FLAG_BURN|FLAG_CONFUSION表示恐惧、燃烧、眩晕三个特性。<details>EntityFlag的标志位有：FLAG_NO_STATUS_EFFECTS, FLAG_NO_INTERPOLATE, FLAG_APPEAR, FLAG_RENDER_FLOOR, FLAG_NO_TARGET, FLAG_FREEZE, FLAG_POISON, FLAG_SLOW, FLAG_CHARM, FLAG_CONFUSION, FLAG_MIDAS_FREEZE, FLAG_FEAR, FLAG_BURN, FLAG_RENDER_WALL, FLAG_INTERPOLATION_UPDATE, FLAG_APPLY_GRAVITY, FLAG_NO_BLOOD_SPLASH, FLAG_NO_REMOVE_ON_TEX_RENDER, FLAG_NO_DEATH_TRIGGER, FLAG_NO_SPIKE_DAMAGE, FLAG_BOSSDEATH_TRIGGERED, FLAG_DONT_OVERWRITE, FLAG_SPAWN_STICKY_SPIDERS, FLAG_SPAWN_BLACK_HP, FLAG_SHRINK, FLAG_NO_FLASH_ON_DAMAGE, FLAG_NO_KNOCKBACK, FLAG_SLIPPERY_PHYSICS, FLAG_ADD_JAR_FLY, FLAG_FRIENDLY, FLAG_NO_PHYSICS_KNOCKBACK, FLAG_DONT_COUNT_BOSS_HP, FLAG_NO_SPRITE_UPDATE, FLAG_CONTAGIOUS, FLAG_BLEED_OUT, FLAG_HIDE_HP_BAR, FLAG_NO_DAMAGE_BLINK, FLAG_PERSISTENT</details>
+```
+l local _m,_e=Input.GetMousePosition(true),nil for _,v in pairs(Isaac.GetRoomEntities()) do _e = not _e and v or (_e.Position-_m):Length()<(v.Position-_m):Length() and _e or v end _e:ClearEntityFlags(EntityFlag.FLAG_FEAR)
+```
+
+
+-----
+
+### 为鼠标最近实体增加血量
+令距离鼠标最近的实体的生命值增加3.5。
+```
+l local _m,_e=Input.GetMousePosition(true),nil for _,v in pairs(Isaac.GetRoomEntities()) do _e = not _e and v or (_e.Position-_m):Length()<(v.Position-_m):Length() and _e or v end _e:AddHealth(3.5)
+```
+
+
+-----
+
+### 为鼠标最近实体增加中毒效果
+令距离鼠标最近的实体增加2秒(指令中的60表示2秒)的中毒效果。虽然1表示伤害值，但实测造成的是玩家面板伤害。
+```
+l local _m,_e=Input.GetMousePosition(true),nil for _,v in pairs(Isaac.GetRoomEntities()) do _e = not _e and v or (_e.Position-_m):Length()<(v.Position-_m):Length() and _e or v end _e:AddPoison(EntityRef(nil),60,1)
+```
+
+
+-----
+
+### 为鼠标最近实体增加石化效果
+令距离鼠标最近的实体增加2秒(指令中的60表示2秒)的石化效果。
+```
+l local _m,_e=Input.GetMousePosition(true),nil for _,v in pairs(Isaac.GetRoomEntities()) do _e = not _e and v or (_e.Position-_m):Length()<(v.Position-_m):Length() and _e or v end _e:AddFreeze(EntityRef(nil),60)
+```
+
+
+-----
+
+### 为鼠标最近实体增加减速效果
+令距离鼠标最近的实体增加2秒(指令中的60表示2秒)的减速效果，减速值为10（测试没有发现减速值的效果）
+```
+l local _m,_e=Input.GetMousePosition(true),nil for _,v in pairs(Isaac.GetRoomEntities()) do _e = not _e and v or (_e.Position-_m):Length()<(v.Position-_m):Length() and _e or v end _e:AddSlowing(EntityRef(nil),60,10,Color(1,1,1,1,0,0,0))
+```
+
+
+-----
+
+### 为鼠标最近实体增加魅惑效果
+令距离鼠标最近的实体增加2秒(指令中的60表示2秒)的魅惑效果。
+```
+l local _m,_e=Input.GetMousePosition(true),nil for _,v in pairs(Isaac.GetRoomEntities()) do _e = not _e and v or (_e.Position-_m):Length()<(v.Position-_m):Length() and _e or v end _e:AddCharmed(60)
+```
+
+
+-----
+
+### 为鼠标最近实体增加眩晕效果
+令距离鼠标最近的实体增加2秒(指令中的60表示2秒)的眩晕效果。
+```
+l local _m,_e=Input.GetMousePosition(true),nil for _,v in pairs(Isaac.GetRoomEntities()) do _e = not _e and v or (_e.Position-_m):Length()<(v.Position-_m):Length() and _e or v end _e:AddConfusion(EntityRef(nil),60,false)
+```
+
+
+-----
+
+### 为鼠标最近实体增加点金石化效果
+令距离鼠标最近的实体增加2秒(指令中的60表示2秒)的点金石化效果。
+```
+l local _m,_e=Input.GetMousePosition(true),nil for _,v in pairs(Isaac.GetRoomEntities()) do _e = not _e and v or (_e.Position-_m):Length()<(v.Position-_m):Length() and _e or v end _e:AddMidasFreeze(EntityRef(nil),60)
+```
+
+
+-----
+
+### 为鼠标最近实体增加恐惧效果
+令距离鼠标最近的实体增加2秒(指令中的60表示2秒)的恐惧效果。
+```
+l local _m,_e=Input.GetMousePosition(true),nil for _,v in pairs(Isaac.GetRoomEntities()) do _e = not _e and v or (_e.Position-_m):Length()<(v.Position-_m):Length() and _e or v end _e:AddFear(EntityRef(nil),60)
+```
+
+
+-----
+
+### 为鼠标最近实体增加灼烧效果
+令距离鼠标最近的实体增加2秒(指令中的60表示2秒)的灼烧效果。
+```
+l local _m,_e=Input.GetMousePosition(true),nil for _,v in pairs(Isaac.GetRoomEntities()) do _e = not _e and v or (_e.Position-_m):Length()<(v.Position-_m):Length() and _e or v end _e:AddBurn(EntityRef(nil),60,1)
+```
+
+
+-----
+
+### 为鼠标最近实体增加缩小效果
+令距离鼠标最近的实体增加2秒(指令中的60表示2秒)的缩小效果。
+```
+l local _m,_e=Input.GetMousePosition(true),nil for _,v in pairs(Isaac.GetRoomEntities()) do _e = not _e and v or (_e.Position-_m):Length()<(v.Position-_m):Length() and _e or v end _e:AddShrink(EntityRef(nil),60)
+```
+
+
+-----
+
+### 为鼠标最近实体移除状态特效
+移除距离鼠标最近的实体的效果。
+```
+l local _m,_e=Input.GetMousePosition(true),nil for _,v in pairs(Isaac.GetRoomEntities()) do _e = not _e and v or (_e.Position-_m):Length()<(v.Position-_m):Length() and _e or v end _e:RemoveStatusEffects()
 ```
 
 

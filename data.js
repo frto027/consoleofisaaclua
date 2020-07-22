@@ -154,7 +154,7 @@ var data = [
 },{
 	"name_zh":"定点生成地形",
 	"status":[],
-	"keywords":['鼠标位置','生成地形','生产地形','定点生成'],
+	"keywords":['鼠标位置','生成地形','生产地形','定点生成','地形实体'],
 	"desc_zh":"在鼠标所指位置生成石头（GRID_ROCK），不会覆盖已有地形。其中GRID_ROCK可替换为枚举量GridEntityType的任意值。<details>GridEntityType包括：GRID_DECORATION, GRID_ROCK, GRID_ROCKB, GRID_ROCKT, GRID_ROCK_BOMB, GRID_ROCK_ALT, GRID_PIT, GRID_SPIKES, GRID_SPIKES_ONOFF, GRID_SPIDERWEB, GRID_LOCK, GRID_TNT, GRID_FIREPLACE（未使用）, GRID_POOP, GRID_WALL, GRID_DOOR, GRID_TRAPDOOR, GRID_STAIRS, GRID_GRAVITY, GRID_PRESSURE_PLATE, GRID_STATUE, GRID_ROCK_SS</details>",
 	"code":'l Isaac.GridSpawn(GridEntityType.GRID_ROCK,0,Input.GetMousePosition(true),false)',
 	"about":'@frto027',
@@ -170,7 +170,7 @@ var data = [
 },{
 	"name_zh":"定点生成/生产实体",
 	"status":[],
-	"keywords":['鼠标位置','定位','定点','实体','生成','生产'],
+	"keywords":['鼠标位置','定位','定点','实体','生成','生产','实体操作'],
 	"desc_zh":"生成种类、变体、子类型为5,100,118的实体（硫磺火），位置是鼠标所指位置，速度为0。这三个数字详见控制台的spawn指令。",
 	"code":'l Isaac.Spawn(5,100,118,Input.GetMousePosition(true),Vector(0,0),Isaac.GetPlayer(0))',
 	"about":'@frto027',
@@ -186,17 +186,153 @@ var data = [
 },{
 	"name_zh":"定点流血特效",
 	"status":[],
-	"keywords":['定点流血','标记','鼠标最近'],
+	"keywords":['定点流血','标记','鼠标最近','实体操作'],
 	"desc_zh":"令距离鼠标位置最近的实体脚下的地板染红。可以用来观察鼠标最近的实体是哪一个。",
 	"code":'l local _m,_e=Input.GetMousePosition(true),nil for _,v in pairs(Isaac.GetRoomEntities()) do _e = not _e and v or (_e.Position-_m):Length()<(v.Position-_m):Length() and _e or v end _e:BloodExplode()',
 	"about":'@frto027',
 	"about_link":''
 },{
-	"name_zh":"定点击杀",
+	"name_zh":"击杀鼠标最近实体",
 	"status":[],
-	"keywords":['定点击杀','消除','移除','伤害','鼠标最近'],
+	"keywords":['定点击杀','消除','移除','伤害','鼠标最近','实体操作'],
 	"desc_zh":"消灭距离鼠标位置最近的实体",
 	"code":'l local _m,_e=Input.GetMousePosition(true),nil for _,v in pairs(Isaac.GetRoomEntities()) do _e = not _e and v or (_e.Position-_m):Length()<(v.Position-_m):Length() and _e or v end _e:Kill()',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"移除鼠标最近实体",
+	"status":[],
+	"keywords":['定点移除','消除','移除','伤害','鼠标最近','实体操作'],
+	"desc_zh":"移除距离鼠标位置最近的实体",
+	"code":'l local _m,_e=Input.GetMousePosition(true),nil for _,v in pairs(Isaac.GetRoomEntities()) do _e = not _e and v or (_e.Position-_m):Length()<(v.Position-_m):Length() and _e or v end _e:Remove()',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"设置鼠标最近实体的速度",
+	"status":[],
+	"keywords":['定点','速度','变速','改变速度','鼠标最近','实体操作'],
+	"desc_zh":"令距离鼠标位置最近的实体速度增加(10,20)",
+	"code":'l local _m,_e=Input.GetMousePosition(true),nil for _,v in pairs(Isaac.GetRoomEntities()) do _e = not _e and v or (_e.Position-_m):Length()<(v.Position-_m):Length() and _e or v end _e:AddVelocity(Vector(10,20))',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"设置鼠标最近实体的颜色",
+	"status":[],
+	"keywords":['定点','颜色','变色','改变颜色','色彩','鼠标最近','实体操作'],
+	"desc_zh":"令距离鼠标最近的实体颜色变成红、绿、蓝、透明度依次为0.1，0.9，0.2，0.5的颜色，其中最后的true表示启用渐变，改为false为禁用渐变。",
+	"code":'l local _m,_e=Input.GetMousePosition(true),nil for _,v in pairs(Isaac.GetRoomEntities()) do _e = not _e and v or (_e.Position-_m):Length()<(v.Position-_m):Length() and _e or v end _e:SetColor(Color(0.1,0.9,0.2,0.5,0,0,0),30,0,true)',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"设置鼠标最近实体的大小(碰撞体积)",
+	"status":[],
+	"keywords":['定点','大小','尺寸','碰撞','体积','鼠标最近','实体操作'],
+	"desc_zh":"令距离鼠标最近的实体的碰撞体积大小为1，水平缩放0.9，竖直缩放1.5。",
+	"code":'l local _m,_e=Input.GetMousePosition(true),nil for _,v in pairs(Isaac.GetRoomEntities()) do _e = not _e and v or (_e.Position-_m):Length()<(v.Position-_m):Length() and _e or v end _e:SetSize(1,Vector(0.2,1.5),0)',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"为鼠标最近实体添加特性",
+	"status":[],
+	"keywords":['定点','特性','标志','标识','属性','变异','精英','鼠标最近','实体操作'],
+	"desc_zh":"给距离鼠标最近的实体增加FLAG_FEAR标志位（恐惧）。你可以将FLAG_FEAR替换为一个或多个枚举量EntityFlag，并使用“|”隔开。例如：EntityFlag.FLAG_FEAR|EntityFlag.FLAG_BURN|FLAG_CONFUSION表示恐惧、燃烧、眩晕三个特性。<details>EntityFlag的标志位有：FLAG_NO_STATUS_EFFECTS, FLAG_NO_INTERPOLATE, FLAG_APPEAR, FLAG_RENDER_FLOOR, FLAG_NO_TARGET, FLAG_FREEZE, FLAG_POISON, FLAG_SLOW, FLAG_CHARM, FLAG_CONFUSION, FLAG_MIDAS_FREEZE, FLAG_FEAR, FLAG_BURN, FLAG_RENDER_WALL, FLAG_INTERPOLATION_UPDATE, FLAG_APPLY_GRAVITY, FLAG_NO_BLOOD_SPLASH, FLAG_NO_REMOVE_ON_TEX_RENDER, FLAG_NO_DEATH_TRIGGER, FLAG_NO_SPIKE_DAMAGE, FLAG_BOSSDEATH_TRIGGERED, FLAG_DONT_OVERWRITE, FLAG_SPAWN_STICKY_SPIDERS, FLAG_SPAWN_BLACK_HP, FLAG_SHRINK, FLAG_NO_FLASH_ON_DAMAGE, FLAG_NO_KNOCKBACK, FLAG_SLIPPERY_PHYSICS, FLAG_ADD_JAR_FLY, FLAG_FRIENDLY, FLAG_NO_PHYSICS_KNOCKBACK, FLAG_DONT_COUNT_BOSS_HP, FLAG_NO_SPRITE_UPDATE, FLAG_CONTAGIOUS, FLAG_BLEED_OUT, FLAG_HIDE_HP_BAR, FLAG_NO_DAMAGE_BLINK, FLAG_PERSISTENT</details>",
+	"code":'l local _m,_e=Input.GetMousePosition(true),nil for _,v in pairs(Isaac.GetRoomEntities()) do _e = not _e and v or (_e.Position-_m):Length()<(v.Position-_m):Length() and _e or v end _e:AddEntityFlags(EntityFlag.FLAG_FEAR)',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"为鼠标最近实体移除特性",
+	"status":[],
+	"keywords":['定点','特性','标志','标识','属性','变异','精英','鼠标最近','实体操作'],
+	"desc_zh":"给距离鼠标最近的实体移除FLAG_FEAR标志位（恐惧）。你可以将FLAG_FEAR替换为一个或多个枚举量EntityFlag，并使用“|”隔开。例如：EntityFlag.FLAG_FEAR|EntityFlag.FLAG_BURN|FLAG_CONFUSION表示恐惧、燃烧、眩晕三个特性。<details>EntityFlag的标志位有：FLAG_NO_STATUS_EFFECTS, FLAG_NO_INTERPOLATE, FLAG_APPEAR, FLAG_RENDER_FLOOR, FLAG_NO_TARGET, FLAG_FREEZE, FLAG_POISON, FLAG_SLOW, FLAG_CHARM, FLAG_CONFUSION, FLAG_MIDAS_FREEZE, FLAG_FEAR, FLAG_BURN, FLAG_RENDER_WALL, FLAG_INTERPOLATION_UPDATE, FLAG_APPLY_GRAVITY, FLAG_NO_BLOOD_SPLASH, FLAG_NO_REMOVE_ON_TEX_RENDER, FLAG_NO_DEATH_TRIGGER, FLAG_NO_SPIKE_DAMAGE, FLAG_BOSSDEATH_TRIGGERED, FLAG_DONT_OVERWRITE, FLAG_SPAWN_STICKY_SPIDERS, FLAG_SPAWN_BLACK_HP, FLAG_SHRINK, FLAG_NO_FLASH_ON_DAMAGE, FLAG_NO_KNOCKBACK, FLAG_SLIPPERY_PHYSICS, FLAG_ADD_JAR_FLY, FLAG_FRIENDLY, FLAG_NO_PHYSICS_KNOCKBACK, FLAG_DONT_COUNT_BOSS_HP, FLAG_NO_SPRITE_UPDATE, FLAG_CONTAGIOUS, FLAG_BLEED_OUT, FLAG_HIDE_HP_BAR, FLAG_NO_DAMAGE_BLINK, FLAG_PERSISTENT</details>",
+	"code":'l local _m,_e=Input.GetMousePosition(true),nil for _,v in pairs(Isaac.GetRoomEntities()) do _e = not _e and v or (_e.Position-_m):Length()<(v.Position-_m):Length() and _e or v end _e:ClearEntityFlags(EntityFlag.FLAG_FEAR)',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"为鼠标最近实体增加血量",
+	"status":[],
+	"keywords":['生命值','HP','血量','鼠标最近','实体操作'],
+	"desc_zh":"令距离鼠标最近的实体的生命值增加3.5。",
+	"code":'l local _m,_e=Input.GetMousePosition(true),nil for _,v in pairs(Isaac.GetRoomEntities()) do _e = not _e and v or (_e.Position-_m):Length()<(v.Position-_m):Length() and _e or v end _e:AddHealth(3.5)',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"为鼠标最近实体增加中毒效果",
+	"status":[],
+	"keywords":['持续伤害','变绿','中毒','鼠标最近','实体操作'],
+	"desc_zh":"令距离鼠标最近的实体增加2秒(指令中的60表示2秒)的中毒效果。虽然1表示伤害值，但实测造成的是玩家面板伤害。",
+	"code":'l local _m,_e=Input.GetMousePosition(true),nil for _,v in pairs(Isaac.GetRoomEntities()) do _e = not _e and v or (_e.Position-_m):Length()<(v.Position-_m):Length() and _e or v end _e:AddPoison(EntityRef(nil),60,1)',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"为鼠标最近实体增加石化效果",
+	"status":[],
+	"keywords":['石化','灰色','冻结','冰冻','鼠标最近','实体操作'],
+	"desc_zh":"令距离鼠标最近的实体增加2秒(指令中的60表示2秒)的石化效果。",
+	"code":'l local _m,_e=Input.GetMousePosition(true),nil for _,v in pairs(Isaac.GetRoomEntities()) do _e = not _e and v or (_e.Position-_m):Length()<(v.Position-_m):Length() and _e or v end _e:AddFreeze(EntityRef(nil),60)',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"为鼠标最近实体增加减速效果",
+	"status":[],
+	"keywords":['减速','变慢','变缓','移动速度','降低','移速','鼠标最近','实体操作'],
+	"desc_zh":"令距离鼠标最近的实体增加2秒(指令中的60表示2秒)的减速效果，减速值为10（测试没有发现减速值的效果）",
+	"code":'l local _m,_e=Input.GetMousePosition(true),nil for _,v in pairs(Isaac.GetRoomEntities()) do _e = not _e and v or (_e.Position-_m):Length()<(v.Position-_m):Length() and _e or v end _e:AddSlowing(EntityRef(nil),60,10,Color(1,1,1,1,0,0,0))',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"为鼠标最近实体增加魅惑效果",
+	"status":[],
+	"keywords":['魅惑','友好','鼠标最近','实体操作'],
+	"desc_zh":"令距离鼠标最近的实体增加2秒(指令中的60表示2秒)的魅惑效果。",
+	"code":'l local _m,_e=Input.GetMousePosition(true),nil for _,v in pairs(Isaac.GetRoomEntities()) do _e = not _e and v or (_e.Position-_m):Length()<(v.Position-_m):Length() and _e or v end _e:AddCharmed(60)',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"为鼠标最近实体增加眩晕效果",
+	"status":[],
+	"keywords":['眩晕','疑惑','鼠标最近','实体操作'],
+	"desc_zh":"令距离鼠标最近的实体增加2秒(指令中的60表示2秒)的眩晕效果。",
+	"code":'l local _m,_e=Input.GetMousePosition(true),nil for _,v in pairs(Isaac.GetRoomEntities()) do _e = not _e and v or (_e.Position-_m):Length()<(v.Position-_m):Length() and _e or v end _e:AddConfusion(EntityRef(nil),60,false)',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"为鼠标最近实体增加点金石化效果",
+	"status":[],
+	"keywords":['石化','点金','鼠标最近','实体操作'],
+	"desc_zh":"令距离鼠标最近的实体增加2秒(指令中的60表示2秒)的点金石化效果。",
+	"code":'l local _m,_e=Input.GetMousePosition(true),nil for _,v in pairs(Isaac.GetRoomEntities()) do _e = not _e and v or (_e.Position-_m):Length()<(v.Position-_m):Length() and _e or v end _e:AddMidasFreeze(EntityRef(nil),60)',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"为鼠标最近实体增加恐惧效果",
+	"status":[],
+	"keywords":['恐惧','害怕','瑟瑟发抖','鼠标最近','实体操作'],
+	"desc_zh":"令距离鼠标最近的实体增加2秒(指令中的60表示2秒)的恐惧效果。",
+	"code":'l local _m,_e=Input.GetMousePosition(true),nil for _,v in pairs(Isaac.GetRoomEntities()) do _e = not _e and v or (_e.Position-_m):Length()<(v.Position-_m):Length() and _e or v end _e:AddFear(EntityRef(nil),60)',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"为鼠标最近实体增加灼烧效果",
+	"status":[],
+	"keywords":['点燃','火焰伤害','灼烧','燃烧','鼠标最近','实体操作'],
+	"desc_zh":"令距离鼠标最近的实体增加2秒(指令中的60表示2秒)的灼烧效果。",
+	"code":'l local _m,_e=Input.GetMousePosition(true),nil for _,v in pairs(Isaac.GetRoomEntities()) do _e = not _e and v or (_e.Position-_m):Length()<(v.Position-_m):Length() and _e or v end _e:AddBurn(EntityRef(nil),60,1)',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"为鼠标最近实体增加缩小效果",
+	"status":[],
+	"keywords":['缩小','害怕','瑟瑟发抖','变小','鼠标最近','实体操作'],
+	"desc_zh":"令距离鼠标最近的实体增加2秒(指令中的60表示2秒)的缩小效果。",
+	"code":'l local _m,_e=Input.GetMousePosition(true),nil for _,v in pairs(Isaac.GetRoomEntities()) do _e = not _e and v or (_e.Position-_m):Length()<(v.Position-_m):Length() and _e or v end _e:AddShrink(EntityRef(nil),60)',
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"为鼠标最近实体移除状态特效",
+	"status":[],
+	"keywords":['移除特效','移除属性','重置状态','鼠标最近','实体操作'],
+	"desc_zh":"移除距离鼠标最近的实体的效果。",
+	"code":'l local _m,_e=Input.GetMousePosition(true),nil for _,v in pairs(Isaac.GetRoomEntities()) do _e = not _e and v or (_e.Position-_m):Length()<(v.Position-_m):Length() and _e or v end _e:RemoveStatusEffects()',
 	"about":'@frto027',
 	"about_link":''
 },{
