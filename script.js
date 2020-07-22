@@ -11,7 +11,7 @@ let trans_json = {
         ['.s_request','申请'],
         ['.s_broken','失效'],
         ['.s_reset','重启'],
-        ['.copymark_console','已复制到控制台'],
+        ['.copymark_console','已复制为控制台指令'],
         ['.copymark_lua','已复制为lua'],
         ['.copy_card','复制到控制台'],
         ['.copy_card_lua','复制为lua'],
