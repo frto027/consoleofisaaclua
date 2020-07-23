@@ -1282,3 +1282,67 @@ l Isaac.GetPlayer(0).SpriteRotation=45
 ```
 l Isaac.GetPlayer(0).SpriteRotation=Isaac.GetPlayer(0).SpriteRotation+45
 ```
+
+
+-----
+
+### 设置鼠标最近拾取物价格
+将鼠标最近的物品价格设置为99元，并关闭自动更新价格的属性。（确认过眼神，是你买不起的样子）。价格除了整数之外，还可以取4个特殊值：-1即一颗红心，-2为两颗红心，-3为三颗魂心，-1000为0元免费。
+```
+l local _m,_e=Input.GetMousePosition(true) for _,v in pairs(Isaac.GetRoomEntities()) do _e=not _e and v or (_e.Position-_m):Length()<(v.Position-_m):Length() and _e or v end _e:ToPickup().AutoUpdatePrice=false;_e:ToPickup().Price=99
+```
+
+
+-----
+
+### 移除鼠标最近拾取物价格
+将鼠标最近的物品价格移除。你免费了。
+```
+l local _m,_e=Input.GetMousePosition(true) for _,v in pairs(Isaac.GetRoomEntities()) do _e=not _e and v or (_e.Position-_m):Length()<(v.Position-_m):Length() and _e or v end _e:ToPickup().AutoUpdatePrice=true;_e:ToPickup().Price=0
+```
+
+
+-----
+
+### 设置鼠标最近拾取物充能
+将鼠标最近的（主动）物品充能设置为3。
+```
+l local _m,_e=Input.GetMousePosition(true) for _,v in pairs(Isaac.GetRoomEntities()) do _e=not _e and v or (_e.Position-_m):Length()<(v.Position-_m):Length() and _e or v end _e:ToPickup().Charge=3
+```
+
+
+-----
+
+### 设置鼠标最近拾取物的拾取冷却
+鼠标最近的物品在2秒（时间为60）内无法被拾取。
+```
+l local _m,_e=Input.GetMousePosition(true) for _,v in pairs(Isaac.GetRoomEntities()) do _e=not _e and v or (_e.Position-_m):Length()<(v.Position-_m):Length() and _e or v end _e:ToPickup().Wait=60
+```
+
+
+-----
+
+### 设置鼠标最近拾取物的超时
+鼠标最近的物品在2秒（时间为60）内无法被拾取，时间结束后消失。
+```
+l local _m,_e=Input.GetMousePosition(true) for _,v in pairs(Isaac.GetRoomEntities()) do _e=not _e and v or (_e.Position-_m):Length()<(v.Position-_m):Length() and _e or v end _e:ToPickup().Timeout=60
+```
+
+
+-----
+
+### 卸除装备到地板上
+将角色身上除327、328（全家福、底片）外的所有被动道具丢在地上。你可以修改第一对{}括号内的数字，使用逗号隔开，这些数字对应的道具不会被丢弃。
+```
+l local t,_t,_p={327,328},{};for _,i in pairs(t) do _t[i]=true end for i=1,Isaac.GetItemConfig():GetCollectibles().Size-1 do _p=Isaac.GetItemConfig():GetCollectible(i) if not _t[i] and _p and _p.Type ~= ItemType.ITEM_ACTIVE then _p=Isaac.GetPlayer(0) while(_p:HasCollectible(i)) do _p:RemoveCollectible(i);Isaac.Spawn(5,100,i,Isaac.GetRandomPosition(),Vector(0,0),_p) end end end
+```
+
+
+-----
+
+### 卸除装备到log文件中
+将角色身上除327、328（全家福、底片）外的所有被动道具丢在log文件中，你可以通过复制log文件中的代码再次拾取这些道具。你可以修改第一对{}括号内的数字，使用逗号隔开，这些数字对应的道具不会被丢弃。你想知道log文件是什么吗？它位于游戏存档目录的log.txt，打开它，翻到最后就能看到了。（通常位于电脑的：文档\My Games\Binding of Isaac Afterbirth+\log.txt）
+```
+l local t,_t,_s,_p={105,406},{},'player_status:';for _,i in pairs(t) do _t[i]=true end for i=1,Isaac.GetItemConfig():GetCollectibles().Size-1 do _p=Isaac.GetItemConfig():GetCollectible(i) if not _t[i] and _p and _p.Type ~= ItemType.ITEM_ACTIVE then _p=Isaac.GetPlayer(0) while(_p:HasCollectible(i)) do _p:RemoveCollectible(i);_s=_s..'
+g c'..i end end end Isaac.DebugString(_s)
+```
