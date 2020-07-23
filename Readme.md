@@ -1343,6 +1343,6 @@ l local t,_t,_p={327,328},{};for _,i in pairs(t) do _t[i]=true end for i=1,Isaac
 ### 卸除装备到log文件中
 将角色身上除327、328（全家福、底片）外的所有被动道具丢在log文件中，你可以通过复制log文件中的代码再次拾取这些道具。你可以修改第一对{}括号内的数字，使用逗号隔开，这些数字对应的道具不会被丢弃。你想知道log文件是什么吗？它位于游戏存档目录的log.txt，打开它，翻到最后就能看到了。（通常位于电脑的：文档\My Games\Binding of Isaac Afterbirth+\log.txt）
 ```
-l local t,_t,_s,_p={105,406},{},'player_status:';for _,i in pairs(t) do _t[i]=true end for i=1,Isaac.GetItemConfig():GetCollectibles().Size-1 do _p=Isaac.GetItemConfig():GetCollectible(i) if not _t[i] and _p and _p.Type ~= ItemType.ITEM_ACTIVE then _p=Isaac.GetPlayer(0) while(_p:HasCollectible(i)) do _p:RemoveCollectible(i);_s=_s..'
+l local t,_t,_s,_p={327,328},{},'player_status:';for _,i in pairs(t) do _t[i]=true end for i=1,Isaac.GetItemConfig():GetCollectibles().Size-1 do _p=Isaac.GetItemConfig():GetCollectible(i) if not _t[i] and _p and _p.Type ~= ItemType.ITEM_ACTIVE then _p=Isaac.GetPlayer(0) while(_p:HasCollectible(i)) do _p:RemoveCollectible(i);_s=_s..'
 g c'..i end end end Isaac.DebugString(_s)
 ```
