@@ -235,7 +235,7 @@ var data = [
 	"name_zh":"为鼠标最近实体添加特性",
 	"status":[],
 	"keywords":['定点','特性','标志','标识','属性','变异','精英','鼠标最近','实体操作'],
-	"desc_zh":"给距离鼠标最近的实体增加FLAG_FEAR标志位（恐惧）。你可以将FLAG_FEAR替换为一个或多个枚举量EntityFlag，并使用“|”隔开。例如：EntityFlag.FLAG_FEAR|EntityFlag.FLAG_BURN|FLAG_CONFUSION表示恐惧、燃烧、眩晕三个特性。<details>EntityFlag的标志位有：FLAG_NO_STATUS_EFFECTS, FLAG_NO_INTERPOLATE, FLAG_APPEAR, FLAG_RENDER_FLOOR, FLAG_NO_TARGET, FLAG_FREEZE, FLAG_POISON, FLAG_SLOW, FLAG_CHARM, FLAG_CONFUSION, FLAG_MIDAS_FREEZE, FLAG_FEAR, FLAG_BURN, FLAG_RENDER_WALL, FLAG_INTERPOLATION_UPDATE, FLAG_APPLY_GRAVITY, FLAG_NO_BLOOD_SPLASH, FLAG_NO_REMOVE_ON_TEX_RENDER, FLAG_NO_DEATH_TRIGGER, FLAG_NO_SPIKE_DAMAGE, FLAG_BOSSDEATH_TRIGGERED, FLAG_DONT_OVERWRITE, FLAG_SPAWN_STICKY_SPIDERS, FLAG_SPAWN_BLACK_HP, FLAG_SHRINK, FLAG_NO_FLASH_ON_DAMAGE, FLAG_NO_KNOCKBACK, FLAG_SLIPPERY_PHYSICS, FLAG_ADD_JAR_FLY, FLAG_FRIENDLY, FLAG_NO_PHYSICS_KNOCKBACK, FLAG_DONT_COUNT_BOSS_HP, FLAG_NO_SPRITE_UPDATE, FLAG_CONTAGIOUS, FLAG_BLEED_OUT, FLAG_HIDE_HP_BAR, FLAG_NO_DAMAGE_BLINK, FLAG_PERSISTENT</details>",
+	"desc_zh":"给距离鼠标最近的实体增加FLAG_FEAR标志位（恐惧）。你可以将FLAG_FEAR替换为一个或多个枚举量EntityFlag，并使用“|”隔开。例如：EntityFlag.FLAG_FEAR|EntityFlag.FLAG_BURN|EntityFlag.FLAG_CONFUSION表示恐惧、燃烧、眩晕三个特性。<details>EntityFlag的标志位有：FLAG_NO_STATUS_EFFECTS, FLAG_NO_INTERPOLATE, FLAG_APPEAR, FLAG_RENDER_FLOOR, FLAG_NO_TARGET, FLAG_FREEZE, FLAG_POISON, FLAG_SLOW, FLAG_CHARM, FLAG_CONFUSION, FLAG_MIDAS_FREEZE, FLAG_FEAR, FLAG_BURN, FLAG_RENDER_WALL, FLAG_INTERPOLATION_UPDATE, FLAG_APPLY_GRAVITY, FLAG_NO_BLOOD_SPLASH, FLAG_NO_REMOVE_ON_TEX_RENDER, FLAG_NO_DEATH_TRIGGER, FLAG_NO_SPIKE_DAMAGE, FLAG_BOSSDEATH_TRIGGERED, FLAG_DONT_OVERWRITE, FLAG_SPAWN_STICKY_SPIDERS, FLAG_SPAWN_BLACK_HP, FLAG_SHRINK, FLAG_NO_FLASH_ON_DAMAGE, FLAG_NO_KNOCKBACK, FLAG_SLIPPERY_PHYSICS, FLAG_ADD_JAR_FLY, FLAG_FRIENDLY, FLAG_NO_PHYSICS_KNOCKBACK, FLAG_DONT_COUNT_BOSS_HP, FLAG_NO_SPRITE_UPDATE, FLAG_CONTAGIOUS, FLAG_BLEED_OUT, FLAG_HIDE_HP_BAR, FLAG_NO_DAMAGE_BLINK, FLAG_PERSISTENT</details>",
 	"code":'l local _m,_e=Input.GetMousePosition(true) for _,v in pairs(Isaac.GetRoomEntities()) do _e=not _e and v or (_e.Position-_m):Length()<(v.Position-_m):Length() and _e or v end _e:AddEntityFlags(EntityFlag.FLAG_FEAR)',
 	"about":'@frto027',
 	"about_link":''
@@ -851,8 +851,8 @@ var data = [
 	"name_zh":"复活玩家",
 	"status":[],
 	"keywords":['复活','重生'],
-	"desc_zh":"复活玩家，增加半颗蓝心。由于伤害计算机制，增加的半颗蓝心多数情况下会被立即扣除，并产生一定时间的无敌。在游戏后期，你可能需要一颗蓝心才能承担复活瞬间的伤害。",
-	"code":'l Isaac.GetPlayer(0):Revive();Isaac.GetPlayer(0):AddSoulHearts(1)',
+	"desc_zh":"复活玩家，增加半颗蓝心,并触发钝刀片的效果（以提供一定时间的无敌）。",
+	"code":'l Isaac.GetPlayer(0):Revive();Isaac.GetPlayer(0):UseActiveItem(486,false,true,true,false)',
 	"about":'@frto027',
 	"about_link":''
 },{
@@ -1197,6 +1197,62 @@ var data = [
 	"keywords":['卸装','丢弃道具','丢弃物品'],
 	"desc_zh":"将角色身上除327、328（全家福、底片）外的所有被动道具丢在log文件中，你可以通过复制log文件中的代码再次拾取这些道具。你可以修改第一对{}括号内的数字，使用逗号隔开，这些数字对应的道具不会被丢弃。你想知道log文件是什么吗？它位于游戏存档目录的log.txt，打开它，翻到最后就能看到了。（通常位于电脑的：文档\\My Games\\Binding of Isaac Afterbirth+\\log.txt）",
 	"code":`l local t,_t,_s,_p={327,328},{},'player_status:';for _,i in pairs(t) do _t[i]=true end for i=1,Isaac.GetItemConfig():GetCollectibles().Size-1 do _p=Isaac.GetItemConfig():GetCollectible(i) if not _t[i] and _p and _p.Type ~= ItemType.ITEM_ACTIVE then _p=Isaac.GetPlayer(0) while(_p:HasCollectible(i)) do _p:RemoveCollectible(i);_s=_s..'\ng c'..i end end end Isaac.DebugString(_s)`,
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"强制丢弃饰品",
+	"status":[],
+	"keywords":['丢弃饰品','去除饰品'],
+	"desc_zh":"丢弃玩家身上的饰品（包括血虱）",
+	"code":`l Isaac.GetPlayer(0):DropTrinket(Isaac.GetFreeNearPosition(Isaac.GetPlayer(0).Position,50),true)`,
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"药丸池中增加药丸",
+	"status":[],
+	"keywords":['药丸','增加','药片','药丸池','药池'],
+	"desc_zh":"给本局增加Bad Gas药丸，并在控制台上打印对应的药丸颜色。你可以将指令中的PILLEFFECT_BAD_GAS替换为枚举量PillEffect的其它值。打印的颜色为枚举量PillColor。<details>枚举量PillEffect的值有：PILLEFFECT_BAD_GAS, PILLEFFECT_BAD_TRIP, PILLEFFECT_BALLS_OF_STEEL, PILLEFFECT_BOMBS_ARE_KEYS, PILLEFFECT_EXPLOSIVE_DIARRHEA, PILLEFFECT_FULL_HEALTH, PILLEFFECT_HEALTH_DOWN, PILLEFFECT_HEALTH_UP, PILLEFFECT_I_FOUND_PILLS, PILLEFFECT_PUBERTY, PILLEFFECT_PRETTY_FLY, PILLEFFECT_RANGE_DOWN, PILLEFFECT_RANGE_UP, PILLEFFECT_SPEED_DOWN, PILLEFFECT_SPEED_UP, PILLEFFECT_TEARS_DOWN, PILLEFFECT_TEARS_UP, PILLEFFECT_LUCK_DOWN, PILLEFFECT_LUCK_UP, PILLEFFECT_TELEPILLS, PILLEFFECT_48HOUR_ENERGY, PILLEFFECT_HEMATEMESIS, PILLEFFECT_PARALYSIS, PILLEFFECT_SEE_FOREVER, PILLEFFECT_PHEROMONES, PILLEFFECT_AMNESIA, PILLEFFECT_LEMON_PARTY, PILLEFFECT_WIZARD, PILLEFFECT_PERCS, PILLEFFECT_ADDICTED, PILLEFFECT_RELAX, PILLEFFECT_QUESTIONMARK, PILLEFFECT_LARGER, PILLEFFECT_SMALLER, PILLEFFECT_INFESTED_EXCLAMATION, PILLEFFECT_INFESTED_QUESTION, PILLEFFECT_POWER, PILLEFFECT_RETRO_VISION, PILLEFFECT_FRIENDS_TILL_THE_END, PILLEFFECT_X_LAX, PILLEFFECT_SOMETHINGS_WRONG, PILLEFFECT_IM_DROWSY, PILLEFFECT_IM_EXCITED, PILLEFFECT_GULP, PILLEFFECT_HORF, PILLEFFECT_SUNSHINE, PILLEFFECT_VURP<br /> 药丸颜色值为：蓝_蓝 = 1, 白_蓝 = 2, 橙_橙 = 3, 白_白 = 4, 红点_红 = 5, 粉_红 = 6, 蓝_军校蓝 = 7, 黄_橙 = 8, 橙点_白 = 9, 白_天蓝 = 10, 黑_黄 = 11, 白_黑 = 12, 白_黄 = 13</details>",
+	"code":`l print(Isaac.AddPillEffectToPool(PillEffect.PILLEFFECT_BAD_GAS))`,
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"掉落道具强制替换（道具）",
+	"status":['reset'],
+	"keywords":['禁止拾取道具','废除道具房间','替换掉落物品'],
+	"desc_zh":"将除了全家福(327)、底片(328)、晚餐(第一个23)之外的所有道具掉落替换为晚餐(第二个23)，味道美极了。可以roll，但出入房间后还是会被替换。",
+	"code":`l local t,_t,_c={327,328,23},{},23 for _,i in pairs(t) do _t[i]=true end ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_PRE_ENTITY_SPAWN,function(_,e,v,s,_,_,_,S) return e==5 and (v==100 or v==150) and not _t[s] and {e,100,_c,S} or nil end)`,
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"掉落道具强制替换（掉落）",
+	"status":['reset'],
+	"keywords":['禁止拾取道具','废除道具房间','替换掉落物品'],
+	"desc_zh":"将除了全家福(327)、底片(328)之外的所有道具掉落替换为一枚幸运币（spawn指令对应的id为5.20.5）。请注意这条指令在商店会产生一些奇特的行为。",
+	"code":`l local t,_t={327,328},{} for _,i in pairs(t) do _t[i]=true end ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_PRE_ENTITY_SPAWN,function(_,e,v,s,_,_,_,S) return e==5 and (v==100 or v==150) and not _t[s] and {5,20,5,S} or nil end)`,
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"xxx房间内，掉落道具强制替换（道具）",
+	"status":['reset'],
+	"keywords":['禁止拾取道具','废除道具房间','替换掉落物品'],
+	"desc_zh":"当位于宝箱房时，将除了全家福(327)、底片(328)、晚餐(第一个23)之外的所有道具掉落替换为晚餐(第二个23)，味道美极了。可以roll，但出入房间后还是会被替换。你可以修改指令中的ROOM_TREASURE修改为枚举量RoomType的值。<details>枚举量RoomType包含的值有：ROOM_DEFAULT, ROOM_SHOP, ROOM_ERROR, ROOM_TREASURE, ROOM_BOSS, ROOM_MINIBOSS, ROOM_SECRET, ROOM_SUPERSECRET, ROOM_ARCADE, ROOM_CURSE, ROOM_CHALLENGE, ROOM_LIBRARY, ROOM_SACRIFICE, ROOM_DEVIL, ROOM_ANGEL, ROOM_DUNGEON, ROOM_BOSSRUSH, ROOM_ISAACS, ROOM_BARREN, ROOM_CHEST, ROOM_DICE, ROOM_BLACK_MARKET, ROOM_GREED_EXIT</details>",
+	"code":`l local t,_t,_c={327,328,23},{},23 for _,i in pairs(t) do _t[i]=true end ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_PRE_ENTITY_SPAWN,function(_,e,v,s,_,_,_,S) return Game():GetRoom():GetType()==RoomType.ROOM_TREASURE and e==5 and (v==100 or v==150) and not _t[s] and {e,100,_c,S} or nil end)`,
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"xxx房间内，掉落道具强制替换（掉落）",
+	"status":['reset'],
+	"keywords":['禁止拾取道具','废除道具房间','替换掉落物品'],
+	"desc_zh":"当位于宝箱房时，将除了全家福(327)、底片(328)之外的所有道具掉落替换为一枚幸运币（spawn指令对应的id为5.20.5）。请注意这条指令在商店会产生一些奇特的行为。你可以修改指令中的ROOM_TREASURE修改为枚举量RoomType的值。<details>枚举量RoomType包含的值有：ROOM_DEFAULT, ROOM_SHOP, ROOM_ERROR, ROOM_TREASURE, ROOM_BOSS, ROOM_MINIBOSS, ROOM_SECRET, ROOM_SUPERSECRET, ROOM_ARCADE, ROOM_CURSE, ROOM_CHALLENGE, ROOM_LIBRARY, ROOM_SACRIFICE, ROOM_DEVIL, ROOM_ANGEL, ROOM_DUNGEON, ROOM_BOSSRUSH, ROOM_ISAACS, ROOM_BARREN, ROOM_CHEST, ROOM_DICE, ROOM_BLACK_MARKET, ROOM_GREED_EXIT</details>",
+	"code":`l local t,_t={327,328},{} for _,i in pairs(t) do _t[i]=true end ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_PRE_ENTITY_SPAWN,function(_,e,v,s,_,_,_,S) return Game():GetRoom():GetType()==RoomType.ROOM_TREASURE and e==5 and (v==100 or v==150) and not _t[s] and {5,20,5,S} or nil end)`,
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"给某种怪物增加标志位",
+	"status":[],
+	"keywords":['增加标志位','增加属性'],
+	"desc_zh":"给当前房间中所有的萌死戳（spawn的第一个数字，即种类为20）增加恐惧标志位（FLAG_FEAR）。你可以将FLAG_FEAR替换为一个或多个枚举量EntityFlag，并使用“|”隔开。例如：EntityFlag.FLAG_FEAR|EntityFlag.FLAG_BURN|EntityFlag.FLAG_CONFUSION表示恐惧、燃烧、眩晕三个特性。<details>EntityFlag的标志位有：FLAG_NO_STATUS_EFFECTS, FLAG_NO_INTERPOLATE, FLAG_APPEAR, FLAG_RENDER_FLOOR, FLAG_NO_TARGET, FLAG_FREEZE, FLAG_POISON, FLAG_SLOW, FLAG_CHARM, FLAG_CONFUSION, FLAG_MIDAS_FREEZE, FLAG_FEAR, FLAG_BURN, FLAG_RENDER_WALL, FLAG_INTERPOLATION_UPDATE, FLAG_APPLY_GRAVITY, FLAG_NO_BLOOD_SPLASH, FLAG_NO_REMOVE_ON_TEX_RENDER, FLAG_NO_DEATH_TRIGGER, FLAG_NO_SPIKE_DAMAGE, FLAG_BOSSDEATH_TRIGGERED, FLAG_DONT_OVERWRITE, FLAG_SPAWN_STICKY_SPIDERS, FLAG_SPAWN_BLACK_HP, FLAG_SHRINK, FLAG_NO_FLASH_ON_DAMAGE, FLAG_NO_KNOCKBACK, FLAG_SLIPPERY_PHYSICS, FLAG_ADD_JAR_FLY, FLAG_FRIENDLY, FLAG_NO_PHYSICS_KNOCKBACK, FLAG_DONT_COUNT_BOSS_HP, FLAG_NO_SPRITE_UPDATE, FLAG_CONTAGIOUS, FLAG_BLEED_OUT, FLAG_HIDE_HP_BAR, FLAG_NO_DAMAGE_BLINK, FLAG_PERSISTENT</details>",
+	"code":`l for _,v in pairs(Isaac.GetRoomEntities()) do if v.Type==20 then v:AddEntityFlags(EntityFlag.FLAG_FEAR) end end`,
 	"about":'@frto027',
 	"about_link":''
 }
