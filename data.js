@@ -1019,7 +1019,7 @@ var data = [
 	"name_zh":"在游戏的每一帧，...",
 	"status":['reset'],
 	"keywords":['每一帧','每帧','时时刻刻','一直','回调函数'],
-	"desc_zh":"警告：请谨慎执行，此指令可能会引起意外的游戏行为，并导致游戏崩溃。在游戏的每一帧，打印hello, world到控制台上。请将指令中的print('hello, world')替换为你想要使用的lua指令内容，替换时注意不含l前缀。",
+	"desc_zh":"警告：请谨慎执行，该指令可能会引起意外的游戏行为，并导致游戏崩溃。在游戏的每一帧，打印hello, world到控制台上。请将指令中的print('hello, world')替换为你想要使用的lua指令内容，替换时注意不含l前缀。",
 	"code":`l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_POST_UPDATE,function(_) print('hello, world') end)`,
 	"about":'@frto027',
 	"about_link":''
@@ -1027,7 +1027,7 @@ var data = [
 	"name_zh":"在游戏的每一渲染帧，...",
 	"status":['reset'],
 	"keywords":['每一帧','每帧','渲染帧','时时刻刻','一直','回调函数'],
-	"desc_zh":"警告：请谨慎执行，此指令可能会引起意外的游戏行为，并导致游戏崩溃。在游戏的每一渲染帧时，打印hello, world到控制台上。请将指令中的print('hello, world')替换为你想要使用的lua指令内容，替换时注意不含l前缀。",
+	"desc_zh":"警告：请谨慎执行，该指令可能会引起意外的游戏行为，并导致游戏崩溃。在游戏的每一渲染帧时，打印hello, world到控制台上。请将指令中的print('hello, world')替换为你想要使用的lua指令内容，替换时注意不含l前缀。",
 	"code":`l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_POST_RENDER,function(_) print('hello, world') end)`,
 	"about":'@frto027',
 	"about_link":''
@@ -1043,7 +1043,7 @@ var data = [
 	"name_zh":"在下一帧，执行...（简化版）",
 	"status":[],
 	"keywords":['执行lua指令','延迟执行指令'],
-	"desc_zh":"注意，此指令仅在至少执行过一遍“在下一帧，执行...”指令后才可以使用。<br/>延迟一帧打印hello, world。这条指令主要在特定逻辑下被用到。请将指令中的print('hello, world')替换为你想要使用的lua指令内容，替换时注意不含l前缀。",
+	"desc_zh":"注意，该指令仅在至少执行过一遍“在下一帧，执行...”指令后才可以使用。<br/>延迟一帧打印hello, world。这条指令主要在特定逻辑下被用到。请将指令中的print('hello, world')替换为你想要使用的lua指令内容，替换时注意不含l前缀。",
 	"code":`l ftlk={n=ftlk,f=function() print('hello, world') end}`,
 	"about":'@frto027',
 	"about_link":''
@@ -1051,7 +1051,7 @@ var data = [
 	"name_zh":"在下两帧，执行...（简化版）",
 	"status":[],
 	"keywords":['执行lua指令','延迟执行指令'],
-	"desc_zh":"注意，此指令仅在至少执行过一遍“在下一帧，执行...”指令后才可以使用。<br/>本质上是延迟一帧的套娃版本，你可以进一步套娃，得到延迟三帧、四帧等指令，不过这真的有用吗？延迟两帧打印hello, world。这条指令主要在特定逻辑下被用到。请将指令中的print('hello, world')替换为你想要使用的lua指令内容，替换时注意不含l前缀。",
+	"desc_zh":"注意，该指令仅在至少执行过一遍“在下一帧，执行...”指令后才可以使用。<br/>本质上是延迟一帧的套娃版本，你可以进一步套娃，得到延迟三帧、四帧等指令，不过这真的有用吗？延迟两帧打印hello, world。这条指令主要在特定逻辑下被用到。请将指令中的print('hello, world')替换为你想要使用的lua指令内容，替换时注意不含l前缀。",
 	"code":`l ftlk={n=ftlk,f=function() ftlk={n=ftlk,f=function() print('hello, world') end} end}`,
 	"about":'@frto027',
 	"about_link":''
@@ -1261,6 +1261,38 @@ var data = [
 	"keywords":['roll','重置道具','D4'],
 	"desc_zh":"重置角色身上除全家福、底片（道具id为327,328）、所有主动之外的所有道具。无视道具池，可重复出现，真随机。",
 	"code":`l local _ban,_t,m,t,p,_cfg,_p={327,328},{},Isaac.GetItemConfig():GetCollectibles().Size-1,0,Isaac.GetPlayer(0)for _,i in next,_ban do _t[i]=true end for i=1,m do while(p:HasCollectible(i) and not _t[i] and Isaac.GetItemConfig():GetCollectible(i).Type ~=ItemType.ITEM_ACTIVE)do t=t+1 p:RemoveCollectible(i) end end for i=1,t do repeat _p=Random()%m+1 _cfg=Isaac.GetItemConfig():GetCollectible(_p) until not _t[_p]and _cfg and _cfg.Type ~= ItemType.ITEM_ACTIVE _t[_p]=true p:AddCollectible(_p,0,true) end`,
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"在数帧后，执行...",
+	"status":['reset'],
+	"keywords":['执行lua指令','延迟执行指令'],
+	"desc_zh":"延迟30帧（一秒）打印hello, world。你可以修改指令中的30来改变延迟时间。这条指令主要在特定逻辑下被用到。请将指令中的print('hello, world')替换为你想要使用的lua指令内容，替换时注意不含l前缀。",
+	"code":`l ftdlk={n=ftdlk,d=30,f=function() print('hello, world') end }if(not ftpdl)then ftl = ftl or RegisterMod('ftcslua',1) ftpdl=function() while(ftdlk and ftdlk.d<=0)do local f=ftdlk.f ftdlk=ftdlk.n f() end local d=ftdlk while(d)do d.d=d.d-1 if(d.n and d.n.d<=0)then d.n.f() d.n=d.n.n end d=d.n end end ftl:AddCallback(ModCallbacks.MC_POST_UPDATE,ftpdl) end`,
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"在数帧后，执行...（简化版）",
+	"status":['reset'],
+	"keywords":['执行lua指令','延迟执行指令'],
+	"desc_zh":"注意，该指令仅在至少执行过一次“在数帧后，执行...”之后才有效。延迟30帧（一秒）打印hello, world。你可以修改指令中的30来改变延迟时间。这条指令主要在特定逻辑下被用到。请将指令中的print('hello, world')替换为你想要使用的lua指令内容，替换时注意不含l前缀。",
+	"code":`l ftdlk={n=ftdlk,d=30,f=function() print('hello, world') end }`,
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"随机执行",
+	"status":[],
+	"keywords":['流程控制','随机执行'],
+	"desc_zh":"有100分之45的概率打印hello，否则什么都不做。指令中的100和45都可以修改。该指令是真随机。你可以将指令中的打印hello和打印world替换为不同的指令。",
+	"code":`l if Random()%100 < 45 then print('hello') end`,
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"随机执行二选一",
+	"status":[],
+	"keywords":['流程控制','随机执行'],
+	"desc_zh":"有100分之45的概率打印hello，否则打印world。指令中的100和45都可以修改。该指令是真随机。你可以将指令中的打印hello和打印world替换为不同的指令。",
+	"code":`l if Random()%100 < 45 then print('hello') else print('world') end`,
 	"about":'@frto027',
 	"about_link":''
 }
