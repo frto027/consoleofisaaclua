@@ -23,6 +23,23 @@
         document.querySelector('#loading_div').setAttribute('style', '')
     </script>
     <div id="js_content" class="container" style="display: none;">
+    	<!-- nav bar(notes) -->
+    	<div class="fixed-top float-right">
+    		<div class="container">
+    			<div class="border-bottom bg-light">
+    				<div id="pastebin_area" style="display: none;">
+    					<textarea class="form-control" id="pastebin_texts"></textarea>
+    				</div>
+    			</div>
+				<div class="btn-group-vertical" style="float: right;margin-right: 10px">
+		    		<button class="notes_btn btn btn-sm btn-link bg-light border border-top-0" style="border-top-right-radius:0;border-top-left-radius:0" onclick="$('#pastebin_area').slideToggle('fast')">
+		    			notes
+		    		</button>
+	    		</div>
+    		</div>
+    	
+    	</div>
+    	<!-- content -->
         <h1>The console of isaac:lua <a class="badge badge-primary"
                 href="https://github.com/frto027/consoleofisaaclua">@frto027</a></h1>
         <hr>
@@ -82,11 +99,17 @@
                     <pre><textarea class="codes form-control">Error</textarea></pre>
 
                     <button href="#" class="copy_card btn btn-info btn-sm">copy to console</button>
-                    <button href="#" class="copy_card_lua btn btn-warning btn-sm">copy lua</button>
+                    <button href="#" class="copy_card_note btn btn-warning btn-sm">copy to note</button>
+                    <button href="#" class="copy_card_lua btn btn-secondary btn-sm">copy lua</button>
                     <button href="#" class="reset_card btn btn-link btn-sm">reset</button>
+                    
                     <a href="#" class="code_ablout card-link" style="display: none;">no author</a>
                     <span class="copymark copymark_console badge badge-success" style="display: none;">copied console</span>
                     <span class="copymark copymark_lua badge badge-success" style="display: none;">copied lua</span>
+                    <span class="copymark pastemark_lua badge badge-success" style="display: none;">note is pasted</span>
+                    <div class="paste_note_btns">
+                    	<button href="#" class="paste_note_btn btn btn-link btn-sm">用便签替换第一个打印helloworld</button>
+                    </div>
                 </div>
             </div>
         </div>

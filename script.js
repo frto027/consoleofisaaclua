@@ -11,10 +11,12 @@ let trans_json = {
         ['.s_request','申请'],
         ['.s_broken','失效'],
         ['.s_reset','重启'],
+        ['.notes_btn','便签'],
         ['.copymark_console','已复制为控制台指令'],
         ['.copymark_lua','已复制为lua'],
         ['.copy_card','复制到控制台'],
         ['.copy_card_lua','复制为lua'],
+        ['.copy_card_note','复制到便签'],
         ['#request_desc','这个脚本正在请求编写'],
         ['#broken_desc','这个脚本已经失效'],
         ['#reset_desc','在重新启动游戏（或重新开关任意mod）之前，脚本功能不会消失。这是因为部分lua指令会污染游戏的上下文，建议通过重新开关某个mod，或重启游戏程序的方式来进行重置。'],
@@ -22,6 +24,21 @@ let trans_json = {
         ['#search_btn','过滤']
     ],
 }
+
+function generate_replate_by_note(text,number){
+    if(language[0]){
+            if(number)
+                return `将第${number}个打印${text}替换为便签内容`
+            else
+                return `将打印${text}替换为便签内容`
+    }else{
+        return 'not supported.'
+    }
+
+}
+
+const note_replace_reg = /print\(('([^']*)'|"([^"]*)")\)/g
+
 let template = $('#template')
 for(let i = language.length - 1;i>=0;i--){
     trans_items = trans_json[language[i]]
@@ -61,6 +78,10 @@ function add_elem(data_item){
     c_lua_btn = next_card.querySelector('.copy_card_lua')
     c_lua_btn.cptarget = c_target
 
+    //copy note
+    c_note_btn = next_card.querySelector('.copy_card_note')
+    c_note_btn.cptarget = c_target
+    c_note_btn.onclick = on_copy_to_note
 
     set_data_item(data_item)
     nq = $(next_card)
@@ -86,8 +107,26 @@ function add_elem(data_item){
     reset_btn[0].setAttribute('rst_code',p('code'))
     reset_btn[0].setAttribute('rst_target',next_card.id)
     nq.on('click',(e)=>{
+        //code area
         $('#'+e.target.getAttribute('rst_target')).find('.codes').val(e.target.getAttribute('rst_code'))
+        //paste note btns
+        update_paste_note_btns({target:$('#'+e.target.getAttribute('rst_target')).find('.codes')[0]})
     })
+
+    //paste note
+    {
+
+        paste_note_btns = next_card.querySelector('.paste_note_btns')
+        paste_note_btns.rep_target=c_target
+
+        c_target.paste_note_btns = paste_note_btns
+
+        paste_note_btn = paste_note_btns.querySelector('.paste_note_btn')
+
+        update_paste_note_btns({target:c_target})
+        $(c_target).on('change',update_paste_note_btns)
+    }
+
 
     parent_list.appendChild(next_card)
 }
@@ -142,6 +181,86 @@ clipboard_lua.on('error',()=>{
     $('.copymark').hide('fast')
     alert('copy failed')
 })
+
+//copy to note
+function on_copy_to_note(e){
+    $('#pastebin_texts').val(this.cptarget.value.substr(2))
+    $('#pastebin_area').slideDown('fast')
+}
+
+//note to code
+//add note buttons
+function update_paste_note_btns(e){
+    //update buttons
+
+    //get information from code
+    // let print_datas = { //key:text value:count
+    //     'hello, world':1,
+    //     'no problem':2
+    // }
+    let print_datas = {}
+
+    let mresult
+    while((mresult = note_replace_reg.exec(e.target.value)) != null){
+        let r = mresult[2]||mresult[3]
+        print_datas[r] = print_datas[r] ? print_datas[r]+1 : 1
+    }
+
+    //buffer, we do not need to update buttons all of the time
+    if(e.target.print_datas != undefined && Object.keys(e.target.print_datas).length == Object.keys(print_datas).length){
+        //check if it is equal
+        let equal = true
+        for(k in print_datas){
+            if(print_datas[k] != e.target.print_datas[k]){
+                equal = false
+                break
+            }
+        }
+        if(equal){
+            //we don't need to change the paste note buttons
+            return
+        }
+
+    }
+    e.target.print_datas = print_datas
+
+    //do something to update buttons
+    e.target.paste_note_btns.innerHTML=''
+
+    for(text in print_datas){
+        for(let cur_count = 1;cur_count <= print_datas[text];cur_count++){
+            let show_str = generate_replate_by_note(text,print_datas[text] > 1 ? cur_count : undefined)
+            let the_btn = $(paste_note_btn).clone()
+            the_btn.text(show_str)
+            the_btn = the_btn[0]
+            the_btn.onclick = on_note_to_code
+            the_btn.rep_text = text
+            the_btn.rep_time = cur_count
+            $(e.target.paste_note_btns).append(the_btn)
+        }
+    }
+}
+//note button clicked
+function on_note_to_code(e){
+    let code_target = $(e.target).parent('.paste_note_btns')[0].rep_target
+    let counter = 0
+    let mresult
+    while((mresult = note_replace_reg.exec(code_target.value)) != null){
+        //index
+        //mresult[0].length
+        if((mresult[2]||mresult[3]) === e.target.rep_text){
+            counter++
+        }
+        if(counter == e.target.rep_time){
+            let s = code_target.value
+            code_target.value = s.substr(0,mresult.index) + $('#pastebin_texts').val() + s.substr(mresult.index + mresult[0].length)
+            break
+        }
+    }
+    note_replace_reg.lastIndex = 0
+
+    update_paste_note_btns({target:code_target})
+}
 
 //show all element
 for(let i=0;i<data.length;i++){
