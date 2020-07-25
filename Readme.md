@@ -1409,3 +1409,12 @@ l local t,_t={327,328},{} for _,i in pairs(t) do _t[i]=true end ftl = ftl or Reg
 ```
 l for _,v in pairs(Isaac.GetRoomEntities()) do if v.Type==20 then v:AddEntityFlags(EntityFlag.FLAG_FEAR) end end
 ```
+
+
+-----
+
+### 重置全身道具
+重置角色身上除全家福、底片（道具id为327,328）、所有主动之外的所有道具。无视道具池，可重复出现，真随机。
+```
+l local _ban,_t,m,t,p,_cfg,_p={327,328},{},Isaac.GetItemConfig():GetCollectibles().Size-1,0,Isaac.GetPlayer(0)for _,i in next,_ban do _t[i]=true end for i=1,m do while(p:HasCollectible(i) and not _t[i] and Isaac.GetItemConfig():GetCollectible(i).Type ~=ItemType.ITEM_ACTIVE)do t=t+1 p:RemoveCollectible(i) end end for i=1,t do repeat _p=Random()%m+1 _cfg=Isaac.GetItemConfig():GetCollectible(_p) until not _t[_p]and _cfg and _cfg.Type ~= ItemType.ITEM_ACTIVE _t[_p]=true p:AddCollectible(_p,0,true) end
+```
