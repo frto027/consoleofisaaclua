@@ -1283,7 +1283,7 @@ var data = [
 	"name_zh":"随机执行",
 	"status":[],
 	"keywords":['流程控制','随机执行'],
-	"desc_zh":"有100分之45的概率打印hello，否则什么都不做。指令中的100和45都可以修改。该指令是真随机。你可以将指令中的打印hello和打印world替换为不同的指令。",
+	"desc_zh":"有100分之45的概率打印hello，否则什么都不做。指令中的100和45都可以修改。该指令是真随机。你可以将指令中的打印hello替换为不同的指令。",
 	"code":`l if Random()%100 < 45 then print('hello') end`,
 	"about":'@frto027',
 	"about_link":''
@@ -1293,6 +1293,30 @@ var data = [
 	"keywords":['流程控制','随机执行'],
 	"desc_zh":"有100分之45的概率打印hello，否则打印world。指令中的100和45都可以修改。该指令是真随机。你可以将指令中的打印hello和打印world替换为不同的指令。",
 	"code":`l if Random()%100 < 45 then print('hello') else print('world') end`,
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"每进入xx个新房间时,...",
+	"status":['reset'],
+	"keywords":['进入新房间','回调'],
+	"desc_zh":"从输入指令开始起，每进入第5个新房间，则打印hello, world。该指令重复输入不覆盖（前面的输入依旧有效）。你可以将指令中的打印hello, world替换为不同的指令。",
+	"code":`l local i=0 ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_POST_NEW_ROOM,function() i=Game():GetRoom():IsFirstVisit() and i+1 or i if i>=5 then i=0 print('hello, world') end end)`,
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"当成功清理房间时,...",
+	"status":['reset'],
+	"keywords":['清理房间','回调'],
+	"desc_zh":"当清理房间时，打印hello, world。你可以将指令中的打印hello, world替换为不同的指令。",
+	"code":`l local f,gi ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_POST_UPDATE ,function() local cgi=Game():GetLevel():GetCurrentRoomDesc().SafeGridIndex if cgi==gi then if Game():GetRoom():IsClear() then if not f then f=true print('hello, world') end else f=false end else gi=cgi f=Game():GetRoom():IsClear() end end)`,
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"每成功清理xx个房间时,...",
+	"status":['reset'],
+	"keywords":['清理房间','回调'],
+	"desc_zh":"每清理5个房间时，打印hello, world。你可以将指令中的打印hello, world替换为不同的指令。",
+	"code":`l local i,f,gi=0 ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_POST_UPDATE ,function() local cgi=Game():GetLevel():GetCurrentRoomDesc().SafeGridIndex if cgi==gi then if Game():GetRoom():IsClear() then if not f then f=true i=i+1 if i>=5 then i=0 print('hello, world') end end else f=false end else gi=cgi f=Game():GetRoom():IsClear() end end)`,
 	"about":'@frto027',
 	"about_link":''
 }
