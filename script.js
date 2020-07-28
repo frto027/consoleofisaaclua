@@ -25,17 +25,18 @@ let trans_json = {
     ],
 }
 
-function generate_replate_by_note(text,number){
-    if(language[0]){
-            if(number)
-                return `将第${number}个打印${text}替换为便签内容`
-            else
-                return `将打印${text}替换为便签内容`
-    }else{
-        return 'not supported.'
-    }
-
+function generate_replate_by_note_zh(text,number){
+    if(number)
+        return `将第${number}个打印${text}替换为便签内容`
+    else
+        return `将打印${text}替换为便签内容`
 }
+
+function generate_replate_by_note_en(text,number){
+    return 'not supported.'
+}
+
+let generate_replate_by_note = undefined
 
 const note_replace_reg = /print\(('([^']*)'|"([^"]*)")\)/g
 
@@ -47,6 +48,12 @@ for(let i = language.length - 1;i>=0;i--){
             item = trans_items[item_i]
             $(item[0]).text(item[1])
         }
+    }
+    try{
+        generate_replate_by_note = eval('generate_replate_by_note_'+language[i]) || generate_replate_by_note
+    }catch(e){
+        if(e.name != "ReferenceError")
+            throw e
     }
 }
 
