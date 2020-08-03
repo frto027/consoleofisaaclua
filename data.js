@@ -1319,5 +1319,21 @@ var data = [
 	"code":`l local i,f,gi=0 ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_POST_UPDATE ,function() local cgi=Game():GetLevel():GetCurrentRoomDesc().SafeGridIndex if cgi==gi then if Game():GetRoom():IsClear() then if not f then f=true i=i+1 if i>=5 then i=0 print('hello, world') end end else f=false end else gi=cgi f=Game():GetRoom():IsClear() end end)`,
 	"about":'@frto027',
 	"about_link":''
+},{
+	"name_zh":"从道具池中移除道具",
+	"status":[''],
+	"keywords":['道具池','编辑','移除','删除道具','拾取'],
+	"desc_zh":"从道具池中移除420号道具",
+	"code":`l Game():GetItemPool():RemoveCollectible(420)`,
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"从饰品池中移除饰品",
+	"status":[''],
+	"keywords":['饰品池','编辑','移除','删除饰品','拾取'],
+	"desc_zh":"从道具池中移除75号饰品（75号饰品为“404”，饰品id可通过图鉴或wiki查询）",
+	"code":`l Game():GetItemPool():RemoveCollectible(75)`,
+	"about":'@frto027',
+	"about_link":''
 }
 ]
