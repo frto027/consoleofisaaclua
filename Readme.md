@@ -954,9 +954,9 @@ l Isaac.GetPlayer(0):AddBoneHearts(2)
 -----
 
 ### 复活玩家
-复活玩家，增加半颗蓝心,并触发钝刀片的效果（以提供一定时间的无敌）。
+复活玩家，增加半颗蓝心,并无敌0.5秒。
 ```
-l Isaac.GetPlayer(0):Revive();Isaac.GetPlayer(0):UseActiveItem(486,false,true,true,false)
+l Isaac.GetPlayer(0):Revive();Isaac.GetPlayer(0):SetMinDamageCooldown(30)
 ```
 
 
@@ -1497,5 +1497,14 @@ l Game():GetItemPool():RemoveCollectible(420)
 ### 从饰品池中移除饰品
 从道具池中移除75号饰品（75号饰品为“404”，饰品id可通过图鉴或wiki查询）
 ```
-l Game():GetItemPool():RemoveCollectible(75)
+l Game():GetItemPool():RemoveTrinket(75)
+```
+
+
+-----
+
+### 无敌
+无敌1秒（时间为60）
+```
+l Isaac.GetPlayer(0):SetMinDamageCooldown(60)
 ```

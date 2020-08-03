@@ -851,8 +851,8 @@ var data = [
 	"name_zh":"复活玩家",
 	"status":[],
 	"keywords":['复活','重生'],
-	"desc_zh":"复活玩家，增加半颗蓝心,并触发钝刀片的效果（以提供一定时间的无敌）。",
-	"code":'l Isaac.GetPlayer(0):Revive();Isaac.GetPlayer(0):UseActiveItem(486,false,true,true,false)',
+	"desc_zh":"复活玩家，增加半颗蓝心,并无敌0.5秒。",
+	"code":'l Isaac.GetPlayer(0):Revive();Isaac.GetPlayer(0):SetMinDamageCooldown(30)',
 	"about":'@frto027',
 	"about_link":''
 },{
@@ -1332,7 +1332,15 @@ var data = [
 	"status":[''],
 	"keywords":['饰品池','编辑','移除','删除饰品','拾取'],
 	"desc_zh":"从道具池中移除75号饰品（75号饰品为“404”，饰品id可通过图鉴或wiki查询）",
-	"code":`l Game():GetItemPool():RemoveCollectible(75)`,
+	"code":`l Game():GetItemPool():RemoveTrinket(75)`,
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"无敌",
+	"status":[''],
+	"keywords":['玩家无敌','闪烁','免疫伤害'],
+	"desc_zh":"无敌1秒（时间为60）",
+	"code":`l Isaac.GetPlayer(0):SetMinDamageCooldown(60)`,
 	"about":'@frto027',
 	"about_link":''
 }
