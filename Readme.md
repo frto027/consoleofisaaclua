@@ -288,7 +288,7 @@ l local _m,_e=Input.GetMousePosition(true) for _,v in pairs(Isaac.GetRoomEntitie
 -----
 
 ### 为鼠标最近实体增加中毒效果
-令距离鼠标最近的实体增加2秒(指令中的60表示2秒)的中毒效果。虽然1表示伤害值，但实测造成的是玩家面板伤害。
+令距离鼠标最近的实体增加2秒(指令中的60表示2秒)的中毒效果。虽然1表示伤害值，但实测造成的是角色面板伤害。
 ```
 l local _m,_e=Input.GetMousePosition(true) for _,v in pairs(Isaac.GetRoomEntities()) do _e=not _e and v or (_e.Position-_m):Length()<(v.Position-_m):Length() and _e or v end _e:AddPoison(EntityRef(nil),60,1)
 ```
@@ -828,7 +828,7 @@ l Isaac.GetPlayer(0):AddBlueSpider(Isaac.GetRandomPosition())
 -----
 
 ### 增加蓝苍蝇
-在随机位置，以玩家为目标，生成3个蓝苍蝇
+在随机位置，以角色为目标，生成3个蓝苍蝇
 ```
 l Isaac.GetPlayer(0):AddBlueFlies(3,Isaac.GetRandomPosition(),Isaac.GetPlayer(0).Target)
 ```
@@ -837,7 +837,7 @@ l Isaac.GetPlayer(0):AddBlueFlies(3,Isaac.GetRandomPosition(),Isaac.GetPlayer(0)
 -----
 
 ### 增加灰苍蝇（pretty fly）
-生成1个灰苍蝇（围绕玩家旋转）
+生成1个灰苍蝇（围绕角色旋转）
 ```
 l Isaac.GetPlayer(0):AddPrettyFly()
 ```
@@ -936,7 +936,7 @@ l Isaac.GetPlayer(0):UseCard(Card.CARD_FOOL)
 -----
 
 ### 触发药丸效果
-触发Bad Gas药丸的效果，并重新计算玩家属性值（来让Range Up等药丸生效）。PILLEFFECT_BAD_GAS可以替换为枚举变量PillEffect中的任意值（或使用药丸id）。<details>PillEffect枚举变量可用值如下：<p>PILLEFFECT_BAD_GAS, PILLEFFECT_BAD_TRIP, PILLEFFECT_BALLS_OF_STEEL, PILLEFFECT_BOMBS_ARE_KEYS, PILLEFFECT_EXPLOSIVE_DIARRHEA, PILLEFFECT_FULL_HEALTH, PILLEFFECT_HEALTH_DOWN, PILLEFFECT_HEALTH_UP, PILLEFFECT_I_FOUND_PILLS, PILLEFFECT_PUBERTY, PILLEFFECT_PRETTY_FLY, PILLEFFECT_RANGE_DOWN, PILLEFFECT_RANGE_UP, PILLEFFECT_SPEED_DOWN, PILLEFFECT_SPEED_UP, PILLEFFECT_TEARS_DOWN, PILLEFFECT_TEARS_UP, PILLEFFECT_LUCK_DOWN, PILLEFFECT_LUCK_UP, PILLEFFECT_TELEPILLS, PILLEFFECT_48HOUR_ENERGY, PILLEFFECT_HEMATEMESIS, PILLEFFECT_PARALYSIS, PILLEFFECT_SEE_FOREVER, PILLEFFECT_PHEROMONES, PILLEFFECT_AMNESIA, PILLEFFECT_LEMON_PARTY, PILLEFFECT_WIZARD, PILLEFFECT_PERCS, PILLEFFECT_ADDICTED, PILLEFFECT_RELAX, PILLEFFECT_QUESTIONMARK, PILLEFFECT_LARGER, PILLEFFECT_SMALLER, PILLEFFECT_INFESTED_EXCLAMATION, PILLEFFECT_INFESTED_QUESTION, PILLEFFECT_POWER, PILLEFFECT_RETRO_VISION, PILLEFFECT_FRIENDS_TILL_THE_END, PILLEFFECT_X_LAX, PILLEFFECT_SOMETHINGS_WRONG, PILLEFFECT_IM_DROWSY, PILLEFFECT_IM_EXCITED, PILLEFFECT_GULP, PILLEFFECT_HORF, PILLEFFECT_SUNSHINE, PILLEFFECT_VURP</p></details>
+触发Bad Gas药丸的效果，并重新计算角色属性值（来让Range Up等药丸生效）。PILLEFFECT_BAD_GAS可以替换为枚举变量PillEffect中的任意值（或使用药丸id）。<details>PillEffect枚举变量可用值如下：<p>PILLEFFECT_BAD_GAS, PILLEFFECT_BAD_TRIP, PILLEFFECT_BALLS_OF_STEEL, PILLEFFECT_BOMBS_ARE_KEYS, PILLEFFECT_EXPLOSIVE_DIARRHEA, PILLEFFECT_FULL_HEALTH, PILLEFFECT_HEALTH_DOWN, PILLEFFECT_HEALTH_UP, PILLEFFECT_I_FOUND_PILLS, PILLEFFECT_PUBERTY, PILLEFFECT_PRETTY_FLY, PILLEFFECT_RANGE_DOWN, PILLEFFECT_RANGE_UP, PILLEFFECT_SPEED_DOWN, PILLEFFECT_SPEED_UP, PILLEFFECT_TEARS_DOWN, PILLEFFECT_TEARS_UP, PILLEFFECT_LUCK_DOWN, PILLEFFECT_LUCK_UP, PILLEFFECT_TELEPILLS, PILLEFFECT_48HOUR_ENERGY, PILLEFFECT_HEMATEMESIS, PILLEFFECT_PARALYSIS, PILLEFFECT_SEE_FOREVER, PILLEFFECT_PHEROMONES, PILLEFFECT_AMNESIA, PILLEFFECT_LEMON_PARTY, PILLEFFECT_WIZARD, PILLEFFECT_PERCS, PILLEFFECT_ADDICTED, PILLEFFECT_RELAX, PILLEFFECT_QUESTIONMARK, PILLEFFECT_LARGER, PILLEFFECT_SMALLER, PILLEFFECT_INFESTED_EXCLAMATION, PILLEFFECT_INFESTED_QUESTION, PILLEFFECT_POWER, PILLEFFECT_RETRO_VISION, PILLEFFECT_FRIENDS_TILL_THE_END, PILLEFFECT_X_LAX, PILLEFFECT_SOMETHINGS_WRONG, PILLEFFECT_IM_DROWSY, PILLEFFECT_IM_EXCITED, PILLEFFECT_GULP, PILLEFFECT_HORF, PILLEFFECT_SUNSHINE, PILLEFFECT_VURP</p></details>
 ```
 l Isaac.GetPlayer(0):UsePill(PillEffect.PILLEFFECT_BAD_GAS,0) Isaac.GetPlayer(0):EvaluateItems()
 ```
@@ -953,8 +953,8 @@ l Isaac.GetPlayer(0):AddBoneHearts(2)
 
 -----
 
-### 复活玩家
-复活玩家，增加半颗蓝心,并无敌0.5秒。
+### 复活角色
+复活角色，增加半颗蓝心,并无敌0.5秒。
 ```
 l Isaac.GetPlayer(0):Revive();Isaac.GetPlayer(0):SetMinDamageCooldown(30)
 ```
@@ -963,7 +963,7 @@ l Isaac.GetPlayer(0):Revive();Isaac.GetPlayer(0):SetMinDamageCooldown(30)
 -----
 
 ### 当发射眼泪时，...
-当玩家发射眼泪时，打印hello, world到控制台上，请将指令中的print('hello, world')替换为你想要使用的lua指令内容，替换时注意不含l前缀。
+当角色发射眼泪时，打印hello, world到控制台上，请将指令中的print('hello, world')替换为你想要使用的lua指令内容，替换时注意不含l前缀。
 ```
 l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_POST_FIRE_TEAR,function() print('hello, world') end)
 ```
@@ -972,7 +972,7 @@ l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_POST_FIR
 -----
 
 ### 当发射眼泪时，增加幸运
-当玩家发射眼泪时，增加幸运。这是指令“当发射眼泪时，...”的一个使用示例。指令中的hello world被替换为增加幸运的lua指令。
+当角色发射眼泪时，增加幸运。这是指令“当发射眼泪时，...”的一个使用示例。指令中的hello world被替换为增加幸运的lua指令。
 ```
 l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_POST_FIRE_TEAR,function() Isaac.GetPlayer(0):DonateLuck(1) end)
 ```
@@ -980,8 +980,8 @@ l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_POST_FIR
 
 -----
 
-### 当玩家受伤时，...
-当玩家受伤时，打印hello, world到控制台上，请将指令中的print('hello, world')替换为你想要使用的lua指令内容，替换时注意不含l前缀。
+### 当角色受伤时，...
+当角色受伤时，打印hello, world到控制台上，请将指令中的print('hello, world')替换为你想要使用的lua指令内容，替换时注意不含l前缀。
 ```
 l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_ENTITY_TAKE_DMG,function(_) print('hello, world') end,EntityType.ENTITY_PLAYER)
 ```
@@ -1061,7 +1061,7 @@ l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_PRE_GAME
 
 -----
 
-### 当玩家死亡，游戏结束时，...
+### 当角色死亡，游戏结束时，...
 当因死亡结束游戏时，打印hello, world到控制台上，请将指令中的print('hello, world')替换为你想要使用的lua指令内容，替换时注意不含l前缀。
 ```
 l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_POST_GAME_END,function(_,mpgeiso) if(mpgeiso) then print('hello, world') end end)
@@ -1070,7 +1070,7 @@ l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_POST_GAM
 
 -----
 
-### 当玩家通关，游戏结束时，...
+### 当角色通关，游戏结束时，...
 当因通关结束游戏时，打印hello, world到控制台上，请将指令中的print('hello, world')替换为你想要使用的lua指令内容，替换时注意不含l前缀。
 ```
 l ftl = ftl or RegisterMod('ftcslua',1);ftl:AddCallback(ModCallbacks.MC_POST_GAME_END,function(_,mpgeiso) if(not mpgeiso) then print('hello, world') end end)
@@ -1187,8 +1187,8 @@ l ftlk={n=ftlk,f=function() ftlk={n=ftlk,f=function() print('hello, world') end}
 
 -----
 
-### 让玩家受伤
-让玩家受到1点（半颗心）伤害，在第七层后，玩家至少受到一颗心的伤害。指令中的1表示半血。
+### 让角色受伤
+让角色受到1点（半颗心）伤害，在第七层后，角色至少受到一颗心的伤害。指令中的1表示半血。
 ```
 l Isaac.GetPlayer(0):TakeDamage(1,0,EntityRef(nil),0)
 ```
@@ -1196,8 +1196,8 @@ l Isaac.GetPlayer(0):TakeDamage(1,0,EntityRef(nil),0)
 
 -----
 
-### 让玩家中毒
-让玩家中毒，持续时间为30
+### 让角色中毒
+让角色中毒，持续时间为30
 ```
 l Isaac.GetPlayer(0):AddPoison(EntityRef(nil),30,0)
 ```
@@ -1205,8 +1205,8 @@ l Isaac.GetPlayer(0):AddPoison(EntityRef(nil),30,0)
 
 -----
 
-### 灼烧玩家
-让玩家被灼烧，持续时间为30
+### 灼烧角色
+让角色被灼烧，持续时间为30
 ```
 l Isaac.GetPlayer(0):AddBurn(EntityRef(nil),30,0)
 ```
@@ -1214,8 +1214,8 @@ l Isaac.GetPlayer(0):AddBurn(EntityRef(nil),30,0)
 
 -----
 
-### 让玩家死亡
-让玩家立即死亡
+### 让角色死亡
+让角色立即死亡
 ```
 l Isaac.GetPlayer(0):Die()
 ```
@@ -1224,7 +1224,7 @@ l Isaac.GetPlayer(0):Die()
 -----
 
 ### 禁止操作数秒
-强制冷静。让玩家在两秒（120帧）内无法操作。
+强制冷静。让角色在两秒（120帧）内无法操作。
 ```
 l Isaac.GetPlayer(0).ControlsCooldown=120
 ```
@@ -1232,8 +1232,8 @@ l Isaac.GetPlayer(0).ControlsCooldown=120
 
 -----
 
-### 缩放玩家贴图
-将玩家贴图水平放大至2倍，垂直放大至0.1倍。不影响实际碰撞。
+### 缩放角色贴图
+将角色贴图水平放大至2倍，垂直放大至0.1倍。不影响实际碰撞。
 ```
 l Isaac.GetPlayer(0).SpriteScale=Vector(2,0.1)
 ```
@@ -1241,8 +1241,8 @@ l Isaac.GetPlayer(0).SpriteScale=Vector(2,0.1)
 
 -----
 
-### 缩放玩家碰撞
-将玩家碰撞水平放大至2倍，垂直放大至0.1倍。不影响游戏贴图。
+### 缩放角色碰撞
+将角色碰撞水平放大至2倍，垂直放大至0.1倍。不影响游戏贴图。
 ```
 l Isaac.GetPlayer(0):SetSize(1,Vector(2,0.1),0)
 ```
@@ -1250,8 +1250,8 @@ l Isaac.GetPlayer(0):SetSize(1,Vector(2,0.1),0)
 
 -----
 
-### 隐藏玩家贴图
-隐藏玩家的贴图。你看不到自己。将指令中的false改为true即可实现相反的效果。
+### 隐藏角色贴图
+隐藏角色的贴图。你看不到自己。将指令中的false改为true即可实现相反的效果。
 ```
 l Isaac.GetPlayer(0).Visible=false
 ```
@@ -1259,8 +1259,8 @@ l Isaac.GetPlayer(0).Visible=false
 
 -----
 
-### 玩家贴图左右翻转
-左右翻转玩家的贴图。将指令中的true改为false即可实现停止这一效果。好像没有什么用的东西。
+### 角色贴图左右翻转
+左右翻转角色的贴图。将指令中的true改为false即可实现停止这一效果。好像没有什么用的东西。
 ```
 l Isaac.GetPlayer(0).FlipX=true
 ```
@@ -1268,8 +1268,8 @@ l Isaac.GetPlayer(0).FlipX=true
 
 -----
 
-### 玩家贴图旋转（固定值）
-将玩家的贴图逆时针为旋转45度。奇怪的指令增加了。
+### 角色贴图旋转（固定值）
+将角色的贴图逆时针为旋转45度。奇怪的指令增加了。
 ```
 l Isaac.GetPlayer(0).SpriteRotation=45
 ```
@@ -1277,8 +1277,8 @@ l Isaac.GetPlayer(0).SpriteRotation=45
 
 -----
 
-### 玩家贴图旋转（相对值）
-将玩家的贴图逆时针继续旋转45度。奇怪的指令增加了。
+### 角色贴图旋转（相对值）
+将角色的贴图逆时针继续旋转45度。奇怪的指令增加了。
 ```
 l Isaac.GetPlayer(0).SpriteRotation=Isaac.GetPlayer(0).SpriteRotation+45
 ```
@@ -1351,7 +1351,7 @@ g c'..i end end end Isaac.DebugString(_s)
 -----
 
 ### 强制丢弃饰品
-丢弃玩家身上的饰品（包括血虱）
+丢弃角色身上的饰品（包括血虱）
 ```
 l Isaac.GetPlayer(0):DropTrinket(Isaac.GetFreeNearPosition(Isaac.GetPlayer(0).Position,50),true)
 ```
