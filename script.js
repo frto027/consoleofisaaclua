@@ -9,6 +9,7 @@ let trans_json = {
     'zh':[
         ['.s_new','新'],
         ['.s_request','申请'],
+        ['.s_rep','忏悔'],
         ['.s_broken','失效'],
         ['.s_reset','重启'],
         ['.notes_btn','便签'],
@@ -18,6 +19,7 @@ let trans_json = {
         ['.copy_card_lua','复制为lua'],
         ['.copy_card_note','复制到便签'],
         ['#request_desc','这个脚本正在请求编写'],
+        ['#rep_desc','这个脚本只在忏悔版本有效'],
         ['#broken_desc','这个脚本已经失效'],
         ['#reset_desc','在重新启动游戏（或重新开关任意mod）之前，脚本功能不会消失。这是因为部分lua指令会污染游戏的上下文，建议通过重新开关某个mod，或重启游戏程序的方式来进行重置。'],
         ['.reset_card','重置'],
