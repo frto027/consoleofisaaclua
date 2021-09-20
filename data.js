@@ -1343,5 +1343,61 @@ var data = [
 	"code":`l Isaac.GetPlayer(0):SetMinDamageCooldown(60)`,
 	"about":'@frto027',
 	"about_link":''
+},{
+	"name_zh":"刷新角色HUD",
+	"status":['rep'],
+	"keywords":['HUD','界面','重置'],
+	"desc_zh":"刷新角色的HUD",
+	"code":`l Game():GetHUD():AssignPlayerHUDs()`,
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"刷新角色充能条",
+	"status":['rep'],
+	"keywords":['HUD','界面','重置','充能'],
+	"desc_zh":"刷新角色的充能条",
+	"code":`l Game():GetHUD():AssignPlayerHUDs()`,
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"禁用主动道具界面",
+	"status":['rep'],
+	"keywords":['HUD','界面','禁用','主动道具'],
+	"desc_zh":"禁用0号玩家的主动道具的槽位，可以将SLOT_PRIMARY替换为：SLOT_PRIMARY、SLOT_SECONDARY、SLOT_POCKET、SLOT_POCKET2",
+	"code":`l Game():GetHUD():InvalidateActiveItem(Isaac.GetPlayer(0),ActiveSlot.SLOT_PRIMARY)`,
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"禁用合成袋界面",
+	"status":['rep'],
+	"keywords":['HUD','界面','禁用','合成袋'],
+	"desc_zh":"禁用0号玩家的合成袋的槽位",
+	"code":`l Game():GetHUD():InvalidateCraftingItem(Isaac.GetPlayer(0))`,
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"展示预言文本",
+	"status":['rep'],
+	"keywords":['HUD','界面','禁用','文本','预言','展示'],
+	"desc_zh":"展示预言文本，标题为Hello，第二个字符串为World",
+	"code":`l Game():GetHUD():ShowFortuneText("Hello","World")`,
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"展示道具文本",
+	"status":['rep'],
+	"keywords":['HUD','界面','禁用','文本','道具','展示'],
+	"desc_zh":"展示道具文本，名称为Hello，描述为World。无视诅咒。如果把true改为false，就会计算诅咒。",
+	"code":`l Game():GetHUD():ShowItemText("Hello","World",true)`,
+	"about":'@frto027',
+	"about_link":''
+},{
+	"name_zh":"展示或隐藏界面",
+	"status":['rep'],
+	"keywords":['HUD','界面','禁用','启用','隐藏','显示','展示'],
+	"desc_zh":"隐藏界面。将false改为true就是显示界面。",
+	"code":`l Game():GetHUD():SetVisible(false)`,
+	"about":'@frto027',
+	"about_link":''
 }
 ]

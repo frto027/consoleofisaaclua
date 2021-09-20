@@ -1508,3 +1508,66 @@ l Game():GetItemPool():RemoveTrinket(75)
 ```
 l Isaac.GetPlayer(0):SetMinDamageCooldown(60)
 ```
+
+
+-----
+
+### 刷新角色HUD
+刷新角色的HUD
+```
+l Game():GetHUD():AssignPlayerHUDs()
+```
+
+
+-----
+
+### 刷新角色充能条
+刷新角色的充能条
+```
+l Game():GetHUD():AssignPlayerHUDs()
+```
+
+
+-----
+
+### 禁用主动道具界面
+禁用0号玩家的主动道具的槽位，可以将SLOT_PRIMARY替换为：SLOT_PRIMARY、SLOT_SECONDARY、SLOT_POCKET、SLOT_POCKET2
+```
+l Game():GetHUD():InvalidateActiveItem(Isaac.GetPlayer(0),ActiveSlot.SLOT_PRIMARY)
+```
+
+
+-----
+
+### 禁用合成袋界面
+禁用0号玩家的合成袋的槽位
+```
+l Game():GetHUD():InvalidateCraftingItem(Isaac.GetPlayer(0))
+```
+
+
+-----
+
+### 展示预言文本
+展示预言文本，标题为Hello，第二个字符串为World
+```
+l Game():GetHUD():ShowFortuneText("Hello","World")
+```
+
+
+-----
+
+### 展示道具文本
+展示道具文本，名称为Hello，描述为World。无视诅咒。如果把true改为false，就会计算诅咒。
+```
+l Game():GetHUD():ShowItemText("Hello","World",true)
+```
+
+
+-----
+
+### 展示或隐藏界面
+隐藏界面。将false改为true就是显示界面。
+```
+l Game():GetHUD():SetVisible(false)
+```
